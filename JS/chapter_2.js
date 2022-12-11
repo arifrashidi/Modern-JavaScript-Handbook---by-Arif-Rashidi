@@ -604,7 +604,7 @@ mark.bmi > john.bmi ? console.log(`Mark's BMI(${mark.bmi}) is higher than John's
 // 📝 for loop keeps running while condition is TRUE, that why we need to set the limit.
 // 📝 JavaScript supports different kinds of loops: 
 // 📝 Traditional counter variable name has been (i)
-//TODO:📝 for - function syntax =
+//TODO:📝 for loop syntax =
 /*
     for (expression 1(start from); expression 2(until); expression 3(how much number to add)) {
         code block to be executed
@@ -747,7 +747,7 @@ for (let exercise = 1; exercise <= 3; exercise++) {
 // 📝 So this all means that the while loop is more versatile than the for loop...
 // which means that it can be used in a larger variety of situations...
 // and that's because it does not really need a counter.
-// TODO:📝 while loop =
+// TODO:📝 while loop syntax=
 /*
     while (condition) {
     code block to be executed

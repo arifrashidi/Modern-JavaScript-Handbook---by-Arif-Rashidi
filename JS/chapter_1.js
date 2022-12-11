@@ -10,6 +10,18 @@ console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 2 ---");
 // 📦: Variables
 /* -------------------------------------------------------------------------- */
 
+// 🧡 External JavaScript
+// 📝 External scripts are practical when the same code is used in many different web pages.
+// 📝 JavaScript files have the file extension .js.
+// 📝 The script will behave as if it was located exactly where the <script> tag is located,...
+// Therefore, <script> tags should be at the bottom of your HTML code.
+// TODO:📝 External JavaScript syntax in HTML =
+/*
+    <script src="your_file_name.js"></script>
+*/
+
+/* -------------------------------------------------------------------------- */
+
 // 🧡 Basic Javascript
 
 // -----------------
@@ -578,7 +590,7 @@ console.log(`Hello my name is ${me}, I was born in ${2022 - 21}`)
 
 // 🧡 Conditional statements 3: Ternary operator
 // 📝 The ternary operator is a simplified conditional operator like (if / else if/ else) condition
-// TODO: Ternary operation syntax =
+// TODO:📝 Ternary operation syntax =
 /*
     condition ? <expression if true> : <expression if false>
 */
