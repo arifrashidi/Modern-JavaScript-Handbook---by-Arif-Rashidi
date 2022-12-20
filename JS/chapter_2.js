@@ -24,8 +24,9 @@ console.log("--- 📁 CHAPTER 2: Javascript Fundamental Part 2 ---");
 
 // -----------------
 // ❕ Strict Mode Statement:
-"use strict";
 
+"use strict";
+baby = 5;
 // -----------------📦
 
 let bobby_has_driver_license = false;
@@ -50,18 +51,17 @@ console.log(bobby_has_driver_license);
 /* -------------------------------------------------------------------------- */
 
 // 🧡 Function
-// 📝 Function is simply a piece of code that we can reuse
-// over and over again in our code.
-// 📝 So it's a little bit like a variable but for whole chunks of code.
-// 📝 So remember a variable holds value but a function can hold one...
-// or more complete lines of code.
-// ! DRY = DON'T REPEAT YOURSELF
-//TODO: 📝 function syntax =
+// 📝 Functions is a statements that performs a task or calculation.
+// 📝 To qualify as a function, it should take some input and return an output.
+// 📝 A JavaScript function is executed when "something" invokes it (calls it).
+// 📝 With Function, you can reuse code, define the code once, and use it many times...
+// you can use the same code many times with different arguments, to produce different results.
+//TODO: function syntax =
 /*
     function function_name(parameters) {
     code to be executed
     }
-    function_name(argument)
+    function_name(argument) -> Calling functions
 */
 // 📝 parameter = is like placeholder.
 // 📝 argument = value itself that will fill the placeholder the function is called.
@@ -85,21 +85,34 @@ function welcomeToFES(first_name, last_name) { // (first_name, last_name) is cal
   welcomeToFES("Arif", "Rashidi"); // ("Arif", "Rashidi") is called arguments
   welcomeToFES("Muhammad", "Ali");
   
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Function Return
+// 📝 When JavaScript reaches a return statement, the function will stop executing.
+// 📝 Functions often compute a return value. The return value is "returned" back to the "caller"
+
 // -----------------
-// ❕ Example 3: return statement
+// ❕ Example 1:
+function num_banana(para_extra_banana) {
+    const banana = 20;
+    return banana + para_extra_banana;
+}
+console.log(num_banana(5));
+
+// -----------------
+// ❕ Example 2:
 function sum_of_two_number(num1, num2) {
     return num1 + num2;
   }
   console.log(sum_of_two_number(10, 10));
 
 // -----------------
-// ❕ Example 4
+// ❕ Example 3:
 function fruit_processor(num_apples, num_oranges) {
     console.log(num_apples, num_oranges);
     const juice = `Juice with ${num_apples} apples and ${num_oranges} oranges`;
     return juice;
 }
-
 const fruit_juice = fruit_processor(5, 2)
 console.log(fruit_juice)
 const fruit_juice_2 = fruit_processor(10, 5)
@@ -111,8 +124,9 @@ console.log(fruit_juice_2)
 
 // -----------------
 // ❕ Function Declarations
-// 📝 functions are declared with the function syntax.
-// 📝 pros: we can calling the function before function declaration.
+// 📝 Functions are declared with the function syntax.
+// 📝 Function hoisting: we can called the function before function declaration.
+// Function hoisting only works with function declarations — not with function expressions.
 //TODO: 📝 function syntax =
 /*
     function function_name(parameters) {
@@ -132,8 +146,8 @@ console.log(anwar_age)
 // -----------------
 // ❕ Function Expression
 
-// 📝 A function expression can be stored in a variable.
-// 📝 We can store it in a variable because function has a value.
+// 📝 A function expression can be stored like a variable.
+// 📝 It behave like variable because function has a value.
 //TODO: 📝 function syntax =
 /*
     function_name(var) = function(parameters) {
@@ -155,6 +169,7 @@ console.log(anwar_age_2)
 // 📝 Arrow function is simply a special form...
 // of function expression that is shorter.
 // 📝 In this form, return happens implicitly when we only one line code to be executed.
+// 📝 Execution contexts belonging to arrow function, do not get their own argument keyword and 'this' keyword
 
 //TODO:📝 Arrow function syntax =
 /*
@@ -186,7 +201,7 @@ console.log(years_until_retirement(1970, "Nurul Izzah")); // years_until_retirem
 
 /* -------------------------------------------------------------------------- */
 
-// 🧡 Functions Calling Other Functions
+// 🧡 Functions can be called inside another functions
 // Why we need to calling function in another function?:
 // ! DRY = DON'T REPEAT YOURSELF
 
@@ -628,7 +643,7 @@ console.log("Lifting weights repetition 10 💪")
 
 // 🔗 With loop:
 for (let i = 1; i <= 10; i = i + 1) {
-    console.log(`Lifting weights repetition ${rep} 💪`)
+    console.log(`Lifting weights repetition ${i} 💪`)
 }
 
 /* -------------------------------------------------------------------------- */
@@ -780,7 +795,7 @@ while (dice !== 6) {
 
 /* -------------------------------------------------------------------------- */
 
-// 🧡 8# Coding Challanges
+// 🧡 8# Coding Challenges
 
 const my_bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
 const my_tips = []

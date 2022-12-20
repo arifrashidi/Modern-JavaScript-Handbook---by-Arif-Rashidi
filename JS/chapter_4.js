@@ -8,6 +8,7 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 // ❕: Subtopics
 // 🔗: Sub-subtopics
 // 📦: Variables
+// ✨: Category
 /* -------------------------------------------------------------------------- */
 
 "use strict"
@@ -69,13 +70,13 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
     // TODO Syntax: ELEMENT.addEventListener("keydown", FUNCTION)
 
     // 🔗 key ✨(HTML DOM EVENT - METHOD)
-    // 📝 Returns the input key that was pressed when a key event occured
+    // 📝 Returns the input key that was pressed when a key event occurred
     // TODO Syntax: EVENT.key
 
 // -----------------
 // ❕ textContent
-// 📝 Change(HTML content) from the choosen selector, and all its descendants.
-// TODO Syntax: ELEMENT.textContent = "VALUE";
+// 📝 Change(HTML content) from the chosen selector, and all its descendants.
+// TODO Syntax: ELEMENT.textContent = VALUE;
 
 // -----------------
 // ❕ style
@@ -125,7 +126,7 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 // 🧡 OTHERS
 
 // ❕ value
-// 📝 Return a value to the choosen selector.
+// 📝 Return a value to the chosen selector.
 // TODO Syntax: ELEMENT.value
 
 

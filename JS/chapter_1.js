@@ -53,7 +53,8 @@ let my_name = "Arif"; // my_name is keyword
 // 📝 Variables are containers for storing data (storing data values).
 // 📝 Variables names can contain letters, digits, underscores, and dollar signs.
 // 📝 Reserved words (like JavaScript keywords) cannot be used as variable names.
-// 📝 Variables declared inside a { } block cannot be accessed from outside the block:
+// 📝 A function can access variables outside of the function but...
+// variables declared inside a { } block cannot be accessed from outside the block.
 
 // -----------------📦
 let nick_name = "Bobby"; // string
