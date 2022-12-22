@@ -1,4 +1,6 @@
 
+"use strict";
+
 /* -------------------------------------------------------------------------- */
 console.log("--- 📁 CHAPTER 2: Javascript Fundamental Part 2 ---");
 /* -------------------------------------------------------------------------- */
@@ -13,7 +15,7 @@ console.log("--- 📁 CHAPTER 2: Javascript Fundamental Part 2 ---");
 // 🧡 Activating Strict Mode
 // 📝 So strict mode is a special mode that we can activate in JavaScript...
 // which makes it easier for us to write a secure JavaScript code.
-// 📝 This statement has to be the very first statement in the script...
+// 📝 This statement must has to be the very first statement in the script...
 // because if we have any code before this then strict mode will not be activated.
 
 // 📝 2 reasons why we need to activate strict mode:
@@ -26,7 +28,7 @@ console.log("--- 📁 CHAPTER 2: Javascript Fundamental Part 2 ---");
 // ❕ Strict Mode Statement:
 
 "use strict";
-baby = 5;
+
 // -----------------📦
 
 let bobby_has_driver_license = false;
@@ -485,7 +487,7 @@ arif_rashidi_2.location = "Malaysia"
 arif_rashidi_2["email"] = "arifshidi01@gmail.com"
 
 // -----------------
-// ❕ Small challange:
+// ❕ Small challenge:
 // console.log = Arif has 3 friends, and his best friend is called Adam.
 
 console.log

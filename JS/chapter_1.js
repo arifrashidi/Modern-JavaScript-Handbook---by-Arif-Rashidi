@@ -1,4 +1,6 @@
 
+"use strict";
+
 /* -------------------------------------------------------------------------- */
 console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 2 ---");
 /* -------------------------------------------------------------------------- */
@@ -28,8 +30,11 @@ console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 2 ---");
 // ❕ JavaScript Values
 // 📝 // The JavaScript syntax defines two types of values:
 
-  // Literals (Fixed values)
-  // Variable (Variable values)
+  // 🔗 Literals (Fixed values)
+  25;
+
+  // 🔗 Variable (Variable values)
+  const fish = 25;
 
 // -----------------
 // ❕ Javascript keyword
@@ -41,10 +46,10 @@ let my_name = "Arif"; // my_name is keyword
 // ❕ JavaScript and Camel Case
 // 📝 Different ways for naming Keyword.
 
-// Underscore:
+// 🔗 Underscore:
 //first_day, last_day, master_card, inter_city
 
-// Lower Camel Case:
+// 🔗 Lower Camel Case:
 // firstDay, lastDay, masterCard, interCity
 
 /* -------------------------------------------------------------------------- */
@@ -183,7 +188,6 @@ const malik_intro_old =
 
 // 🔗 Literals string (practical)
 const malik_intro = `I'm ${my_first_name}, a ${year - birth_year} years old ${job}!`;
-
 console.log(malik_intro_old);
 console.log(malik_intro);
 console.log(`backtick is just like a regular string`);
@@ -241,7 +245,7 @@ console.log(hadi_state);
 // 📝 we don't need {} if we only have one line. (no else)
 
 if (sabu_is_old_enough) 
-console.log("Sabu can start taking driving licence🚗");
+console.log("Sabu can start taking driving license🚗");
 
 /* -------------------------------------------------------------------------- */
 
@@ -448,7 +452,7 @@ const should_drive = has_driver_license && has_good_vision;
 // 🔗 Example 1:
 console.log(has_driver_license && has_good_vision) // false
 console.log(has_driver_license || has_good_vision) // true
-console.log(!has_driver_license) // false ( same as = not has driver licence )
+console.log(!has_driver_license) // false ( same as = not has driver license )
 
 // -----------------
 // 🔗 Example 2:
@@ -577,7 +581,8 @@ true && false // it is an expression
 // 📝 example: if / else statement, switch statement
 
 if (23 > 10) {
- str = "23 is bigger"
+ const str = "23 is bigger";
+ console.log(str);
 }
 
 // -----------------

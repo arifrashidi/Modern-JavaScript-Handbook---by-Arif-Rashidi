@@ -1,4 +1,6 @@
 
+"use strict";
+
 /* -------------------------------------------------------------------------- */
 console.log("--- 📁 CHAPTER 5: How JavaScript Works Behind The Scene ---");
 /* -------------------------------------------------------------------------- */
@@ -8,10 +10,6 @@ console.log("--- 📁 CHAPTER 5: How JavaScript Works Behind The Scene ---");
 // ❕: Subtopics
 // 🔗: Sub-subtopics
 // 📦: Variables
-
-/* -------------------------------------------------------------------------- */
-"use strict";
-baby = 5;
 
 /* -------------------------------------------------------------------------- */
 
@@ -312,31 +310,36 @@ const first_name = "Arif";
 function calc_age (para_birth_year) {
     const age = 2022 - para_birth_year;
     console.log(first_name); //✅ first_name can be accessed
+    let job = "industrial design"
 
-    // second function
-    function print_age() {
-        const output = `${first_name}, You are ${age}, born in ${para_birth_year}` //✅ can be accessed
-        console.log(output);
-    }
-    print_age(); // call second function
-    // 👁‍🗨 console.log(output); //❌ cannot be accessed
-
-    // block statement
-    if (para_birth_year >= 2000) {
-        var gen_z = true;
-        const output_2 = `Oh you're are a gen Z, ${first_name}`;
-        console.log(output_2);
-        // third function
-        function normal_calc (para_num_a, para_num_b) {
-            console.log(para_num_a + para_num_b);
+        // second function
+        function print_age() {
+            const output = `${first_name}, You are ${age}, born in ${para_birth_year}` //✅ can be accessed
+            console.log(output);
         }
-    }
-    normal_calc(2, 3); //✅ can be accessed
+        print_age();
+        // 👁‍🗨 console.log(output); //❌ cannot be accessed
+
+        // block statement
+        if (para_birth_year >= 2000) {
+            const first_name = "Adam";
+            var gen_z = true;
+            const output_2 = `Oh you're are a gen Z, ${first_name}`;
+            console.log(output_2);
+                // third function
+                function normal_calc (para_num_a, para_num_b) {
+                    console.log(para_num_a + para_num_b);
+                }
+            normal_calc(2, 3);
+            job = "frontend_developer" //✅ Reassigning new value to outer scope variable
+        }
+    // 👁‍🗨 normal_calc(2, 3); //❌ cannot be accessed (on strict mode)
     // 👁‍🗨 console.log(output_2); //❌ cannot be accessed
     console.log(gen_z); //✅ gen_Z can be accessed because (var) variable is a function scope.
-    return age;
+    return age + " " + job;
 }
-calc_age(2001) // call first function
+calc_age(2001)
+console.log(calc_age(2001));
 
 // 👁‍🗨 console.log(age); //❌ cannot be accessed
 // 👁‍🗨 print_age(); //❌ cannot be accessed
@@ -345,3 +348,250 @@ calc_age(2001) // call first function
 // 🔗 Reminder:
 // 📝 for scoping, the parameter of a function work just like normal variable.
 // 📝 A scope will never, ever have access to the variables of an inner scope.
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Variable Environment: Hoisting and The Temporal Dead Zone (TDZ)
+
+// -----------------
+// ❕ Hoisting: 
+// 📝 Makes some types of variables accessible/usable in the code before they are declared.
+// 📝 Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope
+// 📝 Why hoisting is important: Using functions before actual declaration and var hoisting is just a byproduct.
+
+// -----------------
+// ❕ Temporal Dead Zone (TDZ): 
+// 📝 Region of the scope in which of variable is defined but cannot be used in anyway.
+// 📝 Basically each and every let / const variable get their own Temporal Dead Zone (TDZ) that starts...
+// at the beginning of the scope until the line where it is defined...
+// and the variable is only safe to use after the TDZ,
+// 📝 Why TDZ is important: Makes it easier to avoid and catch errors: 
+// accessing variables before declaration is bad practice and should be avoided.
+
+
+
+// -----------------
+// ❕ Hoisting mechanisms in (let / const) variable:
+// 📝 All code before that are in Temporal Dead Zone (TDZ) and cannot be accessed.
+// 📝 Variables defined with let and const are hoisted to the top of the block, but not initialized.
+// 📝 Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared...
+// Using a let variable before it is declared will result in a ReferenceError.
+
+    // 📝 Example: 
+    // 👁‍🗨 console.log(favourite_car); //❌ cannot access variable before initialized 
+    const favourite_car = "Aston Martin"
+
+// -----------------
+// ❕ Hoisting mechanisms in (var) variable:
+    // 📝 Var variable allow hoisting.
+    // 📝 Initial value will be undefined.
+
+    // 📝 Example: 
+    console.log(favourite_food); //❌ initial value is undefined and can be reassigned to new value
+    var favourite_food = "burger"
+    
+// -----------------
+// ❕ Hoisting mechanisms in function:
+
+console.log(simple_calc(10, 5)); // function declaration allow hoisting.
+// 👁‍🗨 console.log(simple_calc_expression(10, 5)); // function expression not allow hoisting.
+// 👁‍🗨 console.log(simple_calc_arrow_func(10, 5)); // arrow function not allow hoisting.
+
+// function declaration
+function simple_calc(para_a, para_b) {
+    return para_a + para_b
+}
+// function expression
+const simple_calc_expression = function(para_a, para_b) {
+    return para_a + para_b
+}
+// arrow function
+const simple_calc_arrow_func = (para_a, para_b) => para_a + para_b
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Hoisting and TDZ in Practice
+
+// -----------------
+// ❕ Why we need to avoid using var variable:
+
+// num_product value will be undefined,...
+// that why we need to use let / const variable only to detect this problem early.
+if (!num_product) { 
+    delete_shopping_cart();
+}
+
+var num_product = 10;
+
+function delete_shopping_cart() {
+    console.log("All product deleted!");
+}
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 This keyword
+// 📝 Special variable that is created for every execution context (every function)...
+// that takes the value from its “owner”.
+// 📝 "this" keyword is NOT static. It depends on how the function is called,...
+// and its value is only assigned when the function is actually called.
+// 📝 "this" does NOT point to the function itself, and also NOT the its variable environment.
+// 📝 "this" always points to the object that is calling the method.
+
+// -----------------
+// ❕ 4 scenarios where "this" keyword:
+
+// 🔗 1. "this" as a Method (in function)
+// 📝 When used in an object method, this refers to the object.
+
+    // 📝 Example 1:
+    const person = {
+        firstName: "Anwar",
+        lastName: "Ibrahim",
+        job: "Prime Minister",
+        fullName : function() {
+        return this.firstName + " " + this.lastName;
+        }
+    }
+    console.log(person.fullName());
+
+// 🔗 2. "this" as a Method (in arrow function)
+// 📝 Arrow function arrow function does not get its own "this" keyword,
+// 📝 It will simply use the this keyword from its surroundings. So in other words, its parents "this" keyword,
+// 📝 For sloppy mode, "this" refers to the global object, because "this" is running in the global scope.
+
+    // 📝 Example 1:
+    const second_person = {
+        firstName: "Elon",
+        lastName: "Musk",
+        job: "entrepreneur",
+        greet : () => console.log(`Hey, ${second_person.firstName}`),
+    }
+    console.log(second_person.greet());
+
+// 🔗 3. "this" in a function (strict):
+// 📝 JavaScript strict mode does not allow default binding...
+// so, when used in a function, in strict mode, this is undefined.
+// 📝 For sloppy mode, "this" refers to the global object, because "this" is running in the global scope.
+
+    // 📝 Example 1:
+    const calc_money = function(para_ringgit) {
+        const dollar = Math.trunc(para_ringgit / 4.44);
+        console.log(`${dollar} dollar`);
+        console.log(this);
+    }
+    calc_money(1000);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Regular Functions vs Arrow Functions when using "this" keyword
+
+// -----------------
+// ❕ problems encountered when using "this" keyword:
+// 📝 "this" keyword functions that be called inside another functions (in object)...
+// is just like regular function, and it cannot be used. This is because regular function will create 
+// its own "this" keyword.
+const third_person = {
+    firstName: "Rafizi",
+    lastName: "Ramli",
+    job: "Economy Minister",
+    birth_year: 1964,
+        calc_age: function() {
+        const age = 2022 - this.birth_year
+        console.log(age);
+            // function inside another function:
+            // const is_gen_z = function () {
+            //     console.log(this.year >= 2001);
+            // }
+            // is_gen_z()  
+        }    
+    }
+    third_person.calc_age();
+
+// 🔗 Solution 1:
+// 📝 Solution to problem ("this" keyword functions that be called inside another functions) cannot be used.
+
+const fourth_person = {
+    firstName: "Rafizi",
+    lastName: "Ramli",
+    job: "Economy Minister",
+    birth_year: 1964,
+        calc_age: function() {
+        const age = 2022 - this.birth_year
+        console.log(age);
+            // function inside another function
+            const self = this; // Passing "this" keyword to other variable
+            const is_gen_z = function () {
+                console.log(self.year >= 2001);
+            }
+            is_gen_z()  
+        }    
+    }
+    fourth_person.calc_age();
+
+// 🔗 Solution 2 (Better Solution):
+// 📝 Better Solution is using arrow function because its simply use "this" keyword from its parents.
+
+const fifth_person = {
+    firstName: "Rafizi",
+    lastName: "Ramli",
+    job: "Economy Minister",
+    birth_year: 1964,
+        calc_age: function() {
+        const age = 2022 - this.birth_year
+        console.log(age);
+            // arrow function inside another function
+            const is_gen_z = () => {
+                console.log(this.year >= 2001);
+            }
+            is_gen_z()  
+        }    
+    }
+    fifth_person.calc_age();
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Primitives vs. Objects (Primitive vs. Reference Types)
+
+// -----------------
+// ❕ Primitives data types
+// 📝 These data types are pretty simple, and are sometimes treated as the lowest level...
+// of implementation of a programming language. They are not objects, and do not have methods.
+// 📝 Examples of such data types are numbers, strings, booleans, null, and undefined.
+
+    // 🔗 Example differences:
+    let my_age = 31;
+    let my_old_age = my_age;
+    my_age = 30;
+    // Test
+    console.log(my_age); // 30
+    console.log(my_old_age); // the value still 31
+
+    // 🔗 Explanation:
+    // 📝 In call stack, my_age and my_old_age share the same memory address (so it also share the same value),...
+    // So when my_age variable reassigned a new value(30), the new address is created but my_old_age is...
+    // still use the old address.
+
+
+    // -----------------
+// ❕ References data types
+// 📝 Reference data types, unlike primitive data types, are dynamic in nature...
+// That is, they do not have a fixed size.
+// 📝 Most of them are considered as objects, and therefore have methods...
+// Examples of such data types include arrays, functions, collections, and all other types of objects.
+
+    // 🔗 Example differences:
+    const my_bio = {
+        first_name: "Arif",
+        age: 21,
+    }
+    const my_friend_bio = my_bio;
+    my_friend_bio.first_name = "Ikbal"
+    // Test
+    console.log(my_bio.first_name); // this value also followed change to "Ikbal"
+    console.log(my_friend_bio.first_name); // "Ikbal"
+
+    // 🔗 Explanation:
+    // 📝 When you copying an object, you're really just creating a new variable...
+    // that points to the exact same object in the heap (in JavaScript engine).
+    
+/* -------------------------------------------------------------------------- */
