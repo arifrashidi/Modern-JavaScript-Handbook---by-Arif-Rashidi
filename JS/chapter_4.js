@@ -33,12 +33,12 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 // -----------------
 // ❕ querySelector()
 // 📝 The querySelector() method returns the first element that matches a CSS selector.
-//TODO = document.querySelector(CSS selectors)
+//TODO Syntax: document.querySelector(CSS selectors)
 
 // -----------------
 // ❕ querySelectorAll()
 // 📝 The querySelectorAll() method returns all matches (not only the first) that matches a CSS selector.
-//TODO = document.querySelectorAll(CSS selectors)
+//TODO Syntax: document.querySelectorAll(CSS selectors)
 
 // -----------------
 // ❕ getElementById()

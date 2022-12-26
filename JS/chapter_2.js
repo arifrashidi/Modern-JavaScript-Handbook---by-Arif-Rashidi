@@ -99,7 +99,7 @@ function num_banana(para_extra_banana) {
     const banana = 20;
     return banana + para_extra_banana;
 }
-console.log(num_banana(5));
+num_banana(5); // 25
 
 // -----------------
 // ❕ Example 2:
@@ -302,7 +302,7 @@ console.log(friends)
 const fifa_years = new Array (2006, 2008, 2010, 2014, 2018, 2022) // 📦 2
 
 // -----------------
-// ❕ Access element in ArrayL
+// ❕ Access element in Array
 // 📝 Start counting from 0
 // //TODO: example = fifa_year[3]
 
