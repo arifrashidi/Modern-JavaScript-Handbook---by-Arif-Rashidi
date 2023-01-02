@@ -283,3 +283,202 @@ const update_restaurant_4 = {
 }
 
 console.log(update_restaurant_4.starter_menu);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Rest Pattern and Rest Parameters
+// 📝 Rest pattern is used to collect unused elements and pack the elements into a new array.
+// 📝 If spread operators at the right side of the assignment operator,...
+// the rest pattern at the left side of the assignment operator.
+
+// -----------------
+// ❕ The rest pattern basically collects the elements that are unused when destructuring:
+
+// 🔗 first example:
+const chicken = [11, 22, 33, 44, 55]
+
+const [a, b, ...others] = chicken;
+
+console.log(a, b, others);
+
+// 🔗 second example
+
+const restaurant_5 = {
+    name: "Classico Italiano",
+    location: "Via Angelo Tavanti 23, Firenze, Italy",
+    categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+    starter_menu: ["Focaccia", "Bruschetta", "garlic bread", "Caprese Salad"],
+    main_menu: ["pizza", "pasta", "Risotto", "tomato soup"],
+}
+
+const [food_1, , food_2, ...other_food] = [...restaurant_5.main_menu, ...restaurant_5.starter_menu];
+
+console.log(food_1, food_2, other_food);
+
+// -----------------
+// ❕ The rest pattern used in objects:
+
+const restaurant_6 = {
+    name: "Classico Italiano",
+    location: "Via Angelo Tavanti 23, Firenze, Italy",
+    starter_menu: ["Focaccia", "Bruschetta", "garlic bread", "Caprese Salad"],
+    main_menu: ["pizza", "pasta", "Risotto", "tomato soup"],
+        // opening hours
+        opening_hours: {
+            thu: {
+                open: 8,
+                close: 10,
+            },
+            fri: {
+                open: 9,
+                close: 11,
+            },
+            sat: {
+                open: 0, // open in 24 hours
+                close: 24,
+            },
+        }
+}
+
+const {sat, ...weekdays} = restaurant_6.opening_hours;
+
+console.log(weekdays);
+
+// -----------------
+// ❕ Rest parameters
+// 📝 Whe we use rest parameter, the parameter elements will be pack into one array.
+
+// 🔗 first example:
+const add_num = function(...para_numbers) { // rest parameter operators
+    // console.log(para_numbers);
+    let sum = 0;
+    for (let i = 0; i < para_numbers.length; i++) {
+        sum = sum + para_numbers[i];
+    }
+    console.log(sum); // 400
+}
+
+add_num(5, 9, 22, 35, 43, 99, 108, 79)
+    // 0r
+const x = [100, 500, 400];
+add_num(...x) // spread operators
+
+// 🔗 second example:
+const order_pizza = function(para_main_ing, para_main_ing_2, ...para_other_ing) {
+    console.log(para_main_ing, para_main_ing_2);
+    console.log(para_other_ing);
+}
+
+order_pizza("bread", "tomato", "minced meat", "cheese", "mushroom", "bell pepper")
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Short Circuiting in logical operators (&& and ||)
+// 📝 Logical operators (&& and ||) are used to determine the logic between variables or values.
+// 📝 We can do a lot more with (&& and ||) than only to combine Boolean values.
+// 📝 (&& and ||) can use in any data type, they can return any data type by using short circuiting.
+
+// -----------------
+// ❕ Short circuiting in ( || operator ):
+// 📝 if the first value is a truthy value, it will immediately return that first value.
+
+// 🔗 Example 1:
+console.log(999 || "Tom"); // 3
+
+// 🔗 Example 2:
+console.log("" || "Tom"); // Tom
+
+// 🔗 Example 3:
+console.log(true || "Tom"); // Tom
+
+// 🔗 Example 4:
+// 📝 No short circuiting happens, so it will return the last value even if the last value is false.
+console.log(0 || null || undefined); // undefined
+
+// 🔗 Example 5:
+console.log(0 || null || undefined || "" || "mystery" || 0 || 123); // mystery
+
+// 🔗 Real Life Scenarios using Short circuiting in ( || operator ):
+
+const mc_donald = {
+    location: "Senawang",
+    phone: "06-678 8445",
+    // customers_num: 25,
+}
+
+// Without using Short circuiting (using if else statement):
+// 📝 If mc_donald.customers_num is not exist, it will run else statement.
+const mc_donald_customers = mc_donald.customers_num ? mc_donald.customers_num : "Undefined customers";
+console.log(mc_donald_customers);
+
+// Using Short circuiting (more simple and short code):
+// 📝 If mc_donald.customers_num is not exist, it will return the last value even if the last value is false.
+const mc_donald_customers_2 = mc_donald.customers_num || "Undefined customers";
+console.log(mc_donald_customers_2);
+
+// -----------------
+// ❕ Short circuiting in ( && operator ):
+// 📝 If the first value is a falsy value, it will immediately return that first value.
+
+// 🔗 Example 1:
+console.log(0 && "Tom"); // 0
+
+// 🔗 Example 2:
+console.log(777 && undefined); // undefined
+
+// 🔗 Example 3:
+console.log(false && "Tom"); // Tom
+
+// 🔗 Example 4:
+// 📝 No short circuiting happens, so it will return the last value even if the last value is true.
+console.log(55 && "Lily" && true); // true
+
+// 🔗 Example 5:
+console.log(100 && 200 && 300 && 0 && 550 && undefined); // 0
+
+// 🔗 Real Life Scenarios using Short circuiting in ( && operator ):
+
+const mc_donald_2 = {
+    location: "Ampangan",
+    phone: "06-760 0425",
+    // order_burger: function(para_size_burger) {
+    //     console.log(para_size_burger);
+    // }
+}
+
+// 📝 If mc_donald.order_burger exist, than the code will be executed
+mc_donald_2.order_burger && mc_donald_2.order_burger("Medium") 
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Nullish Coalescing Operator (??) (ES2020)
+// 📝 Nullish Coalescing Operator (??) are just like (||) but 0 and empty string ("") is not a falsy values.
+// 📝 Nullish values: null and undefined only.
+// 📝 This is useful when other falsy values can occur in the expression but are still valid.
+
+// -----------------
+// ❕ Short circuiting in ( ?? operator ):
+// 📝 If the first value is not a Nullish value, it will immediately return that first value.
+
+// 🔗 Example 1:
+console.log(0 ?? "Tom"); // 0
+
+// 🔗 Example 2:
+console.log(undefined ?? "Tom"); // "Tom"
+
+// 🔗 Example 3:
+console.log(null ?? "Tom"); // "Tom"
+
+// 🔗 Example 4:
+console.log( null ?? undefined ?? 0 ?? "mystery" ?? "" ?? undefined); // 0
+
+// 🔗 Real Life Scenarios using Short circuiting in ( ?? operator ):
+
+const mc_donald_3 = {
+    location: "Seremban",
+    phone: "06-678 8445",
+    customers_num: 0,
+}
+// (??) operator will return the first value even the value is 0.
+const mc_donald_3_customers = mc_donald_3.customers_num ?? "Undefined customers";
+console.log(mc_donald_3_customers);

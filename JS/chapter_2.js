@@ -691,26 +691,25 @@ console.log(ages)
 // -----------------
 // ❕ looping statement: continue / break
 
-/*
-    const arif_rashidi_5 = [
-        "Arif",
-        "Rashidi",
-        2022 - 2001,
-        "frontend developer",
-        ["Adam, Harith, Mat"],
-    ]
-*/
+// -----------------📦
+const arif_rashidi_6 = [
+    "Arif",
+    "Rashidi",
+    2022 - 2001,
+    "frontend developer",
+    ["Adam, Harith, Mat"],
+]
 
 // -----------------
 // 🔗 continue
 // 📝 The continue statement breaks one iteration (in the loop), if a specified condition occurs...
 // and continues with the next iteration in the loop.
-// 📝 Explain Like I'm 5 🍼: continue statement will skip any iteration that we dont want.
+// 📝 Explain Like I'm 5 🍼: continue statement will skip any iteration that we don't want.
 console.log("--- CONTINUE📌 ---");
 
-for (let i = 0; i < arif_rashidi_5.length; i++) {
-    if (typeof arif_rashidi_5[i] === "number") continue // will skip any iteration that type number 
-    console.log(arif_rashidi_5[i])
+for (let i = 0; i < arif_rashidi_6.length; i++) {
+    if (typeof arif_rashidi_6[i] === "number") continue // will skip any iteration that type number 
+    console.log(arif_rashidi_6[i])
 }
 
 // 🔗 break
@@ -726,22 +725,21 @@ for (let i = 0; i < arif_rashidi_5.length; i++) {
 
 // 🧡 Looping Backwards and Loops in Loops
 
-/*
-    const arif_rashidi_5 = [
-        "Arif",
-        "Rashidi",
-        2022 - 2001,
-        "frontend developer",
-        ["Adam, Harith, Mat"],
-    ]
-*/
+// -----------------📦
+const arif_rashidi_7 = [
+    "Arif",
+    "Rashidi",
+    2022 - 2001,
+    "frontend developer",
+    ["Adam, Harith, Mat"],
+]
 
 // -----------------
 // ❕ Looping backward
 console.log("--- LOOP BACKWARD📌 ---");
 
-for (let i = arif_rashidi_5.length - 1; i >= 0; i--) { // i-- same as i = i - 1
-    console.log(arif_rashidi_5[i])
+for (let i = arif_rashidi_7.length - 1; i >= 0; i--) { // i-- same as i = i - 1
+    console.log(arif_rashidi_7[i])
 } 
 
 // -----------------
@@ -752,7 +750,7 @@ for (let exercise = 1; exercise <= 3; exercise++) {
     console.log(`Starting exercise ${exercise} 💪`)
     // another loop
     for (let rep = 1; rep <= 3; rep++) {
-        console.log(`Lifting weight repitition ${rep}🏋️‍♂️`)
+        console.log(`Lifting weight repetition ${rep}🏋️‍♂️`)
     }
 }
 

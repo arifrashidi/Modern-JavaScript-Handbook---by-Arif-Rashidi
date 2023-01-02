@@ -596,7 +596,7 @@ console.log(`Hello my name is ${me}, I was born in ${2022 - 21}`)
 
 // 🧡 Conditional statements 3: Ternary operator
 // 📝 The ternary operator is a simplified conditional operator like (if / else if/ else) condition
-// TODO:📝 Ternary operation syntax =
+// TODO: Ternary operation syntax =
 /*
     condition ? <expression if true> : <expression if false>
 */
