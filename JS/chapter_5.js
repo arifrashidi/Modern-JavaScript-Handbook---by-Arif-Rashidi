@@ -593,5 +593,3 @@ const fifth_person = {
     // 🔗 Explanation:
     // 📝 When you copying an object, you're really just creating a new variable...
     // that points to the exact same object in the heap (in JavaScript engine).
-    
-/* -------------------------------------------------------------------------- */

@@ -427,7 +427,7 @@ console.log(0 && "Tom"); // 0
 console.log(777 && undefined); // undefined
 
 // 🔗 Example 3:
-console.log(false && "Tom"); // Tom
+console.log(false && "Tom"); // false
 
 // 🔗 Example 4:
 // 📝 No short circuiting happens, so it will return the last value even if the last value is true.
@@ -482,3 +482,491 @@ const mc_donald_3 = {
 // (??) operator will return the first value even the value is 0.
 const mc_donald_3_customers = mc_donald_3.customers_num ?? "Undefined customers";
 console.log(mc_donald_3_customers);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 1# Coding Challenges
+
+/*
+We're building a football betting app (soccer for my American friends 😅)!
+Suppose we get data from a web service about a certain game ('game' variable on
+next page). In this challenge we're gonna work with that data.
+
+Your tasks:
+1. Create one player array for each team (variables 'players1' and
+'players2')
+2. The first player in any player array is the goalkeeper and the others are field
+players. For Bayern Munich (team 1) create one variable ('goal_keeper') with the
+goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10
+field players
+3. Create an array 'allPlayers' containing all players of both teams (22
+players)
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a
+new array ('players1Final') containing all the original team1 players plus
+'Thiago', 'Coutinho' and 'Perisic'
+5. Based on the game.odds object, create one variable for each odd (called
+'team1', 'draw' and 'team2')
+6. Write a function ('printGoals') that receives an arbitrary number of player
+names (not an array) and prints each of them to the console, along with the
+number of goals that were scored in total (number of player names passed in)
+7. The team with the lower odd is more likely to win. Print to the console which
+team is more likely to win, without using an if/else statement or the ternary
+operator.
+
+Test data for 6: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'.
+Then, call the function again with players from game.scored
+*/
+
+// -----------------📦
+const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+      [
+        'Neuer',
+        'Pavard',
+        'Martinez',
+        'Alaba',
+        'Davies',
+        'Kimmich',
+        'Goretzka',
+        'Coman',
+        'Muller',
+        'Gnarby',
+        'Lewandowski',
+      ],
+      [
+        'Burki',
+        'Schulz',
+        'Hummels',
+        'Akanji',
+        'Hakimi',
+        'Weigl',
+        'Witsel',
+        'Hazard',
+        'Brandt',
+        'Sancho',
+        'Gotze',
+      ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+      team1: 1.33,
+      x: 3.25,
+      team2: 6.5,
+    },
+  };
+
+// -----------------
+// ❕ 1 Solution:
+  const [player_1, player_2] = game.players;
+  console.log(player_1, player_2);
+
+// -----------------
+// ❕ 2 Solution:
+const [goal_keeper, ...field_player] = player_1;
+console.log(goal_keeper);
+console.log(field_player);
+
+// -----------------
+// ❕ 3 Solution:
+const all_players = [...player_1, ...player_2];
+console.log(all_players);
+
+// -----------------
+// ❕ 4 Solution:
+const players_1_final = ['Thiago', 'Coutinho', 'Perisic', ...player_1]
+
+// -----------------
+// ❕ 5 Solution:
+const { team1:team_1, x:draw, team2:team_2 } = game.odds;
+console.log(team_1, draw, team_2);
+
+// -----------------
+// ❕ 6 Solution:
+const print_goals = function(...para_scorer) {
+    console.log(`${para_scorer.length} goals were scored`);
+}
+print_goals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+print_goals(...game.scored);
+
+// -----------------
+// ❕ 7 Solution:
+team_1 > team_2 && console.log("team 1 is more likely to win");
+team_2 > team_1 && console.log("team 2 is more likely to win");
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Looping Arrays: The for-of Loop
+// 📝 So this loop will automatically loop over the entire array and in each iteration,
+// 📝 It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more.
+// TODO Syntax:
+/*
+  for (const/let VARIABLE_NAME of ITERABLES) {
+      code block to be executed
+   }
+*/
+
+// -----------------📦
+const mc_donald_4 = {
+    location: "Aeon Seremban",
+    phone: "06-678 8445",
+    customers_num: 25,
+    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+}
+
+const mc_donald_menu = [...mc_donald_4.menu, ...mc_donald_4.desserts];
+
+// -----------------
+// ❕ Example 1:
+
+for (const item of mc_donald_menu) {
+    console.log(item);
+}
+
+// -----------------
+// ❕ Example 2:
+
+// 🔗 entries() ✨(ARRAY - METHOD)
+// 📝 returns an Iterator object with key/value pairs
+// TODO Syntax: ARRAY.entries()
+
+console.log(...mc_donald_menu.entries()); // [0, "Prosperity Burger"]
+
+for (const [num, item] of mc_donald_menu.entries()) { // using destructuring at VARIABLE_NAME
+    console.log(`${num + 1}: ${item}`);
+}
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Enhanced Object Literals (ES6)
+// 📝 An enhancement when dealing with object
+
+// -----------------
+// ❕ First Enhancement: When we want to add new properties in object from outside variable:
+
+const mc_drinks = ["Hot MILO", "Hot Tea", "Hot Teh Tarik", "Coca-Cola"];
+
+const mc_donald_5 = {
+    location: "PD WaterFront",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    mc_drinks, //same as = mc_drinks = mc_drinks
+}
+console.log(mc_donald_5);
+
+// -----------------
+// ❕ Second Enhancement: Shorthand method when write function in object:
+
+const mc_donald_6 = {
+    location: "Lotus Seremban",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    order (para_menu, para_dessert) { // no need to write full syntax
+        console.log(para_menu, para_dessert)
+    },
+}
+
+// -----------------
+// ❕ Third Enhancement: We can computer properties name in object:
+
+const mcd_weekdays = ["mon", "tues", "wed", "thurs", "fri", "Satur", "Sun"]
+
+const mc_donald_7 = {
+    location: "Forest Height, Senawang",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    opening_hours: {
+        [mcd_weekdays[0]]: { // mon
+            open: "9 a.m",
+            close: "9 p.m"
+        },
+        [mcd_weekdays[1]]: { // tues
+            open: "9 a.m",
+            close: "9 p.m"
+        },
+        [mcd_weekdays[6]]: { // sun
+            open: "10 a.m",
+            close: "10 p.m"
+        },
+    }
+}
+console.log(mc_donald_7.opening_hours);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Optional Chaining (?.) (ES2020)
+// 📝 If the object accessed or function called is undefined or null,...
+// it returns undefined instead of throwing an error.
+
+const mc_donald_8 = {
+    location: "Putra Nilai DT",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    opening_hours: {
+        mon: { // mon
+            open: "9 a.m",
+            close: "9 p.m"
+        },
+        fri: { // tues
+            open: "9.30 a.m",
+            close: "8.30 p.m"
+        },
+        sun: { // sun
+            open: "10 a.m",
+            close: "10 p.m"
+        },
+    }
+}
+
+// -----------------
+// ❕ Problem 1:
+// 📝 "sat" property do not exist, when we want access the "open", we will get error.
+// 📝 The "sat" is undefined, and when undefined try to acccess his children, we will get error.
+
+// console.log(mc_donald_8.opening_hours.sat.open); // ERROR
+
+// -----------------
+// ❕ Solution 1:
+
+// 🔗 Using if else statement (not practical):
+// 📝 The code will not get executed because "sat" do not exist.
+// 📝 Problem to this solution: If the "opening hours" is not even exist, we will get error,
+
+if (mc_donald_8.opening_hours.sat) {
+    console.log(mc_donald_8.opening_hours.sat.open);
+}
+
+// 🔗 Solution to problem 1:
+if (mc_donald_8.opening_hours && mc_donald_8.opening_hours.sat) {
+    console.log(mc_donald_8.opening_hours.sat.open);
+}
+
+// -----------------
+// ❕ Solution 2:
+
+// 🔗 Using optional chaining (?.) (practical):
+console.log(mc_donald_8.opening_hours.sat?.open);
+
+// 🔗 When we not even sure if "opening_hours" is even exist:
+console.log(mc_donald_8.opening_hours?.sat?.open);
+
+// -----------------📦
+const mc_donald_9 = {
+    location: "Bandar Seri Putra",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big_Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    opening_hours: {
+        mon: {
+            open: "9 a.m",
+            close: "9 p.m"
+        },
+        fri: {
+            open: "9.30 a.m",
+            close: "8.30 p.m"
+        },
+        sun: {
+            open: "10 a.m",
+            close: "10 p.m"
+        },
+    },
+    order: function (para_menu, para_dessert) {
+        return `order ${this.desserts[para_menu]} and ${this.desserts[para_dessert]} received`;
+    },
+}
+
+const days = ["mon", "tues", "wed", "thurs", "fri", "satur", "sun"]
+
+// -----------------
+// ❕ Using optional chaining(?.) with The for-of Loop:
+
+for (const item of days) {
+    const mcd_open = mc_donald_9.opening_hours[item]?.open || "another time";
+    console.log(`On ${item}, we open at ${mcd_open}`);
+}
+
+// -----------------
+// ❕ Using optional chaining(?.) for calling function:
+
+const print_order = mc_donald_9.order?.(2, 3) || "order is not available";
+console.log(print_order);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Looping Objects: Object Keys, Values, and Entries
+
+// -----------------📦
+const mc_donald_10 = {
+    location: "Seremban 2",
+    phone: "06-678 8445",
+    menu: ["Prosperity Burger", "GCB Burger", "Big_Mac", "Filet-O-Fish"],
+    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
+    opening_hours: {
+        mon: {
+            open: "9 a.m",
+            close: "9 p.m"
+        },
+        fri: {
+            open: "9.30 a.m",
+            close: "8.30 p.m"
+        },
+        sun: {
+            open: "10 a.m",
+            close: "10 p.m"
+        },
+    },
+    order: function (para_menu, para_dessert) {
+        return `order ${this.desserts[para_menu]} and ${this.desserts[para_dessert]} received`;
+    },
+}
+
+// -----------------
+// ❕ Looping object with Object.keys()
+// 📝 Object.keys() ✨(OBJECT - METHOD)
+// 📝 Returns an Array with object properties name only (without properties value) .
+// TODO Syntax: Object.keys(OBJECT)
+
+// 🔗 Example 1:
+const properties = Object.keys(mc_donald_10.opening_hours);
+console.log(properties);
+
+let opening_hours_text = `We are open for ${properties.length} days:`;
+
+for (const item of properties) {
+    opening_hours_text = opening_hours_text + ` ${item},`;
+}
+console.log(opening_hours_text);
+
+// -----------------
+// ❕ Looping object with Object.values()
+// 📝 Object.values() ✨(OBJECT - METHOD)
+// 📝 Returns an Array with object properties values only (without properties name)
+// TODO Syntax: Object.values(OBJECT)
+
+// 🔗 Example 1:
+const values = Object.values(mc_donald_10.opening_hours)
+console.log(values);
+
+const entries = Object.entries(mc_donald_10.opening_hours);
+console.log(entries);
+
+for (const [item, {open, close}] of entries) {
+    console.log(`on ${item}, we open at ${open} and close at ${close}`);
+}
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 2# Coding Challenges
+/*
+    Your tasks:
+    1. Loop over the football_game.scored array and print each player name to the console,
+    along with the goal number (Example: "Goal 1: Lewandowski")
+    2. Use a loop to calculate the average odd and log it to the console (We already
+    studied how to calculate averages, you can go check if you don't remember)
+    3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+    Odd of victory Bayern Munich: 1.33
+    Odd of draw: 3.25
+    Odd of victory Borrussia Dortmund: 6.5
+    Get the team names directly from the game object, don't hardcode them
+    (except for "draw"). Hint: Note how the odds and the game objects have the
+    same property names 😉
+    4. Bonus: Create an object called 'player_who_score' which contains the names of the
+    players who scored as properties, and the number of goals as the value. In this
+    game, it will look like this:
+    {
+    Gnarby: 1,
+    Hummels: 1,
+    Lewandowski: 2
+    }
+*/
+
+// -----------------📦
+const football_game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+      [
+        'Neuer',
+        'Pavard',
+        'Martinez',
+        'Alaba',
+        'Davies',
+        'Kimmich',
+        'Goretzka',
+        'Coman',
+        'Muller',
+        'Gnarby',
+        'Lewandowski',
+      ],
+      [
+        'Burki',
+        'Schulz',
+        'Hummels',
+        'Akanji',
+        'Hakimi',
+        'Weigl',
+        'Witsel',
+        'Hazard',
+        'Brandt',
+        'Sancho',
+        'Gotze',
+      ],
+    ],
+    score: '4:0',
+    scorer: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+      team1: 1.33,
+      x: 3.25,
+      team2: 6.5,
+    },
+  };
+
+// -----------------
+// ❕ 1 Solution:
+for (const [num, item] of football_game.scorer.entries()) {
+    console.log(`Goal ${num + 1}: ${item}`);
+}
+
+// -----------------
+// ❕ 2 Solution:
+
+const odds_values = Object.values(football_game.odds);
+
+let average = 0;
+for (const i of odds_values) {
+    average += i;
+}
+average /= odds_values.length;
+console.log(average);
+
+// -----------------
+// ❕ 3 Solution:
+
+const teams_name = Object.entries(football_game.odds) // [team_1, 1.33]
+
+for (const [para_team, para_value] of teams_name) {
+    // console.log(para_team, para_value);
+    const team_str = para_team === "x" ? "draw" : `victory ${football_game[para_team]}`;
+    console.log(`Odd of ${team_str}: ${para_value}`);
+}
+
+// -----------------
+// ❕ 4 Solution:
+
+const player_score_array = football_game.scorer.entries()
+console.log(...player_score_array);
+
+// football_game.player_who_scored = {
+//     Gnarby: 1,
+//     Hummels: 1,
+//     Lewandowski: 2,
+// }

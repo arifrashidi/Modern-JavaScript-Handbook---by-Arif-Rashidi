@@ -439,13 +439,13 @@ const arif_rashidi_2 = {
 
 // -----------------📦
 /*
-?    const arif_rashidi_2 = {
-?        first_name: "Arif", // first_name is called properties / "Arif" is called value
-?        last_name: "Rashidi",
-?        age: 2022 - 2001,
-?        job: "frontend developer",
-?       friends: ["Adam", "Harith", "Mat"]
-?   }
+    const arif_rashidi_2 = {
+      first_name: "Arif",
+       last_name: "Rashidi",
+       age: 2022 - 2001,
+       job: "frontend developer",
+       friends: ["Adam", "Harith", "Mat"]
+    }
 */
 
 // -----------------
@@ -484,7 +484,7 @@ console.log(arif_rashidi_2["last" + name_key])
 // ❕ Add new property to the object
 
 arif_rashidi_2.location = "Malaysia"
-arif_rashidi_2["email"] = "arifshidi01@gmail.com"
+// arif_rashidi_2["email"] = "arifshidi01@gmail.com"
 
 // -----------------
 // ❕ Small challenge:
@@ -615,7 +615,7 @@ mark.bmi > john.bmi ? console.log(`Mark's BMI(${mark.bmi}) is higher than John's
 
 /* -------------------------------------------------------------------------- */
 
-// 🧡 Iteration: The for Loop
+// 🧡 The for Loop
 // 📝 Loops are handy, if you want to run the same code over and over again, each time with a different value.
 // ! DRY = DON'T REPEAT YOURSELF
 // 📝 for loop keeps running while condition is TRUE, that why we need to set the limit.
