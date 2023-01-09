@@ -266,11 +266,9 @@ else {
 
 // 🧡 Type Conversion and Coercion
 
-// -----------------
+// -----------------📦
 const banana = '12';
 const apple = 12
-
-console.log(banana);
 
 // -----------------
 // ❕ Conversion
@@ -322,9 +320,10 @@ console.log('10' - '4' - '3' - 2 + '5') // '15'
 // -----------------
 // ❕ typeof
 // 📝 check type of data
-//TODO: Example = typeof 
+//TODO: ELEMENT typeof 
 
-console.log(typeof 12) // Number
+typeof 12 // Number
+typeof "Ikan" // String
 console.log(typeof NaN) // Number
 
 /* -------------------------------------------------------------------------- */

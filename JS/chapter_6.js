@@ -970,3 +970,335 @@ console.log(...player_score_array);
 //     Hummels: 1,
 //     Lewandowski: 2,
 // }
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Working With Strings - Part 1
+// 📝 If the object accessed or function called is undefined or null,...
+
+// -----------------📦
+const laptop_modal = "ROG Zephyrus G14";
+const laptop_gpu = "RX 6800S";
+
+// -----------------
+// ❕ Accessing string letter:
+console.log(laptop_modal[4]); // Z
+console.log("RX 6800S"[4]); // 8 
+
+// -----------------
+// ❕ Total string letter:
+console.log(laptop_gpu.length); // 8
+console.log("ROG Zephyrus G14".length); // 16
+
+// -----------------
+// ❕ ✨(STRING - METHOD)
+
+// 🔗 indexOf() / LastIndexOf():
+// 📝 Returns the index (position) of the (first / last) occurrence of a value in a string.
+// 📝 Returns -1 if the value is not found.
+// 📝 This method is case sensitive.
+// TODO Syntax: STRING.indexOf("VALUES")
+console.log("35A-142AB".indexOf("A")); // 2
+console.log("35A-142AB".lastIndexOf("A")); // 7
+console.log("ROG Zephyrus G14".indexOf("Zephyrus")); // 4
+
+// 🔗 slice():
+// 📝 Extracts a part of a string and returns a new string
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.slice("START_INDEX, END_INDEX")
+console.log("pisang goreng".slice(2)); // sang goreng
+console.log("pisang goreng".slice(2, 9)); // sang go
+
+// -----------------
+// ❕ Example of using string method:
+
+// 🔗 Extract the first & second word only:
+const my_name = "Arif Rashidi Rahman";
+console.log(my_name.slice(0, my_name.lastIndexOf(" "))); // Arif Rashidi
+
+// 🔗 Extract the last word only:
+const my_name_2 = "Arif Rashidi Rahman";
+console.log(my_name_2.slice(my_name_2.lastIndexOf(" ") + 1)); // Rahman
+
+// 🔗 We can also specify a negative index number:
+console.log("Samsung".slice(-4)); // sung
+console.log("Samsung".slice(0, -4)); // Sam
+console.log("Samsung".slice(1, -4)); // am
+
+// 🔗 Example uses in function:
+
+const check_middle_seat = function(para_seat) {
+    // Return last letter in string
+    const check_last_letter = para_seat.slice(-1);
+    // If the final letter is "B" or "E", you get middle seat
+    if (check_last_letter === "B" || check_last_letter === "E") {
+        console.log("You got the middle seat🥱");
+    }
+    else {
+        console.log("You got lucky because your seat is beside window😯");
+    }
+}
+check_middle_seat("11B")
+check_middle_seat("23E")
+check_middle_seat("14C")
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Working With Strings - Part 2
+
+// -----------------
+// ❕ ✨(STRING - METHOD)
+
+// 🔗 toLowerCase() / toUpperCase():
+// 📝 Converts a string to lowercase / uppercase letters.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.toLowerCase()
+console.log("GAMING".toLowerCase()); // gaming
+console.log("gaming".toUpperCase()); // GAMING
+
+// 🔗 trim() / trimStart() / trimStart():
+// 📝 Removes whitespace from (both / start / end) sides of a string.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.trim()
+console.log(" Senawang ".trim());
+
+// 🔗 replace():
+// 📝 Returns a new string with replaced first old value to new value.
+// 📝 This method does not change the original string.
+// 📝 This method is case sensitive.
+// TODO Syntax: STRING.replace(OLD_VALUE, NEW_VALUE)
+console.log("$50".replace("$", "RM")); // RM50
+console.log("$50 and $100".replace("$", "RM")); // RM50 and $100
+console.log("susu pisang".replace("pisang", "strawberi")); // susu strawberi
+
+// 🔗 replaceAll():
+// 📝 Returns a new string with replaced all old value to new value.
+// 📝 This method does not change the original string.
+// 📝 This method is case sensitive.
+// TODO Syntax: STRING.replaceAll(OLD_VALUE, NEW_VALUE)
+console.log("$50 and $100".replace("$", "RM")); // RM50 and Rm100
+
+// 🔗 includes():
+// 📝 Returns true if a string contains a specified string, otherwise it returns false.
+// 📝 This method is case sensitive.
+// TODO Syntax: STRING.includes("VALUE")
+console.log("Maharaja Lawak".includes("Lawak")); // true
+console.log("flower".includes("w")); // true
+console.log("arifshidi01".includes("01")); // true
+
+// 🔗 startsWith() / endsWith():
+// 📝 Returns true if a string (starts / end) with a specified string, otherwise it returns false.
+// 📝 This method is case sensitive.
+// TODO Syntax: STRING.startsWith("VALUE")
+console.log("Arif Rashidi bin Abd Rahman".startsWith("Arif")); // true
+console.log("Arif Rashidi bin Abd Rahman".endsWith("Rahman")); // true
+
+// -----------------
+// ❕ Example of using string method:
+
+// 🔗 Fix capitalization in name
+const customer_name = "kAkaSHi";
+    // fix name
+const customer_fix_name_1 = customer_name.toLowerCase();
+const customer_fix_name_2 = customer_fix_name_1[0].toUpperCase() + customer_fix_name_1.slice(1);
+console.log(customer_fix_name_2); // Kakashi
+
+// 🔗 Fix capitalization in email
+const log_in_email = " ArifRashidi01@gmail.com "
+    // fix email
+const email_name_fix = log_in_email.toLowerCase().trim(); // chaining method
+console.log(email_name_fix);
+
+// 🔗 Real Life Scenarios example
+const check_baggage = function(para_item) {
+    // all string letter convert to lower case for we can easily compare it.
+    const item_name_fix = para_item.toLowerCase();
+    if (item_name_fix.includes("knife") || item_name_fix.includes("gun")) {
+        const knife_or_gun = item_name_fix.includes("knife") ? "knife" : "gun";
+        console.log(`You are NOT allowed on board because you have ${knife_or_gun} 👮🏻‍♀️`);
+    }
+    else {
+        console.log("Welcome aboard 🛫👨🏻‍✈️");
+    }
+}
+check_baggage("I have a laptop and a Knife")
+check_baggage("I have a machine gun and a book")
+check_baggage("I have a food and a fruit")
+ 
+/* -------------------------------------------------------------------------- */
+
+// 🧡 Working With Strings - Part 3
+
+// -----------------
+// ❕ ✨(STRING - METHOD)
+
+// 🔗 padStart() / padEnd():
+// 📝 Pads the current string with another string (multiple times, if needed)...
+// until the resulting string reaches the given length.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.split(TARGET_LENGHT, "PAD_STRING")
+console.log("Apple".padStart(10, "+")); // +++++Apple
+console.log("Apple".padEnd(10, "+")); // Apple+++++
+console.log("Apple".padStart(10, "+").padEnd(15, "+")); // +++++Apple+++++
+
+// 🔗 split():
+// 📝 splits a string into an array of substrings and returns the new array.
+// 📝 If (" ") is used as separator, the string is split between words.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.split("VALUE")
+console.log("10 + 100 + 1000 + money".split("+")); // ['10 ', ' 100 ', ' 1000 ', ' money']
+console.log("Arif Rashidi".split(" ")); // ['Arif', 'Rashidi', 'bin', 'Abd', 'Rahman']
+
+// 🔗 repeat():
+// 📝 Returns a string with a number of copies of a string.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.repeat(COUNT)
+console.log("Attention...".repeat(3)); // Attention...Attention...Attention...
+
+// 🔗 concat():
+// 📝 Joins two or more strings and return a new string.
+// 📝 This method does not change the original string.
+// TODO Syntax: STRING.concat(STRING_2, STRING_3)
+const text_1 = "sea";
+const text_2 = "food";
+console.log(text_1.concat(text_2)); // seafood
+
+// -----------------
+// ❕ ✨(ARRAY - METHOD)
+
+// 🔗 join():
+// 📝 Joins all elements of an array into a string
+// 📝 If (" ") is used as separator, the string is split between words.
+// 📝 This method does not change the original array.
+// TODO Syntax: ARRAY.join("SEPERATOR_VALUE")
+const new_name = ["Mr.", "Arif", "Rashidi".toUpperCase()].join(" ");
+console.log(new_name);
+
+// -----------------
+// ❕ Example of using string method:
+
+// 🔗 Using slice() with destructuring:
+const [first_name, second_name] = "Amirul Ridhuan".split(" ");
+console.log(first_name);
+console.log(second_name);
+
+// 🔗 Fix name with fuction:
+const capitalize_name = function(para_name) {
+    const name_to_array = para_name.toLowerCase().split(" ");
+    const fix_name_2 = [];
+
+    for(const item of name_to_array) {
+        const fix_name = item[0].toUpperCase() + item.slice(1);
+        fix_name_2.push(fix_name);
+    }
+    console.log(fix_name_2.join(" "));
+
+}
+capitalize_name("arif rasHidi bIn abd rahMan")
+
+// 🔗 Hide credit card number
+const hide_credit_card_num = function(para_num) {
+    const str = String(para_num);
+    const last_num = str.slice(-4);
+    return last_num.padStart(str.length, "*")
+}
+const secret_credit_card = hide_credit_card_num(1012353211364);
+console.log(secret_credit_card);
+
+// 🔗 Using repeat() to repeat string in function
+const plane_in_line = function(para_num_plane) {
+    console.log(`There are ${para_num_plane} planes in line ${"🛫".repeat(para_num_plane)}`);
+}
+plane_in_line(1);
+plane_in_line(3);
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 3# Coding Challenges
+
+/*
+    Write a program that receives a list of variable names written in underscore_case
+    and convert them to camelCase.
+    The input will come from a textarea inserted into the DOM (see code below to
+    insert the elements), and conversion will happen when the button is pressed.
+    Test data (pasted to textarea, including spaces):
+        underscore_case
+        first_name
+        Some_Variable
+            calculate_AGE
+        delayed_departure
+
+    Should produce this output (5 separate console.log outputs):
+        underscoreCase ✅
+        firstName ✅✅
+        someVariable ✅✅✅
+        calculateAge ✅✅✅✅
+        delayedDeparture ✅✅✅✅✅
+
+*/
+
+// -----------------
+// ❕ Create text are & button in html:
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const button = document.querySelector("button");
+
+button.addEventListener("click", function() {
+    const text = document.querySelector("textarea").value;
+    const rows = text.split("\n");
+    for (const [num, item] of rows.entries()) {
+        const [first, second] = item.toLowerCase().trim().split("_");
+        const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`
+        const output_2 = `${output.padEnd(20, " ")}${"✅".repeat(num + 1)}`
+        console.log(output_2);
+    }
+})
+
+/* -------------------------------------------------------------------------- */
+
+// 🧡 4# Coding Challenges
+
+const flights = 
+`_Delayed_Departure;fao93766109;txL2133758440;11:25
++_Arrival;bru09433B4722;fa0093765109;11:45
++_Delayed_Arrival;he174392999B8;fao93766189;12:05
++_Departure;fao93766109;lis2323539B55;12:30`;
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+// Arrival frow BRU to FAO (11h45)
+// 🔴 Delayed Arrival from HEL to FAD (12h85)
+// Departure frow FA0 to LIS (12h30)
+
+// -----------------
+// ❕ My own code:
+const split_text = flights.split("\n");
+for (let i = 0; i < split_text.length; i++) {
+    // console.log(split_text[i]);
+    const split_text_2 = split_text[i].split(";");
+    // console.log(split_text_2);
+    const fix_text_1 = split_text_2[0].replaceAll("_", " ").replace("+", "").trim();
+    const fix_text_2 = split_text_2[1].slice(0, 3).toUpperCase();
+    const fix_text_3 = split_text_2[2].slice(0, 3).toUpperCase();
+    const fix_text_4 = split_text_2[3].replace(":", "h");
+    if (fix_text_1.includes("Delayed")) {
+        const fix_text_1_1 = `${"🔴"} ${fix_text_1}`;
+        console.log(`${fix_text_1_1} from ${fix_text_2} to ${fix_text_3} (${fix_text_4})`);
+    }
+    else {
+        const fix_text_1_2 = fix_text_1.padStart(11, " ")
+        console.log(`${fix_text_1_2} from ${fix_text_2} to ${fix_text_3} (${fix_text_4})`);
+    }
+}
+
+// -----------------
+// ❕ more efficient code:
+
+// const get_code = str => str.slice(0, 3).toUpperCase();
+
+// for (const item of flights.split("+")) {
+//     const [type, from, to, time] = item.split(";");
+//     const output = `${type.startsWith("_Delayed") ? "🔴" : ""}${type.replaceAll("_", "")} ${get_code(from)} ${get_code(to)} (${time.replace(":", "h")})`;
+//     console.log(output);
+// }
