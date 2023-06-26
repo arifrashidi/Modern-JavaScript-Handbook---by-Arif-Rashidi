@@ -5,24 +5,24 @@
 console.log("--- 📁 CHAPTER 3: Developer skills ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
+// 🧡: Main topic 
 // 📝: Notes
 // ❕: Subtopics
 // 🔗: Sub-subtopics
 // 📦: Variables
 
-/* -------------------------------------------------------------------------- */
+//* --------------------------------------------------------------------------
 
-// 🧡 How to think like a developer: become a problem solver!
+// 🧡 How to think like a developer: become a problem solver! 
 
 // 📝 1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
 // 📝 2. Divide and conquer: Break a big problem into smaller sub-problems.
 // 📝 3. Don't be afraid to do as much research as you have to. (Stack Overflow / MDN Web docs)
 // 📝 4. For bigger problem, write pseudo-code before writing the actual code
 
-/* -------------------------------------------------------------------------- */
+//* --------------------------------------------------------------------------
 
-// 🧡 Coding Challenge 1 (Hard)
+// 🧡 Coding Challenge 1 (Hard) 
 
 // Problem:
 // We work for a company building a smart home thermometer. 
@@ -30,9 +30,6 @@ console.log("--- 📁 CHAPTER 3: Developer skills ---");
 // "Given an array of temperatures of one day, calculate the temperature amplitude...
 // Keep in mind that sometimes there might be a sensor error."
 // After that, function should now received two arrays of temperature
-
-// -----------------📦
-const temperature = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
 // -----------------
 // ❕ Understanding the problem
@@ -49,14 +46,16 @@ const temperature = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 // -----------------
 // ❕ Breaking up into sub-problem
 
-// - How to ignore error?
-// - Find max value in temp array
-// - Find min value in temp array
-// - Subtract min from max (amplified) and return it
-// - How to merge 2 arrays?
+// How to ignore error?
+// Find max value in temp array
+// Find min value in temp array
+// Subtract min from max (amplified) and return it
+// How to merge 2 arrays?
 
 // -----------------
 // ❕ SOLUTION:
+
+const temperature = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
 const calc_temperature_amplitude = function(t1, t2) {
     // combine two array
@@ -92,9 +91,9 @@ console.log(temperature_amplitude);
 const new_temperature_amplitude = calc_temperature_amplitude([3, 5, 1],[ 9 , 0, 5])
 console.log(new_temperature_amplitude);
 
-/* -------------------------------------------------------------------------- */
+//* --------------------------------------------------------------------------
 
-// 🧡 Debugging (Fixing Errors)
+// 🧡 Debugging (Fixing Errors) 
 
 // ❕ How to debugging:
 
@@ -130,9 +129,9 @@ const measure_kelvin = function() {
 }
 console.log(measure_kelvin())
 
-/* -------------------------------------------------------------------------- */
+//* --------------------------------------------------------------------------
 
-// 🧡 Coding Practices (Easy)
+// 🧡 Coding Practices (Easy) 
 
 // -----------------
 // ❕ Question 1: Convert Minutes into Seconds
@@ -162,4 +161,55 @@ const get_first_value_calc = function(numbers_para) {
 const get_first_value = get_first_value_calc(numbers[0])
 console.log(get_first_value);
 
-/* -------------------------------------------------------------------------- */
+//* --------------------------------------------------------------------------
+
+// 🧡 How to Plan a Web Project 
+
+// -----------------
+//+ ❕ User story
+// 📝 1. Description of the application’s functionality from the user’s perspective.
+// 📝 2. Common format: As a [type of user], I want [an action] so that [a benefit]
+
+// 🔗 Example 1:
+
+// As a user, I want to log my running workouts with location, distance, time, pace and ...
+// steps/minute, so I can keep a log of all my running.
+
+// As a user, I want to also see my workouts on a map, so I can easily check where I ...
+// work out the most.
+
+// As a user, I want to see all my workouts at a glance, so I can easily track my progress
+// over time
+
+// As a user, I want to also see my workouts on a map, so I can easily check where I
+// work out the most
+
+// As a user, I want to see all my workouts when I leave the app and come back later, so
+// that I can keep using there app over time
+
+// -----------------
+//+ ❕ Features
+// 📝 1. List of all features that need to be implemented based on the user story.
+
+// 🔗 Example 1:
+
+// 1. Map where user clicks to add new workout (best way to get location coordinates).
+// 2. Geolocation to display map at current location (more user friendly)
+// 3. Form to input distance, time, pace, steps/minute
+// 4. Form to input distance, time, speed, elevation gain
+// 5. Display all workouts in a list
+// 6. Display all workouts on the map
+// 7. Store workout data in the browser using local storage API
+// 8. On page load, read the saved data from local storage and display
+
+// -----------------
+//+ ❕ Flowchart
+// 📝 1. Flowchart is a visual representation of the sequence of steps or processes involved in a web project.
+
+// 📝 2. It is a diagram that helps to illustrate:
+
+// a. the various stages of a project
+// b. the order in which they occur
+// c. and the interactions between different components of the project.
+
+//* --------------------------------------------------------------------------

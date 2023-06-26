@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title> Asynchronous JavaScript: Promises, Async/Await and AJAX</title>
+    <link rel="shortcut icon" href="../assets/6ae0ab45a82650b1c435a1a3885924e0.jpg" type="image/x-icon">
+    <style>
+
+      html {
+        font-size: 62.5%;
+        box-sizing: border-box;
+      }
+      body {
+        height: 200vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(to top left, #28b487, #7dd56f);
+        font-family: sans-serif;
+      }
+      h1 {
+        font-size: 50px;
+        line-height: 1.3;
+        width: 100%;
+        padding: 30px;
+        margin-top: 200px;
+        text-align: center;
+        color: white;
+      }
+      .btn_container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+      }
+      .btn_container button {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      /* country */
+      
+      .countries_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .countries {
+        /* margin-bottom: 8rem; */
+        display: flex;
+        font-size: 2rem;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+      .country {
+        background-color: #fff;
+        box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+        font-size: 1.8rem;
+        width: 30rem;
+        border-radius: 0.7rem;
+        margin: 0 3rem;
+        /* overflow: hidden; */
+      }
+      .country__img {
+        width: 30rem;
+        height: 17rem;
+        object-fit: cover;
+        background-color: #eee;
+        border-top-left-radius: 0.7rem;
+        border-top-right-radius: 0.7rem;
+      }
+      .country__data {
+        padding: 2.5rem 3.75rem 3rem 3.75rem;
+      }
+      .country__name {
+        font-size: 2.7rem;
+        margin-bottom: 0.7rem;
+      }
+      .country__region {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+        color: #888;
+      }
+      .country__row:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      .country__row span {
+        display: inline-block;
+        margin-right: 2rem;
+        font-size: 2.4rem;
+      }
+      .btn_country {
+        min-width: 130px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid white;
+        background: #10ba10;
+      }
+      .btn_country:hover {
+        background: #fff;
+        color: #10ba10
+      }
+      .input_country {
+        padding: 10px;
+        font-size: 1.6rem;
+      }
+
+        /* neighbour */
+
+      .neighbour::before {
+        content: 'Neighbour country';
+        width: 100%;
+        position: absolute;
+        top: -4rem;
+
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+      }
+      .neighbour {
+        transform: scale(0.9) translateY(1rem);
+        margin-left: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="btn_container">
+      <button class="greet">Greeting</button>
+      <button class="buy">Buy new plane 🛩</button>
+      <button class="poll">Answer poll ⁉️</button>
+    </div>
+    <h1>Asynchronous JavaScript: Promises, Async/Await and AJAX</h1>
+
+    <!-- Countries -->
+    <div class="countries_container">
+      <div class="countries"></div>
+      <input class ="input_country" type="text" value="malaysia" placeholder="please insert any country">
+      <button class="btn_country">Submit</button>
+    </div>
+
+    <script src="../JS/chapter_11.js"></script>
+  </body>
+</html>

@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>A Closer Look at Functions</title>
+    <title>Modern Javascript: Modules, Tooling, and Functional</title>
     <link rel="shortcut icon" href="../assets/6ae0ab45a82650b1c435a1a3885924e0.jpg" type="image/x-icon">
     <style>
       body {
         height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         background: linear-gradient(to top left, #28b487, #7dd56f);
+        font-family: sans-serif;
       }
       h1 {
         font-family: sans-serif;
@@ -23,28 +25,26 @@
         text-align: center;
         color: white;
       }
-      .buy, .poll, .greet {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        position: absolute;
-        top: 2rem;
+      .btn_container {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
       }
-      .buy {
-        left: 2rem;
-      }
-      .poll {
-        right: 2rem;
-      }
-      .greet {
-        right: 15rem;
+      .btn_container button {
+        padding: 10px;
+        font-size: 16px;
       }
     </style>
   </head>
   <body>
-    <h1>A Closer Look at Functions</h1>
-    <button class="greet">Greeting</button>
-    <button class="buy">Buy new plane 🛩</button>
-    <button class="poll">Answer poll ⁉️</button>
-    <script src="../JS/chapter_7.js"></script>
+    <div class="btn_container">
+      <button class="greet">Greeting</button>
+      <button class="buy">Buy new plane 🛩</button>
+      <button class="poll">Answer poll ⁉️</button>
+    </div>
+    <h1>Modern Javascript: Modules, Tooling, and Functional</h1>
+    <script src="../JS/chapter_12.js"></script>
   </body>
 </html>
