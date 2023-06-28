@@ -5,11 +5,11 @@
 console.log("--- 📁 CHAPTER 6: Data Structures, Modern Operators and Strings ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// ⭐: Tips for easy understanding
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
 

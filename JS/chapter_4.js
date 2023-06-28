@@ -5,19 +5,17 @@
 console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
-// ✨: Category
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
 // 🧡 DOM and DOM Manipulation
 
 // -----------------
-// ❕ DOM:
+// 🔸 DOM:
 // 📝 Allows us to make JavaScript interact with the browser.
 // 📝 We can write JavaScript to create, modify and delete HTML elements, set styles, classes and attributes,...
 //  and listen and respond to events.
@@ -25,7 +23,7 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 // 📝 DOM is a very complex API that contains lots of methods and properties to interact with the DOM tree.
 
 // -----------------
-// ❕ Element vs Node
+// 🔸 Element vs Node
 
 // 🔗 Element
 // 📝 A special type of node that is HTML Element.
@@ -36,7 +34,7 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 
 
 // -----------------
-// ❕ HTML Collection VS NodeList
+// 🔸 HTML Collection VS NodeList
 // 📝 A NodeList and an HTMLcollection is very much the same thing.
 // 📝 Both are array-like collections (lists) of nodes (elements) extracted from a document.
 // 📝 Both have a length property that returns the number of elements in the list (collection).

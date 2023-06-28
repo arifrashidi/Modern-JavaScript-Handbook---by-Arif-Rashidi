@@ -2,7 +2,7 @@
 "use strict";
 
 /* -------------------------------------------------------------------------- */
-console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 1 ---");
+console.log("--- 📁 CHAPTER 1: JavaScript Fundamental Part 1 ---");
 /* -------------------------------------------------------------------------- */
 
 // • 🧡: Main topic 
@@ -12,11 +12,10 @@ console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 1 ---");
 // • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
-// 🧡 External JavaScript 
-// 📝 External scripts are practical when the same code is used in many different web pages.
-// 📝 JavaScript files have the file extension .js.
-// 📝 The script will behave as if it was located exactly where the <script> tag is located,...
+// 🧡 Separate JavaScript file from an HTML document 
+// 📝 External JavaScript refers to JavaScript code that is stored in a separate file ...
+// with a .js extension and is referenced from an HTML document using the <script> tag
+// 📝 The script will behave as if it was located exactly where the <script> tag is located, ...
 // Therefore, <script> tags should be at the bottom of your HTML code.
 
 // Syntax: External JavaScript syntax in HTML =
@@ -25,7 +24,6 @@ console.log("--- 📁 CHAPTER 1: Javascript Fundamental Part 1 ---");
 */
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Basic Javascript 
 
 // -----------------
@@ -57,7 +55,6 @@ let my_name = "Arif"; //⭐ my_name is keyword
 // firstDay, lastDay, masterCard, interCity
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Data Types 
 
 // -----------------
@@ -95,7 +92,6 @@ console.log(undefined);
 console.log(null);
 
 //* --------------------------------------------------------------------------
-
 // 🧡 ⁢Variables: let / const​​⁡⁡ 
 // 📝 Variables are containers for storing data (storing data values).
 // 📝 Variables names can contain letters, digits, underscores, and dollar signs.
@@ -135,7 +131,6 @@ const birthday_year = 2001;
 console.log(birthday_year);
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Mathematical Operations⁡⁡ 
 // JavaScript is capable of running calculations and performing mathematical operations. 
 
@@ -166,24 +161,22 @@ console.log(23 % 2); /// 1 (Balance)
 console.log(23 % 5); /// 3 (Balance)
 
 //* --------------------------------------------------------------------------
+// 🧡 Assignment Operators(=) 
+// 📝 Assignment Operators(=) is used to assign a value to a variable.
 
-// 🧡 Assignment Operators (=)
-// 📝 (=) Assigns a value to a variable.
-
+// -----------------
 //- example 1:
 let x = 15;
 
-//- example 2:
-x += 10; //⭐ x = x + 10 = 25
-x *= 2; //⭐ x = x * 2 = 50
-x++; //⭐ x = x + 1
-x--; //⭐ x = x - 1
+x += 10; //⭐ x = x + 10 /// 25
+x *= 2; //⭐ x = x * 2 /// 30
+x++; //⭐ x = x + 1 /// 16
+x--; //⭐ x = x - 1 /// 14
 
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Comparison Operators ( > / < / >= / <= )
-// 📝 Comparison operators will get (true / false) value.
+// 📝 Comparison operators will return boolean(true or false) value.
 /*
   >	(greater than)
   <	(less than)
@@ -191,6 +184,7 @@ x--; //⭐ x = x - 1
   <= (less than or equal to)
 */
 
+// -----------------
 //- example 1:
 let age_tommy = 18;
 let age_sarah = 18;
@@ -201,17 +195,31 @@ console.log(age_tommy >= age_sarah); /// true
 console.log(age_tommy + 7 > age_david + 2); /// false
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Operator Precedence 
-// 📝 The order in which operations are performed in an arithmetic expression.
+// 📝 The order in which operations are performed first in an arithmetic expression.
+/*
+  // 📝 Hierarchy of operations based on their precedence levels:
+
+  Parentheses: ( )
+  Exponentiation: **
+  Multiplication, Division, and Remainder: *, /, %
+  Addition and Subtraction: +, -
+  Relational Operators: <, >, <=, >=, instanceof, in
+  Equality Operators: ==, !=, ===, !==
+  Logical AND: &&
+  Logical OR: ||
+  Conditional (Ternary) Operator: ? :
+  Assignment Operators: =, +=, -=, *=, /=, etc.
+  Comma Operator: ,
+*/
 
 // -----------------
-// 🔸 Example 1:
+//- example 1:
 let age_sam = 2 + 3 * 4;
 console.log(age_sam); /// 14 (not 20)
 
 // -----------------
-// 🔸 Example 2:
+//- example 2:
 let age_tom = 18;
 let age_sara = 18;
 
@@ -219,7 +227,6 @@ const average_age = age_tom + age_sara / 2;
 console.log(average_age); /// 27
 
 //* --------------------------------------------------------------------------
-
 // 🧡 1# Coding Challenges 
 
 const mark_mass = 78;
@@ -234,13 +241,12 @@ const mark_higher_bmi = bmi_mark > bmi_john;
 console.log(bmi_mark, bmi_john, mark_higher_bmi);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Strings and Template Literals
-// 📝 Template Literals use back-ticks (` `) rather than the quotes ("") to define a string:
+// 🧡 Template Literals (` `) 
+// 📝 Template Literals use back-ticks (` `) rather than the quotes ("") to define a string.
 // 📝 Template literals provide an easy way to interpolate variables and expressions into strings.
 
 // -----------------
-// 🔸 Why you need to use Template Literals:
+// 🔸 Why you need to use Template Literals: 
 
 const first_name = "Malik";
 const job = "teacher";
@@ -258,14 +264,13 @@ console.log(malik_intro);
 console.log(`backtick is just like a regular string`);
 
 // -----------------
-// 🔸 literals string also can create multiple lines
+// 🔸 Literals string also can create multiple lines: 
 
 console.log(`string
 multiple
 lines`);
 
 //* --------------------------------------------------------------------------
-
 // 🧡 if else Statements (Conditional statements 1)
 // 📝 Are used to make decisions based on certain conditions.
 // 📝 It allows your code to execute different blocks of code depending ...
@@ -288,7 +293,7 @@ lines`);
 */
 
 // -----------------
-// 🔸 Example 1:
+//- example 1:
 
 const age = 20;
 const is_old_enough = age >= 18;
@@ -306,7 +311,7 @@ else {
 }
 
 // -----------------
-// 🔸 if else statement is very flexible structure (control structure)
+//- example 2:
 
 const hadi_age = 75;
 let hadi_state;
@@ -320,9 +325,10 @@ else {
 console.log(hadi_state); /// 'He is old 👳 please retired'
 
 // -----------------
-// 🔸 if / else statements shortcut (remove {})
+// 🔸 if / else statements shorthand (remove {})
 // 📝 we don't need {} if we only have one line. (no else)
 
+//- example 1:
 const sabu_age = 25;
 const sabu_is_old_enough = sabu_age >= 18;
 
@@ -330,7 +336,6 @@ if (sabu_is_old_enough)
 console.log("Sabu can start taking driving license🚗");
 
 //* --------------------------------------------------------------------------
-
 // 🧡 2# Coding Challenges
 
 const bmi_bob = 27.309968138370508
@@ -345,27 +350,34 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Type Conversion and Coercion 
+// 🧡 Conversion and Coercion 
 
 // -----------------
 // 🔸 Conversion
+// 📝 Conversion refers to explicitly converting a value from one type to another 
+// using built-in JavaScript methods.
+// 📝 Here is a list of commonly used conversion methods:
+// • String()
+// • Number()
+// • Boolean()
 
-// 🔗 Convert string to number (conversion)
-// Syntax: Example = Number("23")
+// 🔗 Convert string to number:
+// Syntax: Number( "STRING" )
 
+//- example 1:
 console.log(Number("12")); /// 12
 console.log(Number("12") + 3) /// 15
 console.log(Number('Excellent')) /// NaN (not a number)
 
-// 🔗 Convert number to string (conversion)
-// Syntax: Example = String(23)
+// 🔗 Convert number to string:
+// Syntax: Example = String( NUMBER )
 
+//- example 1:
 console.log(String(100)) /// "100"
 
 // -----------------
-// 🔸 Coercion
-// 🔗 convert number to string (coercion)
+// 🔸 Coercion 
+// 🔗 Convert number to string (coercion):
 // 📝 Whenever there is an operation(+) between a string and a number...
 // the number will be converted to string
 
@@ -375,7 +387,7 @@ console.log('3' + 3 + '3') /// 333
 //- example 2:
 console.log('there are ' + 3 + ' banana') //⭐ 3 will convert into string
 
-// 🔗 convert string to number (coercion)
+// 🔗 convert string to number (coercion):
 // 📝 Whenever there is an operation( -,*,/ ) between a string and a number...
 // the string will be converted to number
 
@@ -393,16 +405,17 @@ console.log(3 + 3 + 3 + '5') /// '95'
 console.log('10' - '4' - '3' - 2 + '5') /// '15'
 
 // -----------------
-// 🔸 typeof
-// 📝 check type of data
+// 🔸 "typeof" operator 
+// 📝 Used to check type of data.
+// 📝 It returns a string indicating the type of the operand.
 
+//- example 1:
 typeof 12 /// Number
 typeof "Ikan" /// String
 console.log(typeof NaN) /// Number
 
 // 🔗 if the type of data is correct, return true:
-
-//- example 1:
+//- example 2:
 const person_num = 25;
 const person_name = "Lisa";
 
@@ -411,7 +424,6 @@ if (typeof person_num === "number" && typeof person_name === "string") {
 }
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Truthy and Falsy Values 
 // 📝 falsy values are values that are not exactly false...
 // but will become false when we try to convert them into boolean.
@@ -427,15 +439,13 @@ if (typeof person_num === "number" && typeof person_name === "string") {
 */
 
 // -----------------
-// 🔸 Example 1:
-
+//- example 1:
 console.log(Boolean(null)) /// false
 console.log(Boolean('')) /// false
 console.log(Boolean('Arif')) /// true
 
 // -----------------
-// 🔸 Example 2:
-
+//- example 2:
 const saddiq_money = 0; /// 0 is a falsy value
 if(saddiq_money) {
   console.log("Don't spend it all 💵")
@@ -445,8 +455,7 @@ else {
 }
 
 // -----------------
-// 🔸 Example 3:
-
+//- example 3:
 let shoes; /// shoes is undefined
 if(shoes) {
   console.log("shoes is defines")
@@ -456,21 +465,20 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Equality Operators: === vs. == 
+// 🧡 Equality Operators ( === / == ) 
 
 // -----------------
 // 🔸 strict equality operator ( === )
-// 📝 Checks whether its two operands are equal, returning a Boolean
+// 📝 Checks whether its two operands are equal, returning a Boolean.
 // 📝 Strict quality Operators is more RECOMMENDED to use to prevent unnecessary bugs.
 // 📝 It only returns true to when both values & type of data are exactly the same and...
 // does not perform type coercion.
 
+// -----------------
 //- 📦 VARIABLES:
 const ismail_age = 18;
 
 //- example 1:
-
 console.log(ismail_age === 18); /// true
 console.log(18 === 18); /// true
 console.log(18 === "18"); /// false
@@ -494,8 +502,7 @@ console.log("banana" == "banana"); /// true
 console.log("banana" == "apple"); /// false
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Inequality Operators: !== and !=
+// 🧡 Inequality Operators ( !== / != ) 
 
 // -----------------
 // 🔸 Strict inequality ( !== )
@@ -512,6 +519,7 @@ console.log("banana" == "apple"); /// false
 // when values are opposite.
 // 📝 So it will check the values only and will perform type coercion.
 
+// -----------------
 //- example 1:
 const favourite = 9;
 
@@ -533,12 +541,13 @@ if(favourite !== 5) {
 }
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Logical Operators: Boolean Logic ( and / or / not )
 // 📝 and (&&) = both need to be true for the result of the operation to be true
 // 📝 or  (||) = just one need to be true for the result of the operation to be true
 // 📝 not (!) = takes truth to falsity and vice versa.
 
+// -----------------
+//- 📦 VARIABLES:
 const has_driver_license = true;
 const has_good_vision = false;
 const should_drive = has_driver_license && has_good_vision;
@@ -570,7 +579,6 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-
 // 🧡 3# Coding Challenges
 
 const pakatan_harapan_score = 83;
@@ -593,15 +601,15 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Switch Statement (Conditional statements 2) 
 // 📝 this statement designed for equality.
 // 📝 pros: more readable than if / else statement.
 
-//- example 1:
-
+// -----------------
+//- 📦 VARIABLES:
 const day = "wednesday";
 
+//- example 1:
 switch(day) {
   case "monday": // day = "monday"
     console.log("Plan course structure");
@@ -651,7 +659,6 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Expression and Statement
 
 // -----------------
@@ -679,15 +686,13 @@ if (23 > 10) {
  console.log(str);
 }
 
-// -----------------
-// 🔸 In a template literal, we can only insert expressions, but not statements:
+// 🔗 In a template literal, we can only insert expressions, but not statements:
 
 //- example 1:
 const me = "Arif" // "Arif" is a expression
 console.log(`Hello my name is ${me}, I was born in ${2022 - 21}`)
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Ternary operator (Conditional statements 3)
 // 📝 The ternary operator is a simplified conditional operator like (if / else if/ else) condition
 // Syntax: Ternary operation syntax
@@ -721,7 +726,6 @@ const bob_marry = bob_age >= 18 ? "marry" : "underage"
 console.log(`I am ${bob_marry}`)
 
 //* --------------------------------------------------------------------------
-
 // 🧡 4# coding challenges
 
 const bill = 40;
@@ -731,7 +735,6 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
 
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Types of syntax in JavaScript
 // 📝 In JavaScript, there are many parts of the language syntax, but they serve different purposes.
 
@@ -765,7 +768,6 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
 */
 
 //* --------------------------------------------------------------------------
-
 // 🧡 New ES6 Features ( ECMAScript 2015 )
 // 📝 ES6 Introduced a number of new features and syntax improvements to JavaScript.
 // 📝 This is not an exhaustive list, but these are some of the key features introduced in ES6 that have ...

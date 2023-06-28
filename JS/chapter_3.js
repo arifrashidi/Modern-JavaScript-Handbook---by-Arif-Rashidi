@@ -5,23 +5,21 @@
 console.log("--- 📁 CHAPTER 3: Developer skills ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic 
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
 // 🧡 How to think like a developer: become a problem solver! 
 
 // 📝 1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
 // 📝 2. Divide and conquer: Break a big problem into smaller sub-problems.
-// 📝 3. Don't be afraid to do as much research as you have to. (Stack Overflow / MDN Web docs)
-// 📝 4. For bigger problem, write pseudo-code before writing the actual code
+// 📝 3. Don't be afraid to do as much research as you have to. (Stack Overflow / MDN Web docs / ChatGPT)
+// 📝 4. For bigger problem, write pseudo-code before writing the actual code.
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Coding Challenge 1 (Hard) 
 
 // Problem:
@@ -32,7 +30,7 @@ console.log("--- 📁 CHAPTER 3: Developer skills ---");
 // After that, function should now received two arrays of temperature
 
 // -----------------
-// ❕ Understanding the problem
+// 🔸 Understanding the problem
 
 // Q : What is temperature amplitude?
 // A : Different between highest & lowest temp
@@ -44,7 +42,7 @@ console.log("--- 📁 CHAPTER 3: Developer skills ---");
 // A : 
 
 // -----------------
-// ❕ Breaking up into sub-problem
+// 🔸 Breaking up into sub-problem
 
 // How to ignore error?
 // Find max value in temp array
@@ -53,7 +51,7 @@ console.log("--- 📁 CHAPTER 3: Developer skills ---");
 // How to merge 2 arrays?
 
 // -----------------
-// ❕ SOLUTION:
+// 🔸 SOLUTION:
 
 const temperature = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
@@ -92,10 +90,12 @@ const new_temperature_amplitude = calc_temperature_amplitude([3, 5, 1],[ 9 , 0, 
 console.log(new_temperature_amplitude);
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Debugging (Fixing Errors) 
+// 📝 Debugging refers to the process of identifying and fixing issues in a web application. 
+// 📝 It involves investigating and troubleshooting problems that affect the ...
+// functionality, performance, or appearance of a website or web application.
 
-// ❕ How to debugging:
+// 🔸 How to debugging:
 
 // 1. Becoming aware that there is a bug.
 // 2. Find and isolating where exactly the bug is happening in code.
@@ -103,7 +103,7 @@ console.log(new_temperature_amplitude);
 // 4. Prevent the bug from happening again
 
 // -----------------
-// ❕ Others:
+// 🔸 Where you can detect the bug:
 
 // 🔗 Breakpoint:
 // Breakpoint used (red dot beside number in VScode) to stop code from continue executing after reach breakpoint.
@@ -112,7 +112,7 @@ console.log(new_temperature_amplitude);
 // You can find the bug in tab(Sources) to easier for you to find the bug
 
 // -----------------
-// ❕ Small Practice:
+//- Small Practice:
 
 const measure_kelvin = function() {
     const measurement = {
@@ -130,11 +130,10 @@ const measure_kelvin = function() {
 console.log(measure_kelvin())
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Coding Practices (Easy) 
 
 // -----------------
-// ❕ Question 1: Convert Minutes into Seconds
+// 🔸 Question 1: Convert Minutes into Seconds
 
 const minutes = [5, 3, 2]
 
@@ -149,7 +148,7 @@ for (i = 0; i < minutes.length; i++) {
 }
 
 // -----------------
-// ❕ Question 2: Return the First Element in an Array
+// 🔸 Question 2: Return the First Element in an Array
 
 const numbers = [30, -500, 0, 50];
 
@@ -162,16 +161,14 @@ const get_first_value = get_first_value_calc(numbers[0])
 console.log(get_first_value);
 
 //* --------------------------------------------------------------------------
-
 // 🧡 How to Plan a Web Project 
 
 // -----------------
-//+ ❕ User story
+// 🔸 User story 
 // 📝 1. Description of the application’s functionality from the user’s perspective.
 // 📝 2. Common format: As a [type of user], I want [an action] so that [a benefit]
 
-// 🔗 Example 1:
-
+//- Example 1:
 // As a user, I want to log my running workouts with location, distance, time, pace and ...
 // steps/minute, so I can keep a log of all my running.
 
@@ -188,11 +185,10 @@ console.log(get_first_value);
 // that I can keep using there app over time
 
 // -----------------
-//+ ❕ Features
+// 🔸 Features 
 // 📝 1. List of all features that need to be implemented based on the user story.
 
-// 🔗 Example 1:
-
+//- Example 1:
 // 1. Map where user clicks to add new workout (best way to get location coordinates).
 // 2. Geolocation to display map at current location (more user friendly)
 // 3. Form to input distance, time, pace, steps/minute
@@ -203,13 +199,13 @@ console.log(get_first_value);
 // 8. On page load, read the saved data from local storage and display
 
 // -----------------
-//+ ❕ Flowchart
-// 📝 1. Flowchart is a visual representation of the sequence of steps or processes involved in a web project.
+// 🔸 Flowchart 
+// 📝 1. Flowchart is a visual representation of the sequence of steps or ...
+// processes involved in a web project.
 
 // 📝 2. It is a diagram that helps to illustrate:
-
-// a. the various stages of a project
-// b. the order in which they occur
-// c. and the interactions between different components of the project.
+// 1️⃣ The various stages of a project
+// 2️⃣ The order in which they occur
+// 3️⃣ The interactions between different components of the project.
 
 //* --------------------------------------------------------------------------
