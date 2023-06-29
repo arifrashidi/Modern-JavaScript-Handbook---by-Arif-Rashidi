@@ -62,6 +62,7 @@ console.log(bobby_has_driver_license);
     }
     FUNCTION_NAME(ARGUMENTS) -> ⭐Calling functions
 */
+
 // 📝 PARAMETER = is like placeholder.
 // 📝 ARGUMENTS = value itself that will fill the placeholder the function is called,...
 // argument can be anything including array or object.

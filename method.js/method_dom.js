@@ -75,10 +75,10 @@ console.log(document.getElementsByClassName("overlay"));
 // 📝 This method creates an element node.
 //  Syntax: document.createElement( " *TYPE_ELEMENT " )
 //- example 1:
-//? variables
+//^ variables
 const cookie_message_div = document.createElement("div");
 const body = document.querySelector("body")
-//? dom element methods
+//^ dom element methods
 cookie_message_div.classList.add("cookie_message");
 cookie_message_div.innerHTML = `Click to make it disappear using remove() method.`;
 body.after(cookie_message_div);
@@ -113,7 +113,7 @@ body.after(cookie_message_div);
     //  Syntax: EVENT_PARAMETER.key
 
 //- Example 1:
-//? addEventListener
+//^ addEventListener
 document.addEventListener("keydown", function(para_key) {
     if (para_key.key === "Escape") {
         console.log("Escape key has been pressed");
@@ -130,9 +130,9 @@ document.addEventListener("keydown", function(para_key) {
 //  Syntax: EVENT.target
 
 //- Example 1:
- //? variables
+ //^ variables
 const button_container = document.querySelector(".button_container")
-//? addEventListener
+//^ addEventListener
 button_container.addEventListener("click", function(el) {
     const clicked_button = el.target;
     console.log(clicked_button);
@@ -149,7 +149,7 @@ button_container.addEventListener("click", function(el) {
 //  Syntax: document.documentElement
 
 //- Example 1:
-//? variables
+//^ variables
 const pop_up_window_2 = document.querySelector(".pop_up_window")
 console.log(pop_up_window_2.children);
 
@@ -159,9 +159,9 @@ console.log(pop_up_window_2.children);
 // 📝 This property RETURNS the parent element of the specified element.
 // Syntax: NODE.parentElement
 //- Example 1:
-//? variables
+//^ variables
 const test_1_button = document.querySelector(".test_1");
-//? dom element methods
+//^ dom element methods
 console.log(test_1_button.parentElement);
 
 // -----------------
@@ -176,7 +176,7 @@ console.log(test_1_button.parentElement);
 // Syntax: ELEMENT.closest( "*CSS_SELECTOR" )
 
 //- Example 1:
-//? variables
+//^ variables
 const pop_up_window_button_2 = document.querySelector(".pop_up_window_button")
 const button_parent = pop_up_window_button_2.closest("div")
 console.log(button_parent);
@@ -191,12 +191,12 @@ console.log(button_parent);
 //  Syntax: ELEMENT.textContent = " VALUE ";
 
 //- Example 1:
-//? variables
+//^ variables
 const h2_change_text = document.querySelector(".text_change_2");
 const button_test_1_text_change = document.querySelector(".test_1")
-//? function
+//^ function
 const event_text_change = () => h2_change_text.textContent = "Thank you!!";
-//? addEventListener
+//^ addEventListener
 button_test_1_text_change.addEventListener("click", event_text_change)
 
 
@@ -208,15 +208,15 @@ button_test_1_text_change.addEventListener("click", event_text_change)
 //  Syntax: ELEMENT.style.CSS_PROPERTY = " VALUE ";
 
 //- Example 1:
-//? variables
+//^ variables
 const h2_change_color = document.querySelector(".text_change_2");
 const button_test_1_color_change = document.querySelector(".test_1")
-//? function
+//^ function
 const event_color_change = () => {
     h2_change_color.style.color = "white"
     h2_change_color.style.backgroundColor = "darkgreen";
 };
-//? addEventListener
+//^ addEventListener
 button_test_1_color_change.addEventListener("click", event_color_change)
 
 // -----------------
@@ -244,12 +244,12 @@ button_test_1_color_change.addEventListener("click", event_color_change)
     //  Syntax:  ELEMENT.classlist.contain(" *SELECTOR ");
     
 //- Example 1:
-//? variables
+//^ variables
 const pop_up_window_button = document.querySelector(".pop_up_window_button")
 const pop_up_window = document.querySelector(".pop_up_window")
 const close_pop_up_window_button = document.querySelector(".close_pop_up_window_button")
 const overlay = document.querySelector(".overlay")
-//? function
+//^ function
 const pop_up_window_open = function() {
     pop_up_window.classList.remove("hidden");
     overlay.classList.remove("hidden");
@@ -259,7 +259,7 @@ const pop_up_window_close = function() {
     pop_up_window.classList.add("hidden");
     overlay.classList.add("hidden");
 }
-//? addEventListener
+//^ addEventListener
 pop_up_window_button.addEventListener("click", pop_up_window_open);
 close_pop_up_window_button.addEventListener("click", pop_up_window_close);
 
@@ -270,12 +270,12 @@ document.addEventListener("keydown", function (para_key) {
 })
 
 //- Example 2:
-//? variables
+//^ variables
 const cat_img_button = document.querySelector(".cat_img_button");
 const cat_1 = document.querySelector(".cat_1");
-//? function
+//^ function
 const toogle_cat_img_fn = () => cat_1.classList.toggle("visibility");
-//? addEventListener
+//^ addEventListener
 cat_img_button.addEventListener("click", toogle_cat_img_fn)
 
 // -----------------
@@ -295,12 +295,12 @@ text_change_3.innerHTML = "After changed by InnerHTML";
 //  Syntax: ELEMENT.insertAdjacentHTML( *POSITION, *HTML )
 
 //- Example 2:
-//? variables
+//^ variables
 const div_below_img = document.querySelector(".div_below_img");
 const cat_text = " <p>cute cat</p>";
-//? function
+//^ function
 const add_cat_text_fn = () => div_below_img.insertAdjacentHTML("afterend", cat_text)
-//? addEventListener
+//^ addEventListener
 cat_img_button.addEventListener("click", add_cat_text_fn)
 
 
@@ -316,10 +316,10 @@ cat_img_button.addEventListener("click", add_cat_text_fn)
 //  Syntax: ELEMENT.after( *NODE_OBJECT_1, NODE_OBJECT_2,... )
 
 //- Example 1:
-//? variables
+//^ variables
 const text_change_2 = document.querySelector(".text_change_2")
 const extra_button = document.createElement("button");
-//? dom element methods
+//^ dom element methods
 extra_button.innerHTML = "Extra Button";
 text_change_2.after(extra_button)
 
@@ -329,7 +329,7 @@ text_change_2.after(extra_button)
 //  Syntax: ELEMENT.remove()
 
 //- Example 1:
-//? addEventListener
+//^ addEventListener
 cookie_message_div.addEventListener("click", () => cookie_message_div.remove())
 
 // -----------------
@@ -341,7 +341,7 @@ cookie_message_div.addEventListener("click", () => cookie_message_div.remove())
 ///- Example 1:
 const button_container_2 = document.querySelector(".button_container")
 const all_example_button = document.querySelectorAll(".example_1");
-//? addEventListener
+//^ addEventListener
 button_container_2.addEventListener("click", function(el) {
     const example_button_clicked = el.target.closest(".example_1");
     // console.log(example_button_clicked);
@@ -359,14 +359,14 @@ button_container_2.addEventListener("click", function(el) {
 //  Syntax: TEXT_OBJECT.value = "TEXT"
 
 //- Example 1:
-//? function
+//^ function
 const submit_input = function(para_key) {
     if (para_key.key === "Enter") {
         const input_text = document.querySelector(".input_text").value;
         console.log(input_text);
     }
 }
-//? addEventListener
+//^ addEventListener
 document.addEventListener("keydown", submit_input);
 
 //* --------------------------------------------------------------------------

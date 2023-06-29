@@ -12,14 +12,15 @@ console.log("--- 📁 CHAPTER 6: Data Structures, Modern Operators and Strings -
 // • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Destructuring Arrays 
-// 📝 Destructing is to break a complex data structure down into a smaller data structure like a variable...
-// So for arrays we use destructuring to retrieve elements from the array and store them...
-// into variables in a very easy way.
+// 📝 Destructuring arrays is a feature that allows you to extract individual elements ...
+// from an array and assign them to variables in a convenient way. 
+// 📝 It provides a concise syntax for unpacking array values into separate variables.
+// Syntax: 
+// let/const [variable1, variable2, variable3] = array;
 
 // -----------------
-// ❕ Example 1:
+//- Example 1:
 const apple = [10, 20, 30];
 
 // 🔗 Retrieve array elements one by one into variables (not practical):
@@ -33,7 +34,7 @@ const [apple_d, apple_e, apple_f] = apple;
 console.log(apple_d, apple_e, apple_f);
 
 // -----------------
-// ❕ Example 2:
+//- Example 2:
 const restaurant = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -45,31 +46,31 @@ const restaurant = {
     }
 }
 
-// 🔗 Destructuring array element in object:
+// 🔸 Destructuring array element in object:
 const [starter_menu_1, starter_menu_2, starter_menu_3, starter_menu_4] = restaurant.starter_menu;
 console.log(starter_menu_3); /// garlic bread
 
-// 🔗 Skip some element in array for some reason:
+// 🔸 Skip some element in array for some reason:
 const [main_menu_1, , main_menu_2] = restaurant.main_menu; // ⭐ pasta will be skip
 console.log(main_menu_2); /// Risotto
 
-// 🔗 Switch two elements in array using destructuring:
+// 🔸 Switch two elements in array using destructuring:
 let [category_1, category_2, category_3, category_4] = restaurant.categories;
 [category_1, category_3] = [category_3, category_1] // ⭐ switch italian and Vegetarian position
 console.log(category_1); /// Vegetarian
 console.log(category_3); /// Italian
 
-// 🔗 With destructuring, we can return multiple values in function
+// 🔸 With destructuring, we can return multiple values in function
 const [starter_order, main_order] = restaurant.order(2, 0);
 console.log(starter_order); /// garlic bread
 console.log(main_order); /// pizza
 
-// 🔗 Destructing array inside an array:
+// 🔸 Destructing array inside an array:
 const burger = [2, 4, [5, 10]]
 const [burger_a, burger_b, [burger_c, burger_d]] = burger;
 console.log(burger_c); /// 5
 
-// Assign default value to variable that we destructuring
+// 🔸 Assign default value to variable that we destructuring
 const months = ["january", "february", "march"];
 const [month_1 = "unknown", month_2 = "unknown", month_3 = "unknown", month_4 = "unknown"] = months;
 console.log(month_1); /// january
@@ -77,13 +78,15 @@ console.log(month_3); /// march
 console.log(month_4); /// unknown
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Destructuring Objects 
-// 📝 Destructing is to break a complex data structure down into a smaller data structure like a variable...
-// So for objects we use destructuring to retrieve elements from the objects and store them...
-// into variables in a very easy way.
+// 📝 Destructuring objects is a feature that allows you to extract individual properties ...
+// from an object and assign them to variables in a convenient way. 
+// 📝 It provides a concise syntax for unpacking object values into separate variables.
+// Syntax: 
+// let/const { property1, property2 } = object;
 
 // -----------------
+//- Example 1:
 const restaurant_2 = {
     res_name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -114,33 +117,33 @@ const restaurant_2 = {
 }
 
 // -----------------
-// ❕ Destructuring object into variables (name is same as property name):
+// 🔸 Destructuring object into variables (name is same as property name):
 const { res_name, opening_hours, categories } = restaurant_2;
 console.log(res_name); /// Classico Italiano
 console.log(opening_hours); /// {thu: {…}, fri: {…}, sat: {…}}
 console.log(categories); /// ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
 
 // -----------------
-// ❕ Destructuring object into variable (name is different than property name):
+// 🔸 Destructuring object into variable (name is different than property name):
 const { res_name: restaurant_name, location: restaurant_location } = restaurant_2;
 console.log(restaurant_name); /// Classico Italiano
 console.log(restaurant_location); /// Via Angelo Tavanti 23, Firenze, Italy
 
 // -----------------
-// ❕ Assign default value to variable that we destructuring
+// 🔸 Assign default value to variable that we destructuring
 // 📝 This feature is very useful when dealing with third-party data (like API call).
 const {drinks = "unavailable", starter_menu: restaurant_2_starter_menu = "unavailable"} = restaurant_2;
 console.log(drinks); /// unavailable
 console.log(restaurant_2_starter_menu); /// ['Focaccia', 'Bruschetta', 'garlic bread', 'Caprese Salad']
 
 // -----------------
-// ❕ Destructuring objects inside an objects:
+// 🔸 Destructuring objects inside an objects:
 const {fri: {open, close}} = opening_hours; // opening_hours has been destructed to variable
 console.log(open);
 console.log(close);
 
 // -----------------
-// ❕ Destructuring objects inside parameter function:
+// 🔸 Destructuring objects inside parameter function:
 
     // call order_delivery function
     // we pass one object into the function, not 4 arguments
@@ -152,7 +155,7 @@ console.log(close);
     })
 
 // -----------------
-// ❕ Mutating variable values to same as objects properties:
+// 🔸 Mutating variable values to same as objects properties:
 let cat = 10;
 let hamster = 20;
 
@@ -164,36 +167,29 @@ const pet = {
 console.log(cat, hamster); //` 55 99
 
 //* --------------------------------------------------------------------------
-
-// 🧡 The Spread Operator (...) - Iterables & objects features (ES6) 
-//+   This features is very handy when dealing with array.
+// 🧡 The Spread Operator(...) - Iterables & objects features (ES6) 
+//+ (This features is very handy when dealing with array.)
 // 📝 The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array...
 // or object into another array or object.
-// 📝 The spread operator works on iterables.
-// 📝 Iterables: arrays, strings, maps, set, but NOT objects.
-// 📝 So basically, most of the built-in data structures in JavaScript are now iterables, but except objects.
-// 📝 But since ES 2018, the spread operator actually also works on objects, even though objects are not iterables.
+// 📝 How to detect spread operator: Spread operator use the existing variable name.
 
 // -----------------
-// ❕ When we need to use all the elements of an array individually:
-
+// 🔸 When we need to use all the elements of an array individually:
 const fish = [10, 20, 30, 40, 50];
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-console.log(...fish); /// 10 20 30 40 50
-console.log(...fruits); /// Banana Orange Apple Mango
+console.log(...fish); /// 10 20 30 40 50 (not in array)
+console.log(...fruits); /// Banana Orange Apple Mango (not in array)
 
 // -----------------
-// ❕ When we need to copy array data to another array:
-
-const extra_fund = [20, 50, 100];
-
-const total_fund = [1, 5, 10, ...extra_fund];
+// 🔸 When we need to copy array data to another array:
+const addition_fund = [20, 50, 100];
+const total_fund = [1, 5, 10, ...addition_fund];
 
 console.log(total_fund); /// [1, 5, 10, 20, 50, 100]
 
 // -----------------
-// ❕ Using spread operators from array in objects:
+// 🔸 Using spread operators from array in objects:
 const my_phone_spec = {
     brand: "Samsung",
     modal: "Samsung Galaxy S22",
@@ -204,7 +200,7 @@ const update_camera = [...my_phone_spec.camera, "10MP telephoto camera"]
 console.log(update_camera);
 
 // -----------------
-// ❕ With spread operators, we can easily copy & merge an array:
+// 🔸 With spread operators, we can easily copy & merge an array:
 
 const restaurant_3 = {
     name: "Classico Italiano",
@@ -226,18 +222,18 @@ const all_menu =  [...restaurant_3.starter_menu, ...restaurant_3.main_menu]
 console.log(all_menu);
 
 // -----------------
-// ❕ Using spread operators to unpack string:
+// 🔸 Using spread operators to unpack string:
 const str = "rashidi";
 const letter = [...str]
 console.log(letter); /// ['r', 'a', 's', 'h', 'i', 'd', 'i']
 
 // -----------------
-// ❕ spread operators is not a place that expects multiple values separated by a comma:
+// 🔸 spread operators is not a place that expects multiple values separated by a comma:
 
 // console.log(`${...str}`); /// Uncaught SyntaxError: Unexpected token
 
 // -----------------
-// ❕ Using spread operators in real code scenarios:
+// 🔸 Using spread operators in function arguments:
 const scrambled_egg = function(para_ing_1, para_ing_2, para_ing_3) {
     console.log(`To make scrambled egg ypu need ${para_ing_1}, ${para_ing_2} and ${para_ing_3}`);
 }
@@ -245,8 +241,7 @@ const scrambled_egg_ingredients = ["eggs", "breads", "mayonnaise", "salad"];
 scrambled_egg(...scrambled_egg_ingredients);
 
 // -----------------
-// ❕ Using spread operators with objects:
-
+// 🔸 Using spread operators with objects:
 const restaurant_4 = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -265,25 +260,20 @@ const update_restaurant_4 = {
 console.log(update_restaurant_4.starter_menu);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Rest Pattern and Rest Parameters
-// ? This features is very handy when dealing with array.
-// 📝 Rest pattern is used to collect unused elements and pack the elements into a new array.
-// 📝 If spread operators at the right side of the assignment operator,...
-// the rest pattern at the left side of the assignment operator.
+// 🧡 Rest Pattern(...) & Rest Parameters(...) 
+//+ (This features is very handy when dealing with array & object.)
+// 📝 Rest pattern is used to remaining elements and pack it into a new array/object.
+// 📝 How to detect rest pattern: We create new variable name when we using rest pattern.
 
 // -----------------
-// ❕ The rest pattern basically collects the elements that are unused when destructuring:
+// 🔸 The rest pattern basically collects the elements that are unused when destructuring: 
 
-// 🔗 first example:
-const chicken = [11, 22, 33, 44, 55]
-
+//- example 1:
+const chicken = [11, 22, 33, 44, 55];
 const [a, b, ...others] = chicken;
-
 console.log(a, b, others); /// 11, 12, [33, 44, 55]
 
-// 🔗 second example
-
+//- example 2:
 const restaurant_5 = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -292,10 +282,11 @@ const restaurant_5 = {
     main_menu: ["pizza", "pasta", "Risotto", "tomato soup"],
 }
 const [food_1, , food_2, ...other_food] = [...restaurant_5.main_menu, ...restaurant_5.starter_menu];
-console.log(food_1, food_2, other_food);
+console.log(food_1, food_2, other_food); 
+/// pizza, Risotto ['tomato soup', 'Focaccia', 'Bruschetta', 'garlic bread', 'Caprese Salad']
 
 // -----------------
-// ❕ The rest pattern used in objects:
+// 🔸 The rest pattern used in objects: 
 
 const restaurant_6 = {
     name: "Classico Italiano",
@@ -320,103 +311,94 @@ const restaurant_6 = {
 }
 
 const {sat, ...weekdays} = restaurant_6.opening_hours;
-
 console.log(weekdays);
 
 // -----------------
-// ❕ Rest parameters
+// 🔸 Rest parameters 
 // 📝 Whe we use rest parameter, the parameter elements will be pack into one array.
 
-// 🔗 first example:
+//- example 1:
 const add_num = function(...para_numbers) { // rest parameter operators
-    // console.log(para_numbers); /// [100, 500, 400]
+    console.log(para_numbers); /// [100, 500, 400]
     let sum = 0;
     for (let i = 0; i < para_numbers.length; i++) {
         sum = sum + para_numbers[i];
     }
-    console.log(sum); /// 400
+    console.log(sum); /// 1000
 }
-
 add_num(100, 500, 400)
-    // 0r
-const x = [100, 500, 400];
-add_num(...x) // spread operators
 
-// 🔗 second example:
+//- example 2:
 const order_pizza = function(para_main_ing, para_main_ing_2, ...para_other_ing) {
     console.log(para_main_ing, para_main_ing_2); /// bread tomato
     console.log(para_other_ing); /// ['minced meat', 'cheese', 'mushroom', 'bell pepper']
 }
-
 order_pizza("bread", "tomato", "minced meat", "cheese", "mushroom", "bell pepper")
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Short Circuiting in logical operators (&& and ||)
-// 📝 Logical operators (&& and ||) are used to determine the logic between variables or values.
+// 🧡 Short Circuiting in logical operators (&& and ||) 
+// 📝 Short-circuiting refers to the behavior of logical operators (&& and ||) when evaluating expressions.
 // 📝 We can do a lot more with (&& and ||) than only to combine Boolean values.
 // 📝 (&& and ||) can use in any data type, they can return any data type by using short circuiting.
+// 📝 Short-circuiting is often used to conditionally assign default values or to guard against potential errors. 
 
 // -----------------
-// ❕ Short circuiting in ( || operator ):
+// 🔸 Short circuiting - || operator 
 // 📝 if the first value is a truthy value, it will immediately return that first value.
 
-// 🔗 Example 1:
+//- Example 1:
 console.log(999 || "Tom"); /// 999
 
-// 🔗 Example 2:
+//- Example 2:
 console.log("" || "Tom"); /// Tom
 
-// 🔗 Example 3:
+//- Example 3:
 console.log(true || "Tom"); /// True
 
-// 🔗 Example 4:
+//- Example 4:
 // 📝 No short circuiting happens, so it will return the last value even if the last value is false.
 console.log(0 || null || undefined); // undefined
 
-// 🔗 Example 5:
+//- Example 5:
 console.log(0 || null || undefined || "" || "mystery" || 0 || 123); /// mystery
 
-// 🔗 Real Life Scenarios using Short circuiting in ( || operator ):
-
+//- Real Life Scenarios using Short circuiting - || operator:
 const mc_donald = {
     location: "Senawang",
     phone: "06-678 8445",
     // customers_num: 25,
 }
-
-// Without using Short circuiting (using if else statement):
+// 🔗 Without using Short circuiting (using if else statement):
 // 📝 If mc_donald.customers_num is not exist, it will run else statement.
 const mc_donald_customers = mc_donald.customers_num ? mc_donald.customers_num : "Undefined customers";
 console.log(mc_donald_customers);
 
-// Using Short circuiting (more simple and short code):
+// 🔗 Using Short circuiting - more simple and short code:
 // 📝 If mc_donald.customers_num is not exist, it will return the last value even if the last value is false.
 const mc_donald_customers_2 = mc_donald.customers_num || "Undefined customers";
 console.log(mc_donald_customers_2);
 
 // -----------------
-// ❕ Short circuiting in ( && operator ):
+// 🔸 Short circuiting - && operator 
 // 📝 If the first value is a falsy value, it will immediately return that first value.
 
-// 🔗 Example 1:
+//- Example 1:
 console.log(0 && "Tom"); /// 0
 
-// 🔗 Example 2:
+//- Example 2:
 console.log(777 && undefined); /// undefined
 
-// 🔗 Example 3:
+//- Example 3:
 console.log(false && "Tom"); /// false
 
-// 🔗 Example 4:
+//- Example 4:
 // 📝 No short circuiting happens, so it will return the last value even if the last value is true.
 console.log(55 && "Lily" && true); /// true
 
-// 🔗 Example 5:
+//- Example 5:
 console.log(100 && 200 && 300 && 0 && 550 && undefined); /// 0
 
-// 🔗 Real Life Scenarios using Short circuiting in ( && operator ):
-
+//- Real Life Scenarios using Short circuiting - && operator:
 const mc_donald_2 = {
     location: "Ampangan",
     phone: "06-760 0425",
@@ -424,38 +406,35 @@ const mc_donald_2 = {
     //     console.log(para_size_burger);
     // }
 }
-
 // 📝 If mc_donald.order_burger exist, than the code will be executed
-mc_donald_2.order_burger && mc_donald_2.order_burger("Medium") 
+console.log(mc_donald_2.order_burger && mc_donald_2.order_burger("Medium")); /// undefined
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Nullish Coalescing Operator (??) (ES2020)
+// 🧡 Nullish Coalescing Operator (??) (ES2020) 
 // 📝 Nullish Coalescing Operator (??) are just like (||) but 0 and empty string ("") is not a falsy values.
 // 📝 Nullish values: null and undefined only.
 // 📝 This is useful when other falsy values can occur in the expression but are still valid.
 
 // -----------------
-// ❕ Short circuiting in ( ?? operator ):
+// 🔸 Short circuiting in ( ?? operator ) 
 // 📝 If the first value is not a Nullish value, it will immediately return that first value.
 
-// 🔗 Example 1:
+//- Example 1:
 console.log(0 ?? "Tom"); /// 0
 
-// 🔗 Example 2:
+//- Example 2:
 console.log("" ?? "Tom"); ///
 
-// 🔗 Example 3:
+//- Example 3:
 console.log(undefined ?? "Tom"); /// "Tom"
 
-// 🔗 Example 4:
+//- Example 4:
 console.log(null ?? "Tom"); /// "Tom"
 
-// 🔗 Example 5:
+//- Example 5:
 console.log( null ?? undefined ?? 0 ?? "mystery" ?? "" ?? undefined); /// 0
 
-// 🔗 Real Life Scenarios using Short circuiting in ( ?? operator ):
-
+//- Real Life Scenarios using Short circuiting - ?? operator:
 const mc_donald_3 = {
     location: "Seremban",
     phone: "06-678 8445",
@@ -466,8 +445,7 @@ const mc_donald_3_customers = mc_donald_3.customers_num ?? "Undefined customers"
 console.log(mc_donald_3_customers);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 1# Coding Challenges
+// 🧡 1# Coding Challenges 
 
 /*
 We're building a football betting app (soccer for my American friends 😅)!
@@ -542,32 +520,32 @@ const game = {
   };
 
 // -----------------
-// ❕ 1 Solution:
+// 🔸 1 Solution:
   const [player_1, player_2] = game.players;
   console.log(player_1, player_2);
 
 // -----------------
-// ❕ 2 Solution:
+// 🔸 2 Solution:
 const [goal_keeper, ...field_player] = player_1;
 console.log(goal_keeper);
 console.log(field_player);
 
 // -----------------
-// ❕ 3 Solution:
+// 🔸 3 Solution:
 const all_players = [...player_1, ...player_2];
 console.log(all_players);
 
 // -----------------
-// ❕ 4 Solution:
+// 🔸 4 Solution:
 const players_1_final = ['Thiago', 'Coutinho', 'Perisic', ...player_1]
 
 // -----------------
-// ❕ 5 Solution:
+// 🔸 5 Solution:
 const { team1:team_1, x:draw, team2:team_2 } = game.odds;
 console.log(team_1, draw, team_2);
 
 // -----------------
-// ❕ 6 Solution:
+// 🔸 6 Solution:
 const print_goals = function(...para_scorer) {
     console.log(`${para_scorer.length} goals were scored`);
 }
@@ -575,13 +553,12 @@ print_goals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 print_goals(...game.scored);
 
 // -----------------
-// ❕ 7 Solution:
+// 🔸 7 Solution:
 team_1 > team_2 && console.log("team 1 is more likely to win");
 team_2 > team_1 && console.log("team 2 is more likely to win");
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Looping Arrays: The for-of Loop
+// 🧡 Looping Arrays: The for-of Loop 
 // 📝 So this loop will automatically loop over the entire array and in each iteration,
 // 📝 It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more.
 // Syntax:
@@ -592,7 +569,7 @@ team_2 > team_1 && console.log("team 2 is more likely to win");
 */
 
 // -----------------
-
+//- 📦 VARIABLES:
 const mc_donald_4 = {
     location: "Aeon Seremban",
     phone: "06-678 8445",
@@ -602,25 +579,25 @@ const mc_donald_4 = {
 }
 const mc_donald_menu = [...mc_donald_4.menu, ...mc_donald_4.desserts];
 
-// 🔗 Example 1:
+//- Example 1:
 for (const item of mc_donald_menu) {
     console.log(item);
 }
 
-// 🔗 Example 2:
+//- Example 2:
 console.log(...mc_donald_menu.entries()); // [0, "Prosperity Burger"]
 for (const [num, item] of mc_donald_menu.entries()) { // using destructuring at VARIABLE_NAME
     console.log(`${num + 1}: ${item}`);
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Enhanced Object Literals (ES6)
-// 📝 An enhancement when dealing with object
+// 🧡 Enhanced Object Literals (ES6) 
+// 📝 An enhancement when dealing with an object.
 
 // -----------------
-// ❕ First Enhancement: When we want to add new properties in object from outside variable:
+// 🔸 First Enhancement: When we want to add new properties in object from outside variable:
 
+//- Example 1:
 const mc_drinks = ["Hot MILO", "Hot Tea", "Hot Teh Tarik", "Coca-Cola"];
 
 const mc_donald_5 = {
@@ -633,7 +610,7 @@ const mc_donald_5 = {
 console.log(mc_donald_5);
 
 // -----------------
-// ❕ Second Enhancement: Shorthand method when write function in object:
+// 🔸 Second Enhancement: Shorthand method when write function in object:
 
 const mc_donald_6 = {
     location: "Lotus Seremban",
@@ -646,7 +623,7 @@ const mc_donald_6 = {
 }
 
 // -----------------
-// ❕ Third Enhancement: We can computer properties name in object:
+// 🔸 Third Enhancement: We can computer properties name in object 
 
 const mcd_weekdays = ["mon", "tues", "wed", "thurs", "fri", "Satur", "Sun"]
 
@@ -673,8 +650,7 @@ const mc_donald_7 = {
 console.log(mc_donald_7.opening_hours);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Optional Chaining (?.) (ES2020)
+// 🧡 Optional Chaining (?) (ES2020) 
 // 📝 If the object accessed or function called is undefined or null,...
 // it returns undefined instead of throwing an error.
 // ! Important when we not sure if the data is exist or not.
@@ -701,14 +677,14 @@ const mc_donald_8 = {
 }
 
 // -----------------
-// ❕ Problem 1:
+// 🔸 Problem 1:
 // 📝 "sat" property do not exist, when we want access the "open", we will get error.
 // 📝 The "sat" is undefined, and when undefined try to acccess his children, we will get error.
 
 // console.log(mc_donald_8.opening_hours.sat.open); // ERROR
 
 // -----------------
-// ❕ Solution 1:
+// 🔸 Solution 1:
 
 // 🔗 Using if else statement (not practical):
 // 📝 The code will not get executed because "sat" do not exist.
@@ -718,15 +694,15 @@ if (mc_donald_8.opening_hours.sat) {
     console.log(mc_donald_8.opening_hours.sat.open);
 }
 
-// 🔗 Solution to problem 1:
+// 🔗 Real solution to solution above:
 if (mc_donald_8.opening_hours && mc_donald_8.opening_hours.sat) {
     console.log(mc_donald_8.opening_hours.sat.open);
 }
 
 // -----------------
-// ❕ Solution 2:
+// 🔸 Solution 2:
 
-// 🔗 Using optional chaining (?.) (practical):
+// 🔗 Using optional chaining (?) (practical):
 console.log(mc_donald_8.opening_hours.sat?.open);
 
 // 🔗 When we not even sure if "opening_hours" is even exist:
@@ -760,7 +736,7 @@ const mc_donald_9 = {
 const days = ["mon", "tues", "wed", "thurs", "fri", "satur", "sun"]
 
 // -----------------
-// ❕ Using optional chaining(?.) with The for-of Loop:
+// 🔸 Using optional chaining(?.) with The for-of Loop:
 
 for (const item of days) {
     const mcd_open = mc_donald_9.opening_hours[item]?.open || "another time";
@@ -768,14 +744,13 @@ for (const item of days) {
 }
 
 // -----------------
-// ❕ Using optional chaining(?.) for calling function:
+// 🔸 Using optional chaining(?.) for calling function:
 
 const print_order = mc_donald_9.order?.(2, 3) || "order is not available";
 console.log(print_order);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Looping Objects: Object Keys, Values, and Entries
+// 🧡 Looping Objects: Object Keys, Values, and Entries 
 
 // -----------------📦
 const mc_donald_10 = {
@@ -803,46 +778,53 @@ const mc_donald_10 = {
 }
 
 // -----------------
-// ❕ Looping object with Object.keys()
-// 📝 Object.keys() ✨(OBJECT - METHOD)
+// 🔸 Object.keys() 
+// 📝 ✨(OBJECT - METHOD)
 // 📝 Returns an Array with object properties name only (without properties value) .
 // Syntax: Object.keys(OBJECT)
 
-// 🔗 Example 1:
-const properties = Object.keys(mc_donald_10.opening_hours);
-console.log(properties);
+//- Example 1:
+const properties_name = Object.keys(mc_donald_10.opening_hours);
+console.log(properties_name); /// ['mon', 'fri', 'sun']
 
-let opening_hours_text = (` We are open for ${properties.length} days`);
-
-for (const item of properties) {
-    opening_hours_text = opening_hours_text + (`${item}`);
+for (const item of properties_name) {
+    console.log(`We are open for ${item}`);
 }
-console.log(opening_hours_text);
 
 // -----------------
-// ❕ Looping object with Object.values()
-// 📝 Object.values() ✨(OBJECT - METHOD)
+// 🔸 Object.values() 
+// 📝✨(OBJECT - METHOD)
 // 📝 Returns an Array with object properties values only (without properties name)
 // Syntax: Object.values(OBJECT)
 
-// 🔗 Example 1:
+//- Example 1:
 const values = Object.values(mc_donald_10.opening_hours)
-console.log(values);
+console.log(values); /// [{…}, {…}, {…}]
 
+for (const {open, close} of values) {
+    console.log(`We are open from ${open} until ${close}`);
+}
+
+// -----------------
+// 🔸 Object.entries() 
+// 📝✨(OBJECT - METHOD)
+// 📝 Rrn an array of a given object's own enumerable property [key, value] pairs.
+// Syntax: Object.values(OBJECT)
+
+//- Example 1:
 const entries = Object.entries(mc_donald_10.opening_hours);
-console.log(entries);
+console.log(entries); /// [[mon, {…}], [fri, {…}], [sun, {…}]]
 
 for (const [item, {open, close}] of entries) {
     console.log(`on ${item}, we open at ${open} and close at ${close}`);
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 2# Coding Challenges
+// 🧡 2# Coding Challenges 
 /*
     Your tasks:
     1. Loop over the football_game.scored array and print each player name to the console,
-    along with the goal number (Example: "Goal 1: Lewandowski")
+    along with the goal numbe- Example: "Goal 1: Lewandowski")
     2. Use a loop to calculate the average odd and log it to the console (We already
     studied how to calculate averages, you can go check if you don't remember)
     3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
@@ -905,13 +887,13 @@ const football_game = {
   };
 
 // -----------------
-// ❕ 1 Solution:
+// 🔸 1 Solution:
 for (const [num, item] of football_game.scorer.entries()) {
     console.log(`Goal ${num + 1}: ${item}`);
 }
 
 // -----------------
-// ❕ 2 Solution:
+// 🔸 2 Solution:
 
 const odds_values = Object.values(football_game.odds);
 
@@ -923,7 +905,7 @@ average /= odds_values.length;
 console.log(average);
 
 // -----------------
-// ❕ 3 Solution:
+// 🔸 3 Solution:
 
 const teams_name = Object.entries(football_game.odds) // [team_1, 1.33]
 
@@ -934,7 +916,7 @@ for (const [para_team, para_value] of teams_name) {
 }
 
 // -----------------
-// ❕ 4 Solution:
+// 🔸 4 Solution:
 
 const player_score_array = football_game.scorer.entries()
 console.log(...player_score_array);
@@ -946,26 +928,24 @@ console.log(...player_score_array);
 // }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Working With Strings
+// 🧡 Working With Strings 
 
 // -----------------📦
 const laptop_modal = "ROG Zephyrus G14";
 const laptop_gpu = "RX 6800S";
 
 // -----------------
-// ❕ Accessing string letter:
+// 🔸 Accessing string letter:
 console.log(laptop_modal[4]); // Z
 console.log("RX 6800S"[4]); // 8
 
 // -----------------
-// ❕ Total string letter:
+// 🔸 Total string letter:
 console.log(laptop_gpu.length); // 8
 console.log("ROG Zephyrus G14".length); // 16
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challange 1 (STRING METHOD)
+// 🧡 Coding Challange 1 (STRING METHOD) 
 
 // Return statement based on the last letter.
 
@@ -985,12 +965,11 @@ check_middle_seat("23E")
 check_middle_seat("14C")
 
 //* --------------------------------------------------------------------------
-
 // 🧡 Coding Challange 2 (STRING METHOD)
 
 // -----------------
 
-// ❕  Fix capitalization in name:
+// 🔸  Fix capitalization in name:
 
 const customer_name = "kAkaSHi";
     // fix name
@@ -1000,7 +979,7 @@ console.log(customer_fix_name_2); // Kakashi
 
 // -----------------
 
-// ❕ Fix capitalization in email
+// 🔸 Fix capitalization in email
 
 const log_in_email = " ArifRashidi01@gmail.com "
     // fix email
@@ -1009,7 +988,7 @@ console.log(email_name_fix);
 
 // -----------------
 
-// ❕ Real Life Scenarios example
+// 🔸 Real Life Scenarios example
 
 const check_baggage = function(para_item) {
     // all string letter convert to lower case for we can easily compare it.
@@ -1028,14 +1007,14 @@ check_baggage("I have a food and a fruit")
  
 // -----------------
 
-// ❕ Using slice() with destructuring:
+// 🔸 Using slice() with destructuring:
 const [first_name, second_name] = "Amirul Ridhuan".split(" ");
 console.log(first_name);
 console.log(second_name);
 
 // -----------------
 
-// ❕ Fix name with fuction:
+// 🔸 Fix name with fuction:
 const capitalize_name = function(para_name) {
     const name_to_array = para_name.toLowerCase().split(" ");
     const fix_name_2 = [];
@@ -1051,7 +1030,7 @@ capitalize_name("arif rasHidi bIn abd rahMan")
 
 // -----------------
 
-// ❕ Hide credit card number
+// 🔸 Hide credit card number
 const hide_credit_card_num = function(para_num) {
     const str = String(para_num);
     const last_num = str.slice(-4);
@@ -1068,8 +1047,7 @@ plane_in_line(1);
 plane_in_line(3);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challange 3 (STRING METHOD)
+// 🧡 Coding Challange 3 (STRING METHOD) 
 
 /*
     Write a program that receives a list of variable names written in underscore_case
@@ -1093,7 +1071,7 @@ plane_in_line(3);
 */
 
 // -----------------
-// ❕ Create text are & button in html:
+// 🔸 Create text are & button in html:
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
@@ -1112,8 +1090,7 @@ button.addEventListener("click", function() {
 })
 
 //* --------------------------------------------------------------------------
-
-// 🧡 4# Coding Challenges
+// 🧡 4# Coding Challenges 
 
 const flights = 
 `_Delayed_Departure;fao93766109;txL2133758440;11:25
@@ -1127,7 +1104,7 @@ const flights =
 // Departure frow FA0 to LIS (12h30)
 
 // -----------------
-// ❕ My own code:
+// 🔸 My own code:
 const split_text = flights.split("\n");
 for (let i = 0; i < split_text.length; i++) {
     // console.log(split_text[i]);
@@ -1148,7 +1125,7 @@ for (let i = 0; i < split_text.length; i++) {
 }
 
 // -----------------
-// ❕ more efficient code:
+// 🔸 more efficient code:
 
 // const get_code = str => str.slice(0, 3).toUpperCase();
 
