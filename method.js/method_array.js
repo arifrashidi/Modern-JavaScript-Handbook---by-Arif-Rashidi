@@ -57,7 +57,7 @@ money_movement.forEach(function (element, i) {
         console.log(`Movement ${i + 1}: You deposited RM ${element}`);
     }
     else {
-        console.log(`Movement ${i + 1}: You witdram RM ${Math.abs(element)}`);
+        console.log(`Movement ${i + 1}: You withdraw RM ${Math.abs(element)}`);
     }
 })
 
@@ -75,7 +75,6 @@ money_movement.forEach(function (element, i) {
 const farm_animals = ['cow', 'goats', 'sheep'];
 const count_animals = farm_animals.push("chicken")
 console.log(farm_animals) /// ['cow', 'goats', 'sheep', 'chicken']
-console.log(count_animals); /// 4
 
 // -----------------
 // ⭐ This method works just like the push() method but has its own different purposes.
@@ -148,11 +147,11 @@ animals_2.splice(2); /// ['ant', 'bison']
 // ⭐ starts from -2, deletes all (⏩) items from the array. 
 animals_2.splice(-2); /// ['ant', 'bison', 'camel']
 
-// ⭐ starts from 2, deletes 2 (⏩) items from the array. 
+// ⭐ starts from 2, deletes 1 (⏩) items from the array. 
 animals_2.splice(2, 1); /// ['ant', 'bison', 'duck', 'elephant'];
 
 // ⭐ starts from 3, deletes 1 (⏩) items and replaced it with "lion" from the array
-animals_2.splice(3, 1, "lion"); /// ['ant', 'bison', 'lion', 'duck', 'elephant']
+animals_2.splice(3, 1, "lion"); /// ['ant', 'bison', 'camel', 'lion', 'elephant']
 
 // ⭐ starts from beginning of array, deletes 2 (⏩) items and replaced it with "chicken" from the array
 animals_2.splice(0, 2, "chicken", "cat"); ///  ['chicken', 'cat', 'camel', 'duck', 'elephant']
@@ -192,10 +191,10 @@ console.log(double_the_number); /// [2, 8, 18, 32]
 // -----------------
 // 🔸 flat() 
 // ✨(NOT OVERWRITE)
-// ! This method is only useful when dealing with array in array.
+//+ This method is only useful when dealing with array in array.
 // 📝 This method RETURNS a new array with all sub-array elements combine up to the specified depth.
 // ⭐ DEPTH: is optional.
-// Syntax: ARRAY.concat( *DEPTH )
+// Syntax: ARRAY.flat( *DEPTH )
 
 //- example 1:
 const array_6 = [0, [1], 2, [3, 4]];
@@ -248,25 +247,22 @@ console.log(num_1); /// ['three', 'two', 'one']
 // ⭐ COMPARE_FUNCTION: a special function that defines the sort order for sorting number only.
 // Syntax: ARRAY.sort( COMPARE_FUNCTION )
 
-
 //- example 1: (sort by alphabet)
 const words_2 = ["ant", "duck", "eel", "cat", "baboon"]
 const sort_words = words_2.sort(); 
-console.log(sort_words); /// ['ant', 'baboon', 'cat', 'duck', 'eel']
-
+console.log(words_2); /// ['ant', 'baboon', 'cat', 'duck', 'eel']
 
 //- example 2: (sort by number)
 // ⭐ To sort the number in ascending order, just copy | (a, b) => a - b | in fn statement.
 const num_4 = [100, 50, -5, 70, 80, 20, -10];
 const sort_num = num_4.sort((a, b) => a - b)
-console.log(sort_num); /// [-10, -5, 20, 50, 70, 80, 100]
-
+console.log(num_4); /// [-10, -5, 20, 50, 70, 80, 100]
 
 //- example 3: (sort by number)
 // ⭐ To sort the number in descending order, just copy | (a, b) => b - a | in fn statement.
 const num_5 = [100, 50, -5, 70, 80, 20, -10];
 const sort_num_2 = num_5.sort((a, b) => b - a)
-console.log(sort_num_2); /// [100, 80, 70, 50, 20, -5, -10]
+console.log(num_5); /// [100, 80, 70, 50, 20, -5, -10]
 
 // -----------------
 // 🔸 filter() 

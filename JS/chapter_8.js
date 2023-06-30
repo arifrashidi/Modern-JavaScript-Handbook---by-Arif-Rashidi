@@ -6,16 +6,14 @@
 console.log("--- 📁 CHAPTER 8: Working With Array ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
-// ⭐: Tips for easy understanding
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challenge 1 (ARRAY METHOD)
+// 🧡 Coding Challenge 1 (ARRAY METHOD) 
 
 /*
 Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
@@ -42,7 +40,7 @@ Test data:
 */
 
 // -----------------
-// ❕ 1: Self solution (not perfect but it is what it is): 
+// 🔸 1: Self solution (not perfect but it is what it is): 
 
 const julia_data = [3, 5, 2, 12, 7];
 const kate_data = [4, 1, 15, 8, 3];
@@ -62,8 +60,7 @@ const check_dog = function(para_julia_data, para_kate_data) {
 check_dog(julia_data, kate_data);
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challenge 2 (ARRAY METHOD)
+// 🧡 Coding Challenge 2 (ARRAY METHOD) 
 
 /*
     dog ages to human ages and calculate the average age of the dogs in their study.
@@ -100,8 +97,7 @@ const calc_dog_ages = function(para_dog_ages) {
 console.log(calc_dog_ages(dogs));
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challange 3 (ARRAY METHOD)
+// 🧡 Coding Challange 3 (ARRAY METHOD) 
 
 /*
 Julia and Kate are still studying dogs, and this time they are studying if dogs are

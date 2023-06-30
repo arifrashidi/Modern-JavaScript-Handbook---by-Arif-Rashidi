@@ -49,65 +49,60 @@ window.blur()
 
 // -----------------
 // 🔸 setTimeout() 
-// 📝 This method calls a function after a number of milliseconds.
+// 📝 This method is used to create a delay before executing a particular action.
 // 📝 1 second = 1000 milliseconds.
 // Syntax: 
-/*
-    setTimeout(function ( *FUNCTION, *MILLISECONDS, PARAM_1, PARAM_2 ) {
-        code to be executed
-    })
-*/
+// setTimeout(*FUNCTION, *DELAY, PARAM_1, PARAM_2 );
 
 //- example 1:
 setTimeout(() => console.log("Here is your pizza"), 3000);
 
 //- example 2:
 const ingredient = ["olives", "spinach"]
-const pizza_timer = setTimeout((para_ing_1, para_ing_2) =>
-console.log(`Here is your pizza with ${para_ing_1} and ${para_ing_2}`), 3000, ...ingredient); // ⭐ ingredient is argument.
+const pizza_fn = (para_ing_1, para_ing_2) => {
+    console.log(`Here is your pizza with ${para_ing_1} and ${para_ing_2}`)
+}
+const pizza_timer = setTimeout(pizza_fn, 3000, ...ingredient);
 
 // -----------------
 // 🔸 clearTimeout() 
 // 📝 This method clears a timer set with the setTimeout() method.
-// Syntax: clearTimeout( *setTimeout() );
+// Syntax: clearTimeout( *setTimeout );
 
 //- example 1:
-const ingredient_pizza = ["olives", "spinach"]
-const pizza_timer_2 = setTimeout((para_ing_1, para_ing_2) =>
-console.log(`Here is your pizza with ${para_ing_1} and ${para_ing_2}`), 3000, ...ingredient);
+const ingredient_2 = ["olives", "spinach"]
+const pizza_fn_2 = (para_ing_1, para_ing_2) => {
+    console.log(`Here is your pizza with ${para_ing_1} and ${para_ing_2}`)
+}
+const pizza_timer_2 = setTimeout(pizza_fn, 3000, ...ingredient);
 
-if (ingredient_pizza.includes("spinach")) clearTimeout(pizza_timer_2);
+if (ingredient_2.includes("spinach")) clearTimeout(pizza_timer_2);
 
 // -----------------
 // 🔸 setInterval() 
-// 📝 This method calls a function at specified intervals (in milliseconds).
-// This) method continues calling the function until clearInterval() is called, or the window is closed.
+// 📝 This method used to repeatedly execute a specified function or block of code at a fixed interval.
+// 📝 This method continues calling the function until clearInterval() is called, or the window is closed.
 // 📝 1 second = 1000 milliseconds.
 // Syntax: 
-/*
-    setInterval(function ( *FUNCTION, *MILLISECONDS, PARAM_1, PARAM_2 ) {
-        code to be executed
-    })
-*/
-
+// setInterval(*FUNCTION, DELAY);
 
 //- example 1:
-const greet_every_3_second = setInterval(() => console.log("Welcome"), 60000)
-
+const greet_every_3_second = setInterval(() => console.log("Welcome"), 3000)
 
 //- example 2: (update time every sec)
-setInterval(function() {
+const show_date_every_1_sec = function() {
     const now = new Date();
     console.log(now);
-}, 1000)
+}
+setInterval(show_date_every_1_sec, 1000)
 
 // -----------------
 // 🔸 clearInterval() 
 // 📝 This method clears a timer set with the setInterval() method.
-// Syntax: clearInterval( *setInterval() );
+// Syntax: clearInterval( *setInterval );
 
 //- example 1:
-const greet_every_second_2 = setInterval(() => console.log("Welcome"), 60000)
-clearInterval(greet_every_second_2)
+const hi_every_second_2 = setInterval(() => console.log("Hi"), 1000)
+clearInterval(hi_every_second_2)
 
 // -----------------

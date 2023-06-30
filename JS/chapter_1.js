@@ -659,7 +659,7 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-// 🧡 Expression and Statement
+// 🧡 Expression and Statement 
 
 // -----------------
 // 🔸 Expression
@@ -748,7 +748,7 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
   + 2. Property:
   A property is a value associated with an object. It can be a simple value like a string or number, 
   or it can be a more complex value like another object or function.
-  EXAMPLE: DOM property = target / style / children
+  EXAMPLE: DOM property = length / target / style / children
 
   + 3. Statement:
   A statement is a line of code that performs a specific action or sequence of actions. 

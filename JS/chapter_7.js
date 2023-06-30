@@ -6,22 +6,20 @@
 console.log("--- 📁 CHAPTER 7: A Closer Look at Functions ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Default Parameters
-// 📝 Assign default parameter value
+// 🧡 Default Parameters 
+// 📝 Assign default value to function parameters. 
 
 // -----------------
-// ❕ Example 1:
+//- Example 1:
 
 const all_bookings = [];
-
 const create_booking = function(flight_num, num_passengers = 1, price = 150 * num_passengers) { // more practical
 
     const booking = {
@@ -36,16 +34,18 @@ create_booking("LH123", 5) /// {flight_num: 'LH123', num_passengers: 5, price: 7
 create_booking("LH123", undefined, 100) /// {flight_num: 'LH123', num_passengers: 1, price: 100}
 
 //* --------------------------------------------------------------------------
+// 🧡 How Passing Arguments Works: Value vs. Reference (such as object) 
+//+ Important when dealing with reference (such as object and array).
+// 📝 Arguments can be passed to functions either by value or by reference. 
 
-// 🧡 How Passing Arguments Works: Value vs. Reference(such as object)
-// ! Important when dealing with reference (such as object and array).
-// 📝 When a function is called, the arguments in a function can be passed by value...
-// or passed by reference(such as object).
-// 📝 In a pass by value, the parameter value copies to another variable.
+// 📝 In a pass by value (primitive data type), the parameter value copies to another variable. ...
+// This means, any changes made to the parameter within the function do not affect the original value.
+
 // 📝 In a pass by reference, the actual parameter passes to the function.
+// This means, Any modifications made to the object within the function will affect the original object.
 
 // -----------------
-// ❕ Example 1:
+//- Example 1:
 
 const train = "LH234"
 const passenger_profile = {
@@ -72,46 +72,32 @@ console.log(train); // LH234
 console.log(passenger_profile.name); // Mr. Arif Rashidi (add Mr.)
 
 //* --------------------------------------------------------------------------
-
-// 🧡 First-Class and Higher-order Functions
+// 🧡 First-Class and Higher-order Functions concept 
 
 // -----------------
-// ❕ First-class function:
+// 🔸 First-class function concept:
 // 📝 First-class function is concept on how function works.
 // 📝 In JavaScript, functions are treated as first-class citizens,...
 // which means that they can be treated like any other value, such as a variable, object, or array.
 
-//+ 🔗 1. Store function in variable
+//🔗 1. Store function in variable
 const add = (a, b) => a + b;
 
-//+ 🔗 2. Store function in object properties
+//🔗 2. Store function in object properties
 const counter = {
     value: 23,
     include: function() {return this.value ++;},
 }
 console.log(counter.include());
 
-//+ 🔗 3. Callback function (Pass function as argument to other function)
-
-//+ 🔗 4. Return function from function
-
-//+ 🔗 5. call() / bind() method on function
-  
 // -----------------
-// ❕ Higher-order Functions:
-// 📝 Higher-order Functions is a practical uses of first-class function concept.
-// 📝 A function that receives another function as an argument, that returns a new function, or both.
+// 🔸 Higher-order Functions concept:
+// 📝 Higher-order is a concept refers to the ability of functions to accept other functions 
+// as arguments and/or return functions as their result.
 // 📝 This is only possible because of first-class functions.
 
-// 🔗 Example 1:
-// 📝 greet_2 is not gonna executed until .addEventListener function executed first.
-
-const greet_2 = () => console.log('Hey Arif'); // greet_2 is callback function
-document.querySelector('.greet').addEventListener("click", greet_2); // .addEventListener is higher order function
-
 //* --------------------------------------------------------------------------
-
-// 🧡 Functions Accepting Callback Functions
+// 🧡 Functions Accepting Callback Functions 
 // 📝 A callback function is a function passed as an argument to another function,...
 // This technique allows a function to call another function.
 // 📝 A callback function can run after another function has finished.
@@ -119,15 +105,11 @@ document.querySelector('.greet').addEventListener("click", greet_2); // .addEven
 // or code into more reusable and interconnected parts.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
 
 const transformer = function(para_str, para_function) { // tranformer is higher order function
-    console.log(`Original string: ${para_str}`);
-    console.log(`Transform string: ${para_function(para_str)}`);
-    
-}
-const one_word = function(para_str) {
-    return para_str.replace(/ /g, "").toLowerCase();
+    console.log(`Original string: ${para_str}`); /// Javascript is the best 
+    console.log(`Transform string: ${para_function(para_str)}`); /// JAVASCRIPT is the best 
 }
 const upper_first_word = function(para_str) { // upper_first_word is callback function
     const [first, ...other] = para_str.split(" ");
@@ -137,13 +119,14 @@ const upper_first_word = function(para_str) { // upper_first_word is callback fu
 transformer("Javascript is the best", upper_first_word);
 
 // -----------------
-// ❕ Example 2: 
+//- Example 2: 
+// 📝 peace_sign is not gonna executed until .addEventListener function executed first.
+
 const peace_sign = () => console.log('✌🏻'); // peace_sign is callback function
 document.querySelector('.greet').addEventListener("click", peace_sign); // .addEventListener is higher order function
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Functions Returning Functions
+// 🧡 Functions Returning Functions 
 
 // 📝 Functions are the same data as numbers or strings,...
 // so functions can be passed to other functions as arguments, as well as returned from functions...
@@ -153,7 +136,8 @@ document.querySelector('.greet').addEventListener("click", peace_sign); // .addE
 // function that can be customized for different situations.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
+
 const greeting = function(para_greeting) {
     return function(para_name) {
         console.log(`${para_greeting} ${para_name}`);
@@ -162,15 +146,16 @@ const greeting = function(para_greeting) {
 const greeting_word = greeting("Hey");
 greeting_word("Thomas");
 
-// 🔗 other method to call
+// 🔗 other method to call: 
 greeting("Hello")("Tony");
 
-// 🔗  Using arrow fuction: 
+// -----------------
+//- Example 2 (using arrow fuction):
 const greeting_2 = (para_greeting) => (para_name) => console.log(`${para_greeting} ${para_name}`);
 greeting_2("Welcome")("Peterson");
 
 // -----------------
-// ❕ Example 2: 
+//- Example 3: 
 // 📝 You can create a function that takes a condition (like "even" or "odd") ...
 // and returns another function that checks if a number satisfies that condition.
 
@@ -191,11 +176,9 @@ const evenNumbers = numbers.filter(numberFilter('even'));
 
 console.log(evenNumbers); /// [2, 4, 6, 8, 10]
 
-
 //* --------------------------------------------------------------------------
-
-// 🧡 Function method: call() Method
-// ! Important when dealing with object  with "this" keyword.
+// 🧡 Function method: call() Method 
+//+ Important when dealing with object  with "this" keyword.
 // 📝 Functions are objects, which means they have properties and methods just like any other object.
 
 // 📝 With the call() method, we can explicitly define "this" keyword in any function that we want.
@@ -209,7 +192,7 @@ console.log(evenNumbers); /// [2, 4, 6, 8, 10]
 // call() returns the result of the executed function, whereas bind() returns a new function.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
 
 const person = {
     firstName:"John",
@@ -227,9 +210,9 @@ console.log(member_full_name); /// Hege Nilsen
   
 
 // -----------------
-// ❕ Example 2: 
+//- Example 2: 
 
-        // airline_1
+// airline_1
 const airline_1 = {
     name: "Airasia",
     code: "LH",
@@ -244,7 +227,7 @@ const airline_1 = {
 airline_1.book(239, "Arif Rashidi")
 airline_1.book(160, "Norlilawati")
 
-        // airline_2
+ // airline_2
 const airline_2 = {
     name: "Firefly",
     code: "EW",
@@ -253,14 +236,9 @@ const airline_2 = {
 const book_fn = airline_1.book;
 book_fn.call(airline_2, 23, "Johnny") // "this" keyword set to airline_2
 
-// 🔗 The Spread Operator (...) is replaced apply() method.
-const flight_data = [140, "James Bond"];
-book_fn.call(airline_2, ...flight_data)
-
 //* --------------------------------------------------------------------------
-
-// 🧡 Function method: bind() Method
-// ! Important when dealing with object with "this" keyword.
+// 🧡 Function method: bind() Method 
+//+ Important when dealing with object with "this" keyword.
 // 📝 Functions are objects, which means they have properties and methods just like any other object.
 
 // 📝 The bind() method creates a new function with a specified "this" value 
@@ -275,7 +253,7 @@ book_fn.call(airline_2, ...flight_data)
 // call() returns the result of the executed function, whereas bind() returns a new function.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
 
 const customer = {
     firstName:"John",
@@ -294,7 +272,7 @@ console.log(customer_2_full_name); /// fullname fn
 customer_2_full_name() /// Hege Nilsen
 
 // -----------------
-// ❕ Example 2: 
+//- Example 2: 
 
 const myObj = {
 name: 'Alice',
@@ -303,19 +281,19 @@ greet: function() {
     }
 };
 
-// ? withoud bind() method
+// 🔗 withoud bind() method
 // ⭐ "this" refer to global window
 const greetFn = myObj.greet;
 // greetFn(); /// logs "Hello, my name is undefined."
 
-// ? with bind() method
+// 🔗 with bind() method
 // ⭐ "this" refer to myObj object
 const boundGreetFn = myObj.greet.bind(myObj);
 boundGreetFn(); /// logs "Hello, my name is Alice." 
 
 
 // -----------------
-// ❕ Example 3: 
+//- Example 3: 
 
 //+ airline_3
 const airline_3 = {
@@ -351,20 +329,21 @@ const firefly_book_fn_2 = airline_3.book.bind(airline_4, 95); // return a functi
 firefly_book_fn_2("Andrew Garfield");
 
 //🔗 Using bind() method with event listener scenarios:
-// ? object property
+
+//^ object property
 airline_3.num_planes = 100; // Add new property to the object
-// ? function
+//^ function
 airline_3.buy_plane = function() {
     // console.log(this);
     this.num_planes++;
     console.log(`${this.num_planes} planes`);
 }
-// ? addEventListener
+//^ addEventListener
 // ⭐ without bind() "this" refer to the element that received the event(.buy). 
 document.querySelector('.buy').addEventListener("click", airline_3.buy_plane.bind(airline_3)); 
 
 // -----------------
-// ❕ Example 4: partial application
+//- Example 4: partial application
 // ! There are some scenarios in which bind() can be used even if "this" keyword is not been used.
 
 const tax_calc = (value, rate) => value + value * rate;
@@ -375,8 +354,7 @@ VAT_calc(300); /// 69.23
 VAT_calc(250); /// 57.73
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding Challenge 1
+// 🧡 Coding Challenge 1 
 
 /*
 Let's build a simple poll app!
@@ -422,7 +400,7 @@ Test data for bonus:
 */
 
 // -----------------
-// ❕ 1: Self solution (not perfect but it is what it is): 
+// 🔸 1: Self solution (not perfect but it is what it is): 
 
 // let poll = {
 //     question: "What is your favorite programming language?",
@@ -459,7 +437,7 @@ Test data for bonus:
 //  poll_button.addEventListener("click", message_prompt)
 
  // -----------------
-// ❕ 2: tutorial solution (more practical): 
+// 🔸 2: tutorial solution (more practical): 
 
 let poll_2 = {
     question: "What is your favorite programming language?",
@@ -483,15 +461,14 @@ const poll_button = document.querySelector('.poll');
 poll_button.addEventListener("click", poll_2.register_answer.bind(poll_2));
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Immediately Invoked Function Expressions (IIFE)
+// 🧡 Immediately Invoked Function Expressions (IIFE) 
 //  + Not that important
 // 📝 So sometimes in JavaScript, we need a function that is only executed once only.
 // 📝 (IIFE) basically a function that disappears right after it's called once.
 // 📝 This technique can be useful when we dealing with something called async/await.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
 
 // 🔗 normal function
 const normal_fn = function() {
@@ -508,8 +485,7 @@ normal_fn();
 ();
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Function Closures
+// 🧡 Function Closures 
 // 📝 JavaScript variables can belong to the local or global scope.
 // 📝 Global variables can be made local (private) with closures.
 
@@ -523,7 +499,7 @@ normal_fn();
 //and parameters of the outer function, even after the outer function has completed.
 
 // -----------------
-// ❕ Example 1: 
+//- Example 1: 
 
 const secure_booking = function() { 
     let passenger_count = 0; // this variable data will be remembered
@@ -540,7 +516,7 @@ booker(); /// 3 passengers
 console.dir(booker); // behind the scene
 
 // -----------------
-// ❕ Example 2: 
+//- Example 2: 
 
 let double_item;
 
@@ -564,7 +540,7 @@ box_2();
 double_item(); /// 10
 
 // -----------------
-// ❕ Example 2: 
+//- Example 3: 
 
 const board_passengers = function(para_num_passengers, para_wait) {
     const per_group = para_num_passengers / 3;
@@ -577,7 +553,7 @@ const board_passengers = function(para_num_passengers, para_wait) {
 board_passengers(180, 3);
 
 // -----------------
-// ❕ Example 3: 
+//- Example 4: 
 
 (function () {
     const h1_word = document.querySelector("h1");

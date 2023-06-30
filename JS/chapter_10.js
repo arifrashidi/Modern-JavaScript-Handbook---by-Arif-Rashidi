@@ -5,24 +5,58 @@
 console.log("--- 📁 CHAPTER 10: Object-Oriented Programming (OOP) ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
-// ⭐: Tips for easy understanding
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Object-Oriented Programming (OOP)
+// 🧡 (Object data type) property and method 
+// 📝 Objects have properties and methods associated with them. 
 
 // -----------------
-// ❕ What is OOP?
+// 🔸 1. Object properties 
+// 📝 Properties are key-value pairs that describe the characteristics or attributes of an object. 
+// 📝 Properties can hold any valid JavaScript data type, including numbers, strings, 
+// booleans, arrays, objects, or even functions.
 
-// 🔗 1. OOP is a programming paradigm based on the concept of objects.
+//- example 1:
+const proton_x50 = {
+    Segment: "B-Segment",
+    color: ["Snow White", "Armour Silver", "Jet Grey", "Ocean Blue"],
+    seats: 5
+}
+//- example 2:
+const car_brand = ["proton", "perodua", "honda", "mazda"];
+console.log(car_brand);
+
+// -----------------
+// 🔸 1. Object Methods 
+// 📝 Methods are functions associated with objects. 
+// 📝 They represent the behavior or actions that an object can perform. 
+
+//- example 1:
+const number = [1, 4, 9, 16];
+const double_the_number = number.map(x => x * 2);
+console.log(double_the_number); /// [2, 8, 18, 32]
+
+//- example 2:
+window.alert("Hello! I am an alert box!!")
+
+//* --------------------------------------------------------------------------
+// 🧡 Object-Oriented Programming (OOP) 
+
+// -----------------
+// 🔸 What is OOP?
+// 📝 1. OOP is a programming paradigm that focuses on organizing code into reusable, ...
+// self-contained objects that interact with each other. 
 // ⭐ ( PARADIGM : Style of code, “how” we write and organize code )
 // ⭐ ( OBJECTS : We use objects to pack all data and behavior of real world entity in one big block)
-//  example 1:
+// 📝 2. OOP was developed with the goal of organizing code, to make it more flexible...
+// and easier to maintain (avoid “spaghetti code”).
+
+//- example 1:
 const user = {
     // data
     name: "Arif",
@@ -31,21 +65,16 @@ const user = {
     add_user() {
         // logic to add user
     }
-
 }
 
-// 🔗 2. OOP was developed with the goal of organizing code, to make it more flexible...
-// and easier to maintain (avoid “spaghetti code”).
-
 // -----------------
-// ❕ How does OOP works?
-
-// 🔗 1. We create a class(template) and based on that, we can create many object with same properties.
-// ⭐ ( CLASS : Like a template from which we can create new objects. )
+// 🔸 How does OOP works?
+// 📝 We create a class(template) and based on that, we can create many instance with same properties.
+// ⭐ ( CLASS : Like a blueprints for creating objects. )
 // ⭐ ( INSTANCE : New objects can be created from the class(template) )
 
 // -----------------
-// ❕ Fundamental OOP principles
+// 🔸 Fundamental OOP principles 
 
 //+ 🔗 3. Inheritance
 // 📝 Making all properties and methods of a certain class available to a child class.
@@ -63,11 +92,10 @@ const user = {
 // 📝 A child class can overwrite a method it inherited from parent class.
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Constructor Functions (prototype inheritance 1)
+// 🧡 Constructor Functions (prototype inheritance 1) 
 
 // -----------------
-//+ ❕ constructor functions:
+// 🔸 constructor functions:
 // 📝 This technique is used to create objects from a function using the 'new' keyword.
 // 📝 The "new" keyword in JavaScript is used to create an instance of an object that is ...
 // defined by a constructor function.
@@ -83,70 +111,70 @@ const user = {
 // 3. {} linked to prototype.
 // 4. function automatically RETURN {}
 
-// 🔗 example 1:
-const bio_person = function(first_name, birth_year) {
-    console.log(this); /// bio_person {}
-    this.first_name = first_name; // ⭐( this.first_name ) is object property
-    this.birth_year = birth_year;
+//- example 1:
+class bio_person {
+    constructor(first_name, birth_year) {
+        console.log(this); /// bio_person {}
+        this.first_name = first_name; // ⭐( this.first_name ) is object property
+        this.birth_year = birth_year;
+    }
 }
 const first_person = new bio_person("Arif", 2001)
 console.log(first_person); /// bio_person {first_name: 'Arif', birth_year: 2001}
 
 const second_person = new bio_person("Anwar", 1957)
-console.log(second_person); /// {first_name: 'Anwar', birth_year: 1957, age: 66}
+console.log(second_person); /// bio_person {first_name: 'Anwar', birth_year: 1957}
 
 // -----------------
-//+ ❕ instanceof operator:
-// 📝 The instanceof operator tests to see if the prototype property...
-// 📝 of a constructor appears anywhere in the prototype chain of an object...
+// 🔸 instanceof operator:
+// 📝 Used to check if an object belongs to a specific class or constructor function. 
 // 📝 The return value is a boolean value.
 
 console.log(first_person instanceof bio_person); /// true
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Inheritance using prototypes property
+// 🧡 Inheritance using prototypes property 
 // 📝 Every function in JavaScript automatically has a property called prototype.
 // 📝 This prototype contains methods (behavior) that are accessible...
 // to all objects linked to that prototype.
-
-// 📝 When to use prototype property: 
-// 1. when you want create methods to object constructor functions.
+// 📝 we use prototype property when we want to create methods to object constructor functions.
 
 // -----------------
-//+ ❕ Example 1: 
+//- Example 1: 
 
 // ? Construction function
-const person = function(name, age) {
-    this.name = name;
-    this.age = age;
+class person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    // ? prototype property
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
 }
 const john = new person("John", 30); /// person {name: 'John', age: 30}
 const jane = new person("Jane", 25); /// person {name: 'Jane', age: 25}
 
-// ? prototype property
-person.prototype.greet = function() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-};
 john.greet(); // ⭐Objects are linked to a prototype object
 jane.greet()
 
 console.log(person.prototype); /// {greet: ƒ, constructor: ƒ}
 
 // -----------------
-//+ ❕ __proto__  property:
+// 🔸 ❕ __proto__  property:
 // 📝 Every object has __proto__ property.
 // 📝 It refers to the prototype object from which the object inherits its properties and methods.
-// 🔗 example 1:
+
+//- example 1:
 console.log(john.__proto__); // ⭐Show john class(template) /// {greet: ƒ, constructor: ƒ}
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Prototype Chaining
+// 🧡 Prototype Chaining 
 // 📝 Every function in JavaScript automatically has a property called prototype.
 
 // -----------------
-// ❕ Every object by default is an instance of its own object constructor.
+// 🔸 Every object by default is an instance of its own object constructor. 
 // ⭐OBJECT : references data type.
 
 //$ 🔗 example 1:
@@ -164,7 +192,7 @@ const animals = ["chicken", "duck", "cow"] // array object
 console.log(animals instanceof Object); /// true 
 
 // -----------------
-// ❕ Every object in JavaScript has its own prototype object.
+// 🔸 Every object in JavaScript has its own prototype object.
 
 //$ 🔗 example 1:
 const my_bio_2 = { // literal object
@@ -182,12 +210,14 @@ console.log(animals_2.__proto__ === Array.prototype); /// true
 console.log(animals_2.__proto__); /// all array method
 
 // -----------------
-// ❕ Function constructor also is an instance of its own object constructor.
+// 🔸 Function constructor also is an instance of its own object constructor.
 
 //$ 🔗 example 1:
-const bio_person_2 = function(first_name, birth_year) {
-    this.first_name = first_name;
-    this.birth_year = birth_year;
+class bio_person_2 {
+    constructor(first_name, birth_year) {
+        this.first_name = first_name;
+        this.birth_year = birth_year;
+    }
 }
 const first_person_2 = new bio_person_2("Arif", 2001) /// bio_person {first_name: 'Arif', birth_year: 2001}
 
@@ -201,11 +231,10 @@ console.log(first_person_2.__proto__.__proto__); /// all object constructor
 console.log(first_person_2.hasOwnProperty("first_name")); /// true
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Coding challanges #1
+// 🧡 Coding challanges #1 
 
 // -----------------
-// ❕ Question 1:
+// 🔸 Question 1:
 
 /*
 Your tasks:
@@ -225,38 +254,39 @@ the new speed to the console
 */
 
 // ? construction function
-const car = function(brand, speed) {
-    this.brand = brand;
-    this.speed = speed;
+class car {
+    constructor(brand, speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+    // ? prototype accelerate
+    accelerate() {
+        return this.speed += 10;
+    }
+    // ? prototype brake
+    brake() {
+        return this.speed -= 5;
+    }
 }
 const first_car = new car("bmw", 120);
 console.log(first_car);
 const second_car = new car("Mercedes", 95);
 console.log(second_car);
 
-// ? prototype accelerate
-car.prototype.accelerate = function() {
-    return this.speed += 10;
-}
 console.log(first_car.accelerate());
 console.log(second_car.accelerate());
 
-// ? prototype brake
-car.prototype.brake = function() {
-    return this.speed -= 5;
-}
 console.log(first_car.brake());
 console.log(second_car.brake());
 
 //* --------------------------------------------------------------------------
-
-// 🧡 ES6 Classes
+// 🧡 ES6 Classes 
 // 📝 JavaScript Classes are templates for Objects just like function construction.
 // 📝 But classes provide a simpler syntax and are easier to read compared to function construction.
 
 // -----------------
 
-// ❕ "class" keyword
+// 🔸 "class" keyword 
 // 📝 This keyword to create a class.
 // 📝 This keyword are just a special type of function.
 // 📝 Always add a method named constructor()
@@ -272,7 +302,7 @@ console.log(second_car.brake());
         constructor() { ... }
     }
 */
-// 🔗 example 1:
+//- example 1:
 const bio_person_cl = class {
     constructor(first_name, birth_year) {
         this.first_name = first_name;
@@ -290,8 +320,7 @@ first_bio_person.calc_age();
 console.log(first_bio_person.__proto__ === bio_person_cl.prototype); /// true
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Static Methods
+// 🧡 Static Methods 
 // 📝 Static methods  is like a special functions that belongs to the class itself, and not with instances.
 // 📝 This means you can use the static method without making any objects first.
 // ⭐ This is useful when you want to create a method that is not depend on objects.
@@ -301,7 +330,7 @@ console.log(first_bio_person.__proto__ === bio_person_cl.prototype); /// true
   static NAME_STATIC_METHOD() {code to be executed}
 */
 
-// 🔗 example 1:
+//- example 1:
 const bio_person_class = class {
     constructor(first_name, birth_year) {
         this.first_name = first_name;
@@ -328,12 +357,11 @@ first_bio_person_obj.calc_age();
 bio_person_class.greet()
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Object.create
+// 🧡 Object.create 
 // 📝 This method is used to create a new object with a specified prototype object and properties.
 // Syntax: Object.create( PROTO )
 
-//$ 🔗 example 1:
+//- example 1:
 const pet_proto = { // this is literal object
     // constructor
     pet_name (first_name, birth_year) {
@@ -362,8 +390,7 @@ pet_2.birth_year = 2021;
 pet_2.pet_calc_age(); /// 2
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Inheritance Between "Classes" ( Constructor Functions )
+// 🧡 Inheritance Between "Classes" ( Constructor Functions ) 
 
 // 📝This technique is useful when we have a hierarchy of objects that share common properties and behaviors, 
 // but also have unique properties and behaviors that are specific to each object.
@@ -374,30 +401,33 @@ pet_2.pet_calc_age(); /// 2
 
 // 📝 This technique is easier when we using call() method.
 
-//$ 🔗 example 1:
+//- 🔗 example 1:
 
 //? first class (parent class)
-const human_cl = function(name, birth_year) {
-    this.name = name;
-    this.birth_year = birth_year;
-}
-human_cl.prototype.calc_age = function() {
-    console.log(2023 - this.birth_year);
+class human_cl {
+    constructor(name, birth_year) {
+        this.name = name;
+        this.birth_year = birth_year;
+    }
+    calc_age() {
+        console.log(2023 - this.birth_year);
+    }
 }
 
 //? second class (child class)
-const student_cl = function(name, birth_year, course) {
-    human_cl.call(this, name, birth_year); // shared the same properties with human class.
-    this.course = course;
+class student_cl {
+    constructor(name, birth_year, course) {
+        human_cl.call(this, name, birth_year); // shared the same properties with human class.
+        this.course = course;
+    }
+    //? create second class prototypes
+    introduce() {
+        console.log(`Hello my name is ${this.name}, and I study ${this.course}`);
+    }
 }
 
 //? linked prototypes
 student_cl.prototype = Object.create(human_cl.prototype); // linked prototypes
-
-//? create second class prototypes
-student_cl.prototype.introduce = function() {
-    console.log(`Hello my name is ${this.name}, and I study ${this.course}`);
-}
 
 //? call second class
 const arif = new student_cl("Arif", 2001, "industrial design")
@@ -413,8 +443,7 @@ console.log(arif.__proto__.__proto__); /// {calc_age: ƒ, constructor: ƒ}
 console.log(arif.__proto__.__proto__.__proto__); /// Object prototype
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Inheritance Between "Classes" ( ES6 Classes )
+// 🧡 Inheritance Between "Classes" ( ES6 Classes ) 
 
 // 📝 This technique is useful when we have a hierarchy of objects that share common properties and behaviors, 
 // but also have unique properties and behaviors that are specific to each object.
@@ -437,7 +466,7 @@ console.log(arif.__proto__.__proto__.__proto__); /// Object prototype
         }
     }
 */
-//$ 🔗 example 1:
+//- 🔗 example 1:
 
 //? first class (superclass)
 const human_being_cl = class {
@@ -449,7 +478,6 @@ const human_being_cl = class {
         console.log(2023 - this.birth_year);
     }
 }
-
 //? second class (subclass)
 class trainee_cl extends human_being_cl {
     constructor(name, birth_year, course) {
@@ -461,7 +489,6 @@ class trainee_cl extends human_being_cl {
     }
     
 }
-
 //? call second class
 const ikbal = new trainee_cl("ikbal", 2001, "culinary");
 console.log(ikbal); /// trainee_cl {name: 'ikbal', birth_year: 2001, course: 'culinary'}

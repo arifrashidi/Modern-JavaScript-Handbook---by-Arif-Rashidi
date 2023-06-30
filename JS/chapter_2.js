@@ -278,6 +278,8 @@ check_winner(score_dolphin, score_koala);
 // 🧡 Arrays (Data structure) 
 // 📝 An array can hold many values under a single variable...
 // and you can access the values by referring to an index number.
+// syntax: array
+// const ARRAY_NAME = [ VALUE_1, VALUE_2, VALUE_3, ...]
 
 // -----------------
 // 🔸 Creating an Array
@@ -353,11 +355,16 @@ console.log(bills, tips, total_bill)
 
 //* --------------------------------------------------------------------------
 // 🧡 Objects (Data structure) 
+// 📝 Object is a fundamental data type that allows you to store and organize related data ...
+// and functionality together.
 // 📝 An objects can hold many properties with values under a single variable.
 // 📝 An object is created by using ( object literal syntax {} )
-// 📝 Different between array & object, We can only access array elements using their order number...
-// meanwhile, objects is for data that we actually want to name, and then retrieve from the object...
-// based on that name.
+/*
+syntax: object
+    const OBJECT_NAME = {
+        PROPERTY_NAME: VALUE,
+    };
+*/
 
 // -----------------
 // 🔸 Different between array & object:
@@ -381,7 +388,7 @@ const arif_rashidi_2 = {
 }
 
 //* --------------------------------------------------------------------------
-// 🧡 Objects (Dot vs. Bracket Notation) 
+// 🧡 Access Objects (Dot vs. Bracket Notation) 
 
 // -----------------
 // 🔸 Access element in objects using (Dot)

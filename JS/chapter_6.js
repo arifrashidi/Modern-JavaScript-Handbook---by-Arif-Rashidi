@@ -929,6 +929,9 @@ console.log(...player_score_array);
 
 //* --------------------------------------------------------------------------
 // 🧡 Working With Strings 
+// 📝 While strings are not technically objects, JavaScript treats them in a special way ...
+// by temporarily converting them into objects when necessary to provide ...
+// access to useful properties and methods.
 
 // -----------------📦
 const laptop_modal = "ROG Zephyrus G14";
@@ -940,7 +943,8 @@ console.log(laptop_modal[4]); // Z
 console.log("RX 6800S"[4]); // 8
 
 // -----------------
-// 🔸 Total string letter:
+// 🔸 Total string letter
+
 console.log(laptop_gpu.length); // 8
 console.log("ROG Zephyrus G14".length); // 16
 
