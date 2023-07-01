@@ -179,11 +179,9 @@ console.log(evenNumbers); /// [2, 4, 6, 8, 10]
 //* --------------------------------------------------------------------------
 // 🧡 Function method: call() Method 
 //+ Important when dealing with object  with "this" keyword.
-// 📝 Functions are objects, which means they have properties and methods just like any other object.
-
 // 📝 With the call() method, we can explicitly define "this" keyword in any function that we want.
 // syntax: FUNCTION.call( ARGUMENT*, ARGUMENT_2, ARGUMENT_3, ...)
-// ⭐ ARGUMENT: The value that should be passed as the "this" value.
+// ( ⭐ ARGUMENT: The value that should be passed as the "this" value. )
 
 // 📝Here are some key differences between call() and bind():
 //+ 1. Execution: 
@@ -193,7 +191,6 @@ console.log(evenNumbers); /// [2, 4, 6, 8, 10]
 
 // -----------------
 //- Example 1: 
-
 const person = {
     firstName:"John",
     lastName: "Doe",
@@ -206,7 +203,7 @@ const person = {
     lastName: "Nilsen",
   }
 let member_full_name = person.fullName.call(member); // "this" keyword set to member
-console.log(member_full_name); /// Hege Nilsen
+console.log(member_full_name); /// Hege Nilsen 
   
 
 // -----------------
@@ -239,12 +236,9 @@ book_fn.call(airline_2, 23, "Johnny") // "this" keyword set to airline_2
 //* --------------------------------------------------------------------------
 // 🧡 Function method: bind() Method 
 //+ Important when dealing with object with "this" keyword.
-// 📝 Functions are objects, which means they have properties and methods just like any other object.
-
-// 📝 The bind() method creates a new function with a specified "this" value 
-// and any number of arguments that you want to pass to it.
+// 📝 The bind() method creates a new function with a specified "this" value.
 // syntax: FUNCTION.bind( ARGUMENT*, ARGUMENT_2, ARGUMENT_3, ...)
-// ⭐ ARGUMENT: The value that should be passed as the "this" value.
+// ( ⭐ ARGUMENT: The value that should be passed as the "this" value. )
 
 // 📝Here are some key differences between call() and bind():
 //+ 1. Execution: 
@@ -254,46 +248,27 @@ book_fn.call(airline_2, 23, "Johnny") // "this" keyword set to airline_2
 
 // -----------------
 //- Example 1: 
-
-const customer = {
-    firstName:"John",
-    lastName: "Doe",
-    fullName: function () {
-      return this.firstName + " " + this.lastName;
+const biodata = {
+    name: "John",
+    age: 22,
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}.`);
     }
-  }
-  const customer_2 = {
-    firstName:"Hege",
-    lastName: "Nilsen",
-  }
+};
+const biodata_friend = {
+    name: "Kumar",
+    age: 26
+};
 
-const customer_2_full_name = customer.fullName.bind(customer_2); // return a function
-console.log(customer_2_full_name); /// fullname fn
-customer_2_full_name() /// Hege Nilsen
+// without bind() method
+biodata.greet(); /// "Hello, my name is John."
+  
+// with bind() method
+const friend_greet = biodata.greet.bind(biodata_friend)
+friend_greet() /// "Hello, my name is Kumar."
 
 // -----------------
 //- Example 2: 
-
-const myObj = {
-name: 'Alice',
-greet: function() {
-      console.log(`Hello, my name is ${this.name}.`);
-    }
-};
-
-// 🔗 withoud bind() method
-// ⭐ "this" refer to global window
-const greetFn = myObj.greet;
-// greetFn(); /// logs "Hello, my name is undefined."
-
-// 🔗 with bind() method
-// ⭐ "this" refer to myObj object
-const boundGreetFn = myObj.greet.bind(myObj);
-boundGreetFn(); /// logs "Hello, my name is Alice." 
-
-
-// -----------------
-//- Example 3: 
 
 //+ airline_3
 const airline_3 = {

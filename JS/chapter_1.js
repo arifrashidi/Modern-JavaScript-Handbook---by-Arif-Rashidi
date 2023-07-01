@@ -336,7 +336,7 @@ if (sabu_is_old_enough)
 console.log("Sabu can start taking driving license🚗");
 
 //* --------------------------------------------------------------------------
-// 🧡 2# Coding Challenges
+// 🧡 2# Coding Challenges 
 
 const bmi_bob = 27.309968138370508
 const bmi_andrew = 24.194608809993426

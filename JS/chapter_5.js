@@ -423,19 +423,38 @@ const simple_calc_arrow_func = (para_a, para_b) => para_a + para_b
 
 //* --------------------------------------------------------------------------
 // 🧡 "This" keyword 
-// ! Important when dealing with object.
-// 📝 Special variable that is created for every execution context (every function)...
-// that takes the value from its “owner”.
-// 📝 "this" keyword is NOT static. It depends on how the function is called,...
-// and its value is only assigned when the function is actually called.
-// 📝 "this" does NOT point to the function itself, and also NOT the its variable environment.
-// 📝 "this" always points to the object that is calling the method.
+//+ Important when dealing with object.
+// 📝 "this" keyword refers to the current execution context or the object on which a function is invoked.
+// 📝 The value of "this" is determined dynamically at runtime and can vary depending on ...
+// how a function is called or invoked.
+// 📝 The behavior of this depends on the following scenarios:
 
 // -----------------
-// 🔸 4 scenarios where "this" keyword:
+// 🔸 Global Scope 
+// 📝 In the global scope (outside of any function), this refers to the global object. 
+// 📝 In a web browser, the global object is usually the window object.
 
-// 🔗 1. "this" as a Method (in function)
-// 📝 When used in an object method, this refers to the object.
+//- Example 1:
+console.log(this); /// window object
+
+// -----------------
+// 🔸 Function Invocation 
+// 📝 When a function is invoked as a standalone function (not as a method or constructor), ...
+// "this" refers to the global object (window in a browser) in non-strict mode, ...
+// or it is undefined in strict mode.
+
+//- Example 1: 
+const calc_money = function(para_ringgit) {
+    const dollar = Math.trunc(para_ringgit / 4.44);
+    console.log(`${dollar} dollar`);
+    console.log(this); /// undefined 
+}
+calc_money(1000);
+
+// -----------------
+// 🔸 Method Invocation 
+// 📝 When a function is invoked as a method of an object, "this" refers to the object ...
+// on which the method is called. 
 
 //- Example 1:
 const person = {
@@ -446,73 +465,61 @@ const person = {
     return this.firstName + " " + this.lastName;
     }
 }
-console.log(person.fullName());
+console.log(person.fullName())
 
-//- Example 2:
-const my_profile = {
-    first_name: "Arif",
-    last_name: "Rashidi",
-    birth_year: 2001,
-    job: "frontend developer",
-    friends: ["Adam", "Harith", "Mat"],
-    has_driver_license: false,
-    // function in objects.👇
-    calc_age: function() {
-        this.age = 2022 - this.birth_year;
-        return this.age;
+// -----------------
+// 🔸 Constructor Invocation 
+//+ You will learn this in Object-Oriented Programming (OOP) section.
+// 📝 When "this" keyword is being used in constructor with the "new" keyword, ...
+// 📝 "this" refers to the newly created object that the constructor is creating. 
+// 📝 The constructor function sets properties and behavior on the object using this.
+
+//- example 1:
+class User { //⭐ Classes
+    constructor(name, email){
+        console.log(this); /// User {}
+        this.name = name;
+        this.email = email;
     }
 }
-const my_age_2 = my_profile.calc_age()
-console.log(my_age_2) // 21
+const user_1 = new User("Ryu", "ryu@gmail.com") //⭐ Instance
+console.log(user_1); /// User {email: "ryu@gmail.com", name: "Ryu"}
 
-// 🔗 2. "this" as a Method (in arrow function)
-// 📝 Arrow function arrow function does not get its own "this" keyword,
-// 📝 It will simply use the this keyword from its surroundings. So in other words, its parents "this" keyword,
-// 📝 For sloppy mode, "this" refers to the global object, because "this" is running in the global scope.
+// -----------------
+// 🔸 Explicit Binding  
+// 📝 "this" value can be explicitly bound to a specific object using methods like call(), apply(), or bind().
+// 📝 These methods allow you to explicitly set the value of this when invoking a function.
 
-//- Example 1: 
-const second_person = {
-    firstName: "Elon",
-    lastName: "Musk",
-    job: "entrepreneur",
-    greet : () => console.log(`Hey, ${second_person.firstName}`),
-}
-console.log(second_person.greet());
+//- example 1 - bind() method:
+const biodata = {
+    name: "John",
+    age: 22,
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}.`);
+    }
+};
+const biodata_friend = {
+    name: "Kumar",
+    age: 26
+};
 
-// 🔗 3. "this" in a function (strict):
-// 📝 JavaScript strict mode does not allow default binding...
-// so, when used in a function, in strict mode, this is undefined.
-// 📝 For sloppy mode, "this" refers to the global object, because "this" is running in the global scope.
-
-//- Example 1: 
-const calc_money = function(para_ringgit) {
-    const dollar = Math.trunc(para_ringgit / 4.44);
-    console.log(`${dollar} dollar`);
-    console.log(this);
-}
-calc_money(1000);
-
-// 🔗 4. "this" in an event:
-// 📝 In event handlers or callback functions, this typically refers to the element that triggered the event.
-
-//- Example 1: 
-const myButton = document.getElementById('myButton');
-myButton.addEventListener('click', function() {
-  console.log(this); // Output: the clicked button element
-});
+// without bind() method
+biodata.greet(); /// "Hello, my name is John."
+  
+// with bind() method
+const friend_greet = biodata.greet.bind(biodata_friend)
+friend_greet() /// "Hello, my name is Kumar."
 
 
 //* --------------------------------------------------------------------------
-// 🧡 Regular Functions vs Arrow Functions when using "this" keyword 
-// ! Important when dealing with object with "this" keyword.
+// 🧡 Method Invocation "this" keyword: Regular Functions vs Arrow Functions 
 
 // -----------------
-// 🔸 problems encountered when using "this" keyword:
-// 📝 "this" keyword functions that be called inside another functions (in object)...
-// is just like regular function, and it cannot be used. This is because regular function will create 
-// its own "this" keyword.
+// 🔸 problems when using "this" keyword: 
+// 📝 "this" keyword that be called in function that inside another functions (in object)...
+// is just like regular function, and it cannot be used.
 
-//- Example 1: 
+//- Example of the problem: 
 const third_person = {
     firstName: "Rafizi",
     lastName: "Ramli",
@@ -522,10 +529,10 @@ const third_person = {
         const age = 2022 - this.birth_year
         console.log(age);
         // function inside another function:
-        // const is_gen_z = function () {
-        //     console.log(this.year >= 2001);
-        // }
-        // is_gen_z()  
+        const is_gen_z = function () {
+            console.log(this.year >= 2001);
+        }
+        is_gen_z()  
     }    
 }
 third_person.calc_age();
@@ -606,7 +613,7 @@ console.log(y); // 10 (unchanged)
 // 📝 Reference data types, unlike primitive data types, are dynamic in nature and do not have a fixed size.
 // 📝 Reference value is an OBJECT that contains a collection of properties and methods. 
 
-// 🔗 Reference values include:
+// 🔗 Reference values example:
 // 1. Object - a collection of key-value pairs
 // 2. Array - a collection of values, indexed by number
 // 3. Function - a reusable block of code

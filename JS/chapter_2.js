@@ -115,7 +115,7 @@ num_banana(5); /// 25
 function sum_of_two_number(num1, num2) {
     return num1 + num2;
   }
-  console.log(sum_of_two_number(10, 10));
+  console.log(sum_of_two_number(10, 10)); /// 20
 
 // -----------------
 //- example 4:
@@ -412,7 +412,7 @@ console.log(my_profile.first_name);
 // that we'd like, so we don't have to explicitly write the string.
 // Syntax: NAME[ PROPERTIES ]
 
-//- Example 2:
+//- Example 1:
 const my_profile_2 = {
     first_name: "Arif",
     last_name: "Rashidi",
@@ -427,7 +427,20 @@ console.log(arif_rashidi_2["first" + name_key])
 console.log(arif_rashidi_2["last" + name_key])
 
 // -----------------
-// 🔸 Add new property to the object
+// 🔸 Update property value 
+
+const profile = {
+    first_name: "Arif",
+    last_name: "Rashidi",
+    age: 2022 - 2001,
+    job: "frontend developer",
+    friends: ["Adam", "Harith", "Mat"]
+}
+profile.job = "entrepeneur"
+console.log(profile.job); /// entrepeneur
+
+// -----------------
+// 🔸 Add new property to the object 
 
 const my_profile_3 = {
     first_name: "Arif",
@@ -455,6 +468,8 @@ his best friend is called ${my_profile_4.friends[0]}`)
 
 //* --------------------------------------------------------------------------
 // 🧡 Object (Function as property) 
+// 📝 An object's property can have a function as its value.
+// 📝 Function properties are commonly referred to as "methods" of the object. 
 
 // -----------------
 //- Example 1:
@@ -474,12 +489,9 @@ const age = my_profile_5.calc_age(2001);
 console.log(age);
 
 //* --------------------------------------------------------------------------
-// 🧡 Object ("this" keyword) 
-// 📝 In an object method, this" keyword refers to the "owner" of the function.
-// 📝 Alone, this refers to the global object.
-// 📝 In a function, this refers to the global object. (In strict mode it will return undefined)
-// 📝 In an event, this refers to the element that received the event.
-// ! Important when dealing with object.
+// 🧡 "this" keyword (Method Invocation) 
+// 📝 When a function is invoked as a method of an object, "this" refers to the object 
+// on which the method is called. 
 
 // -----------------
 //- Example 1:
