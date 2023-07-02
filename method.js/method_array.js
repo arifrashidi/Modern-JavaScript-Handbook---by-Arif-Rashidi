@@ -169,7 +169,7 @@ const array_2 = ['d', 'e', 'f'];
 console.log(array_1.concat(array_2)); /// ['a', 'b', 'c', 'd', 'e', 'f']
 
 // -----------------
-// 🔸 map() //
+// 🔸 map() 
 // ✨(FUNCTION METHOD) 
 // ✨(NOT OVERWRITE)
 // 📝 This method RETURNS a new array populated with the results of calling...

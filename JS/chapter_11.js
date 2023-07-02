@@ -5,29 +5,27 @@
 console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await and AJAX ---");
 /* -------------------------------------------------------------------------- */
 
-// 🧡: Main topic
-// 📝: Notes
-// ❕: Subtopics
-// 🔗: Sub-subtopics
-// 📦: Variables
-// ⭐: Tips for easy understanding
+// • 🧡: Main topic 
+// • 📝: Notes 
+// • 🔸: Subtopics 
+// • 🔗: Sub-subtopics  
+// • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Asynchronous JavaScript, AJAX and APIs
+// 🧡 Asynchronous JavaScript, AJAX and APIs 
 
 // -----------------
-//$ ❕ synchronous vs asynchronous
+// 🔸 synchronous vs asynchronous 
 // 📝 Synchronous and asynchronous are two different ways of executing code in JavaScript.
 
-//+ 🔗 synchronous:
+// 🔗 synchronous:
 // 📝 Synchronous code is executed in a blocking manner which means its executed line by line.
 // 📝 Each line of code waits for previous line to finish executed first.
-// 📝 Not suitable for long-running operations block code execution. (example: making an API call)
+// 📝 Not suitable for long-running operations block code execution-(example: making an API call)
 // 📝 Most code is synchronous.
 
 
-//+ 🔗 asynchronous:
+// 🔗 asynchronous:
 // 📝 Asynchronous  code is executed in a non-blocking manner.
 
 // 📝 This means the program doesn't wait for that code to finish executing ...
@@ -37,7 +35,7 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 // 📝 As a result, asynchronous code can make your program feel faster and more responsive, 
 // especially when performing tasks that take a long time.
 
-// 📝 Callback functions alone do NOT make code asynchronous
+// 📝 Callback functions alone do NOT make code asynchronous.
 
 /* ⭐ Explanation in simpler way:
 
@@ -48,7 +46,7 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 */
 
 // -----------------
-//$ ❕ AJAX (Asynchronous JavaScript And XML)
+// 🔸 AJAX (Asynchronous JavaScript And XML) 
 
 // 📝 AJAX is a technique used in web development to allow web pages to update data on a web page 
 // without requiring a full page refresh.
@@ -61,9 +59,11 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
     // 2. fetch(): This is a newer method of making AJAX calls that is available in modern browsers. 
 
 // -----------------
-//$ ❕ API (Application Programming Interface)
+// 🔸 API (Application Programming Interface) 
 
 // 📝 Set of rules and protocols for how web applications can interact with each other over the internet. 
+// 📝 APIs define a standardized way for applications to request specific functionalities or data ...
+// from a server and receive a response in a predefined format
 
 // 📝 Web APIs are typically accessed using HTTP requests, ...
 // and they can be used to retrieve and manipulate data from remote servers.
@@ -71,7 +71,7 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 // 📝 We can build our own web APIs (requires back-end development, e.g. with node.js) 
 // or just use 3rd-party APIs.
 
-/* ⭐ Example:
+/*- Example:
 
     Imagine you are building a weather application and you want to display the current temperature for 
     a given location. You could use a weather API that provides access to temperature data for different 
@@ -81,7 +81,7 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 */
 
 // -----------------
-//$ ❕ XML vs JSON
+// 🔸 API format: XML vs JSON 
 
 // 📝 XML and JSON are both formats in web development to represent and exchange data between different systems.
 // 📝 It is based on a subset of the JavaScript programming language.
@@ -91,27 +91,28 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 // 📝 JSON has a simpler syntax and fewer data types to handle than XML.
 
 //* --------------------------------------------------------------------------
+// 🧡 AJAX Call: XMLHttpRequest 
+// ✨(NOT RECOMMENDED AT ALL) 
 
-// 🧡 AJAX Call: XMLHttpRequest
 // 📝 XMLHttpRequest is an API that allows you to send HTTP requests and receive responses.
 // 📝 XMLHttpRequest uses callbacks to handle the response, which means that you define a function ...
 // to be called when the request is completed.
 // 📝 This can lead to callback hell if you have multiple requests that depend on each other.
 
 // -----------------
-// ❕ Example 1:
+//- Example 1:
 
 // ? HTML Variables
 const countries = document.querySelector(".countries")
 
 const get_country_data = function(p_country) {
     // --------------------
-    //? ❕ Request API:
+    // ? Request API:
     const request = new XMLHttpRequest();
     request.open("GET", `https://restcountries.com/v3.1/name/${p_country}`)
     request.send();
 
-    //? ❕ addEventListener:
+    // 🔸 addEventListener:
     request.addEventListener("load", function() { // AJAX
         // Parse JSON
         const [data] = JSON.parse(this.responseText) // convert JSON to readable string
@@ -129,7 +130,7 @@ const get_country_data = function(p_country) {
         </div>
         </article>`
 
-        // Insert in inside  HTML
+        // Insert in inside HTML
 
         // countries.insertAdjacentHTML("beforeend", HTML)
         // countries.style.opacity = 1;
@@ -139,8 +140,7 @@ const get_country_data = function(p_country) {
 // get_country_data("vietnam")
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Callback hell
+// 🧡 Callback hell 
 
 // 📝 Callback hell in JavaScript refers to a situation where you have multiple nested callbacks ...
 // that make the code difficult to read, debug, and maintain.
@@ -150,12 +150,19 @@ const get_country_data = function(p_country) {
 // as input to the next operation. This nesting of callbacks can quickly become ...
 // unwieldy and make the code difficult to follow.
 
-// 📝To avoid callback hell, you can use various techniques such as promises, async/await, 
-// and functional programming concepts like currying and composition. 
+// 📝To avoid callback hell, you can use various techniques such as promises & async/await.
+
+//- Example 1:
+// asyncOperation1(function(result1) {
+//     asyncOperation2(result1, function(result2) {
+//         asyncOperation3(result2, function(result3) {
+//             console.log('Final result:', result3);
+//         });
+//     });
+// });
 
   //* --------------------------------------------------------------------------
-
-// 🧡 Promises (ES6)
+// 🧡 Promises (ES6) 
 
 // 📝 promises is an object that is used as a placeholder for the future
 // result of an asynchronous operation.
@@ -177,9 +184,40 @@ const get_country_data = function(p_country) {
     3. Rejected: This state means that the value of the promise has been rejected, typically due to an error.
 */
 
-//* --------------------------------------------------------------------------
+// -----------------
+// 🔸 Promise constructor 
+// 📝 Promise constructor is a built-in function used to create a new Promise object.
+// 📝 The promise executed immediately when the Promise is created and is 
+// responsible for initiating an asynchronous operation.
+// syntax: 
+/*
+    const VARIABLE = new Promise(function (resolve, reject) {
+        Asynchronous operation or task
+    });
+*/
 
-// 🧡 AJAX Call: Consuming Promises using then()
+//- Example 1:
+const checkNumber = new Promise(function(resolve, reject) {
+    const randomNumber = Math.trunc(Math.random() * 10);
+    if (randomNumber > 5) {
+      resolve(randomNumber); // Promise fulfilled
+    } 
+    else {
+      reject('Number is less than or equal to 5'); // Promise rejected
+    }
+  });
+  
+  checkNumber.then(function(success) {
+    console.log(`Success: Number is greater than 5: ${success}`);
+  })
+  .catch(function(error) {
+    console.log(`Error: ${error}`);
+  });
+
+//* --------------------------------------------------------------------------
+// 🧡 AJAX Call: Consuming Promises using then() method 
+// ✨(NOT QUITE RECOMMENDED) 
+
 // 📝 Consuming promises in JavaScript involves using the Promise object to handle asynchronous operations.
 // 📝 using then() is the traditional way of consuming Promises in JavaScript.
 // Syntax: general syntax for consuming promises using fetch(): 
@@ -195,14 +233,14 @@ const get_country_data = function(p_country) {
 */
 
 // -----------------
-//$ ❕ Example 1:
+//- Example 1:
 
 // ? HTML Variables
 const countries_div = document.querySelector(".countries")
 const btn_country = document.querySelector(".btn_country")
 const input_country = document.querySelector(".input_country")
 
-//? ❕ Request API (Promises):
+// ? Request API (Promises):
 const get_country_data_api = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(response => response.json()) //  RETURNS a new promise
@@ -235,19 +273,17 @@ const render_country = function(data) {
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Chaining Promises
+// 🧡 Chaining Promises 
 // 📝 Chaining Promises in JavaScript is a way to execute a sequence of asynchronous tasks in a ...
 // particular order using Promises. 
 
-// -----------------
-// ❕ Example 1:
+// -----------------//- Example 1:
 
 // ? HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 
-//? ❕ Request API (Promises):
+// ? Request API (Promises):
 const get_country_data_api_2 = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(el => el.json()) //  RETURNS a new promise
@@ -289,8 +325,7 @@ const render_country_2 = function(data, class_name = "") {
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Error Handling When Consuming Promises with then()
+// 🧡 Error Handling When Consuming Promises with then() 
 
 // 📝 When working with Promises, it's important to handle rejected Promises properly to prevent ...
 // unexpected errors and ensure your code runs smoothly.
@@ -299,7 +334,7 @@ const render_country_2 = function(data, class_name = "") {
 // to basically reject the promise that suit our requirement to throw error,
 
 // -----------------
-//+ ❕ 1. catch()
+// 🔸 1. catch()
 
 // 📝 This method called when the promise is rejected and RETURNS promises.
 // 📝 This method is used to handle any errors that may occur in a Promise chain.
@@ -307,21 +342,20 @@ const render_country_2 = function(data, class_name = "") {
 // ⭐ This method statement is useful for handling all general errors that occur during the execution of code.
 
 // -----------------
-//+ ❕ 2. "throw new Error" statement
+// 🔸 2. "throw new Error" statement
 
 // 📝 This statement is used to throw an error object and stop the execution 
 // of the current function or block of code.
 // ⭐ This "throw new Error" statement when we want to throwing specific error manually.
 
-// -----------------
-//$ ❕ Example 1:
+//- Example 1:
 
 // ? HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 // const input_country = document.querySelector(".input_country")
 
-//? ❕ Request API (Promises):
+// ? Request API (Promises):
 const get_country_data_api_3 = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(response => {
@@ -377,35 +411,105 @@ const render_country_3 = function(data, class_name = "") {
 }
 
 //* --------------------------------------------------------------------------
+// 🧡 Async/Await (ES6) 
+// 📝 Async/await is a modern JavaScript syntax for handling asynchronous operations ...
+// in a more synchronous and readable manner. 
+// 📝 It is built on top of Promises and provides a way to write asynchronous code that ...
+// looks and behaves more like synchronous code, making it easier to understand and maintain.
 
-// 🧡 AJAX Call: Consuming Promises with Async/Await  ✨(MOST RECOMMENDED)
-
-// 📝 Using async / await is a more modern way of consuming Promises in JavaScript.
-// 📝 The advantage of using async/await is that it can make asynchronous code easier to read and write, ...
-// especially when dealing with complex Promise chains. It can also make it easier to handle errors.
+// -----------------
+// 🔸 "async" keyword 
+// 📝 used to define an asynchronous inside a function. 
+// 📝 When an async function is called, it returns a Promise.
+// Syntax:
 /*
     const FUNCTION_NAME = async function() {
-        const result = await fetch( *URL );
-        const data = await result.json();
-        return result;
+        Asynchronous code here
     }
 */
 
 // -----------------
-//$ ❕ Example 1:
+// 🔸 "await" keyword  
+// 📝 used to pause the execution of the function until a Promise is fulfilled or rejected.
+// 📝 "await" keyword can only be used inside an async function.
+// 📝 "await" keyword is important because it returns the resolved value of promise ...
+// and not promise object.
+
+// -----------------
+//- Example 1:
+
+// Promise constructor 1
+const make_request = function(p_location) {
+    return new Promise((resolve, reject) => {
+        // 📁Making request
+        if (p_location === "google") {
+            resolve("Google say hi😊")
+        }
+        else {
+            reject("We can only talk to Google😅")
+        }
+    })
+}
+// Promise constructor 1
+const process_request = function(p_response) {
+    return new Promise((resolve, reject) => {
+        // ⏳ Processing response 
+        resolve(`Extra information: ${p_response}`)
+    })
+}
+
+// Async/await function
+const do_work = async function() {
+    try {
+        // Handling promise constructor 1
+        const response = await make_request("google")
+
+        // Handling promise constructor 2
+        const process_response = await process_request(response)
+        console.log(process_response);
+    }
+    catch(error) {
+        window.alert(error)
+    }
+}
+do_work()
+
+//* --------------------------------------------------------------------------
+// 🧡 AJAX Call: Consuming Promises with Async/Await 
+// ✨(VERY RECOMMENDED) 
+
+// 📝 Using async / await is a more modern way of consuming Promises in JavaScript.
+// 📝 The advantage of using async/await is that it can make asynchronous code easier to read and write, ...
+// especially when dealing with complex Promise chains. It can also make it easier to handle errors.
+// Syntax: general syntax for consuming promises using async/await: 
+/*
+    const FUNCTION_NAME = async function() {
+        try {
+            const result = await fetch( *URL );
+            const data = await result.json();
+            + CODE TO HANDLE DATA (usually being an argument to a function)
+        }
+        catch {
+            + CODE TO HANDLE THE ERROR
+        }
+    }
+*/
+
+// -----------------
+//- Example 1:
 
 // ? HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 // const input_country = document.querySelector(".input_country")
 
-//? ❕ Request API (Promises):
+// ? Request API (Promises) 
 const get_country_data_api_4 = async function(p_country) {
     try {
         const result = await fetch(`https://restcountries.com/v3.1/name/${p_country}`);
         // -----------------
         // Throwing specific error Manually
-        console.log(result); /// result property = { ok: true / false }
+        console.log(result); /// one of the result property = { ok: true / false }
         if(result.ok === false) { 
             throw new Error(`${p_country} country not found😞, please insert the right input.`)
         }
@@ -429,7 +533,7 @@ const get_country_data_api_4 = async function(p_country) {
         render_country_4(neighbour_data[0], "neighbour")
 
     } 
-    catch (error) { alert(error.message) }
+    catch (error) { window.alert(error.message) }
     finally {countries_div.style.opacity = 1}
 }
 
@@ -439,7 +543,6 @@ btn_country.addEventListener("click", function() {
 
     //+ HTML variable
     const countries_children = document.querySelectorAll(".country")
-    console.log(countries_children);
 
     //+ smooth opacity transition on second call
     if (countries_children.length !== 0) {
@@ -471,8 +574,7 @@ const render_country_4 = function(data, class_name = "") {
 }
 
 //* --------------------------------------------------------------------------
-
-// 🧡 Error Handling When Consuming Promises with Async/Await
+// 🧡 Error Handling When Consuming Promises with Async/Await 
 
 // 📝 When working with Promises, it's important to handle rejected Promises properly to prevent ...
 // unexpected errors and ensure your code runs smoothly.
@@ -481,48 +583,33 @@ const render_country_4 = function(data, class_name = "") {
 // to basically reject the promise that suit our requirement to throw error,
 
 // -----------------
-//+ ❕ 1. "try...catch" statement
-
+// 🔸 1. "try...catch" statement
 // 📝 This statement is used for handling all errors that occur during the execution of code.
 // 📝 While it's true that "try...catch" is often used with asynchronous code that involves promises ...
 // or async/await, it can also be used to handle synchronous errors.
 // ⭐ This statement is useful for handling all general errors that occur during the execution of code.
+// Syntax:
+/*
+    try {
+        + code that might throw an error
+    } catch (error) {
+        + code to handle the error
+    }
+}
+*/
 
 // -----------------
-//+ ❕ 2. "throw new Error" statement
-
-// 📝 This statement is used to throw an error object and stop the execution 
-// of the current function or block of code.
-// ⭐ This statement when we want to throwing specific error manually.
-
-// -----------------
-//$ ❕ Example 1:
-
-// LOOK AT EXAMPLE ABOVE
-
-//* --------------------------------------------------------------------------
-
-// 🧡 Running Promises in Parallel (execute at the same time)
-
-// 📝 Running promises in parallel in JavaScript means executing multiple asynchronous operations at the ...
-// same time and waiting for all of them to complete before moving on to the next step. 
-
-// 📝 This can be useful when you have multiple independent tasks to perform, such as fetching data from ...
-// multiple sources or executing multiple database queries.
-
-// 📝 By running promises in parallel, you can make your code more efficient and faster, because you're
-// not waiting for each task to complete before starting the next one. Instead, you're initiating 
-// all the tasks simultaneously, and then waiting for all of them to complete at once.
+// 🔸 2. "throw new Error" statement
+// 📝 This statement is used to manually throw an error.
+// 📝 It allows you to interrupt the normal flow of program execution and generate an error condition.
+// 📝 This statement will display an alert box with a message in user interface.
+//  Syntax:
+//  throw new Error(message)
 
 // -----------------
-//$ ❕ Method() / Property / Keyword / Constructor / Statement
+//- Example 1:
 
-// 1. Promise.all()
-
-// -----------------
-//$ ❕ Example 1:
-
-// ? get JSON fn
+// get JSON fn
 const get_JSON = async function(url) {
     try {
         const request = await fetch(url);
@@ -534,11 +621,33 @@ const get_JSON = async function(url) {
         return data;
     }
     catch (error) {
-        alert(error.message)
+        window.alert(error.message)
     }
 }
 
-//? ❕ Request API (Promises):
+//* --------------------------------------------------------------------------
+// 🧡 Running Promises in Parallel (execute at the same time) 
+// 📝 Running promises in parallel in JavaScript means executing multiple asynchronous operations at the ...
+// same time and waiting for all of them to complete before moving on to the next step. 
+
+// 📝 This can be useful when you have multiple independent tasks to perform, such as fetching data from ...
+// multiple sources or executing multiple database queries.
+
+// 📝 By running promises in parallel, you can make your code more efficient and faster, because you're
+// not waiting for each task to complete before starting the next one. Instead, you're initiating 
+// all the tasks simultaneously, and then waiting for all of them to complete at once.
+
+// -----------------
+// 🔸 Promise.all() 
+// 📝 This is built-in method that allows you to handle multiple Promises concurrently 
+// and wait for all of them to either fulfill or reject.
+// 📝 It takes an iterable (such as an array) of Promises as input and returns a new Promise.
+// syntax: 
+// Promise.all( ITERABLES );
+
+//- Example 1:
+
+// ? Request API (Promises):
 const get_all_capital_city = async function (c1, c2, c3) {
     try {
         const data = await Promise.all([

@@ -107,11 +107,11 @@ console.log(counter.include());
 // -----------------
 //- Example 1: 
 
-const transformer = function(para_str, para_function) { // tranformer is higher order function
+const transformer = function(para_str, para_function) { //⭐ tranformer is higher order function
     console.log(`Original string: ${para_str}`); /// Javascript is the best 
     console.log(`Transform string: ${para_function(para_str)}`); /// JAVASCRIPT is the best 
 }
-const upper_first_word = function(para_str) { // upper_first_word is callback function
+const upper_first_word = function(para_str) { //⭐ upper_first_word is callback function
     const [first, ...other] = para_str.split(" ");
     return [first.toUpperCase(), ...other].join(" ");
 }
@@ -461,9 +461,6 @@ normal_fn();
 
 //* --------------------------------------------------------------------------
 // 🧡 Function Closures 
-// 📝 JavaScript variables can belong to the local or global scope.
-// 📝 Global variables can be made local (private) with closures.
-
 // 📝 Closure is just how function behavior, we don't create closures manually,...
 // So closure simply happens automatically.
 // 📝 Closure makes a function remember all the variables and parameters ...
