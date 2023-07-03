@@ -386,6 +386,7 @@ const arif_rashidi_2 = {
     job: "frontend developer",
     friends: ["Adam", "Harith", "Mat"]
 }
+console.log(arif_rashidi_2);
 
 //* --------------------------------------------------------------------------
 // 🧡 Access Objects (Dot vs. Bracket Notation) 
@@ -429,6 +430,7 @@ console.log(arif_rashidi_2["last" + name_key])
 // -----------------
 // 🔸 Update property value 
 
+//- Example 1:
 const profile = {
     first_name: "Arif",
     last_name: "Rashidi",
@@ -442,6 +444,7 @@ console.log(profile.job); /// entrepeneur
 // -----------------
 // 🔸 Add new property to the object 
 
+//- Example 1:
 const my_profile_3 = {
     first_name: "Arif",
     last_name: "Rashidi",
@@ -450,6 +453,18 @@ const my_profile_3 = {
     friends: ["Adam", "Harith", "Mat"]
 }
 my_profile_3.location = "Malaysia"
+
+
+// -----------------
+// 🔸 Relocate global variables inside an object  
+
+//- Example 1:
+const pizza = "delicious";
+const burger = ["salad", "meat", "bread", "cheese"];
+const french_fries = 23;
+
+const western_food = {pizza, burger, french_fries};
+console.log(western_food);
 
 // -----------------
 //- Small challange:

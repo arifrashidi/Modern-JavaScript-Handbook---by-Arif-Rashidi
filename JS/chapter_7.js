@@ -46,7 +46,6 @@ create_booking("LH123", undefined, 100) /// {flight_num: 'LH123', num_passengers
 
 // -----------------
 //- Example 1:
-
 const train = "LH234"
 const passenger_profile = {
     name: "Arif Rashidi",
@@ -437,27 +436,24 @@ poll_button.addEventListener("click", poll_2.register_answer.bind(poll_2));
 
 //* --------------------------------------------------------------------------
 // 🧡 Immediately Invoked Function Expressions (IIFE) 
-//  + Not that important
-// 📝 So sometimes in JavaScript, we need a function that is only executed once only.
-// 📝 (IIFE) basically a function that disappears right after it's called once.
-// 📝 This technique can be useful when we dealing with something called async/await.
+// 📝 It is a function that executed immediately after it is defined. 
+// 📝 The purpose of an IIFE is to create a private scope for variables and ...
+// avoid polluting the global namespace.
+// 📝 This means any variables or functions defined within the IIFE are not accessible from outside, ...
+// keeping them private to the IIFE's scope.
 
 // -----------------
+// 🔸 IIFE function 
+
 //- Example 1: 
-
-// 🔗 normal function
-const normal_fn = function() {
-    console.log("this is normal function");
-}
-normal_fn();
-
-// 🔗 IIFE pattern
 (function() {
-    console.log("this will never run again!");
+    const money = 100; //⭐ This variable only accessible within this function. 
+    console.log(`The price of this product is RM${money}.`);
 })();
-// or
-(() => console.log("this will never run again!")) // arrow function
-();
+
+//- Example 2: 
+// 📝Using arrow function
+(() => console.log("this is private scope")) 
 
 //* --------------------------------------------------------------------------
 // 🧡 Function Closures 
