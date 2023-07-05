@@ -82,7 +82,7 @@ login_user.greet_user();
 // 📝 We use OOP when we need to create a class(object blueprint) that we can use to 
 // create many instances with same properties but different values.
 // ⭐ ( CLASS : Like a blueprints for creating objects. )
-// ⭐ ( INSTANCES : New objects that been created from the class. )
+// ⭐ ( INSTANCES : New objects that been created from the class constructor. )
 
 // -----------------
 // 🔸 Fundamental OOP principles 
@@ -108,10 +108,12 @@ login_user.greet_user();
 // 📝 JavaScript introduced "class" syntax that simplifies class creation.
 // 📝 You define a class using the "class" keyword and use constructor ...
 // and method within the class body.
+// 📝 "constructor" is a special function that is used to create and initialize objects.
 
-// the "new" keyword to create instances.
+// 📝 The "new" keyword is used to create an instance of an object 
+// or to invoke a constructor function.
+// 📝 The "new" keyword function:
 
-// 📝 The "new" keyword:
 // 1. Create a new empty object {}
 // 2. Set the value of "this" to be new empty object.
 // 3. calls the constructor method.
@@ -126,9 +128,11 @@ class User { //⭐ Classes
 }
 const user_1 = new User("Ryu", "ryu@gmail.com") //⭐ Instance
 console.log(user_1); /// User {email: "ryu@gmail.com", name: "Ryu"}
+console.log(user_1.name); /// Ryu
 
 const user_2 = new User("John", "john@gmail.com") //⭐ Instance
 console.log(user_2); /// User {email: "john@gmail.com", name: "John"}
+console.log(user_1.name); /// John
 
 // -----------------
 // 🔸 Add methods to class 
@@ -308,9 +312,10 @@ console.log(user_login_1.__proto__.__proto__); /// /// all object constructor me
 // 📝 Constructor functions are a traditional way to create classes in JavaScript. 
 // 📝 This method define a function that acts as a constructor for the class.
 
-// the "new" keyword to create instances.
+// 📝 The "new" keyword is used to create an instance of an object 
+// or to invoke a constructor function.
+// 📝 The "new" keyword function:
 
-// 📝 The "new" keyword:
 // 1. Create a new empty object {}
 // 2. Set the value of "this" to be new empty object.
 // 3. calls the constructor method.

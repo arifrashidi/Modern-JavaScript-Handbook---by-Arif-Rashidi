@@ -359,7 +359,7 @@ else {
 // 📝 Here is a list of commonly used conversion methods:
 // • String()
 // • Number()
-// • Boolean()
+// • Boolean() / (!!) shorthand keyword
 
 // 🔗 Convert string to number:
 // Syntax: Number( "STRING" )
@@ -425,8 +425,10 @@ if (typeof person_num === "number" && typeof person_name === "string") {
 
 //* --------------------------------------------------------------------------
 // 🧡 Truthy and Falsy Values 
-// 📝 falsy values are values that are not exactly false...
-// but will become false when we try to convert them into boolean.
+// 📝 Truthy and Falsy values are used to determine the boolean value (true or false) 
+// of an expression in a conditional statement.
+// 📝 Every value in JavaScript can be classified as either truthy or falsy.
+// 📝 Any other value that is not explicitly falsy is considered truthy. 
 
 // 📝 list of all falsy values in JavaScript.
 /*
@@ -443,8 +445,8 @@ if (typeof person_num === "number" && typeof person_name === "string") {
 console.log(Boolean(null)) /// false
 console.log(Boolean('')) /// false
 console.log(Boolean('Arif')) /// true
+console.log(Boolean([])) /// true
 
-// -----------------
 //- example 2:
 const saddiq_money = 0; /// 0 is a falsy value
 if(saddiq_money) {
@@ -454,7 +456,6 @@ else {
   console.log("You should get a job! 💵")
 }
 
-// -----------------
 //- example 3:
 let shoes; /// shoes is undefined
 if(shoes) {
@@ -463,6 +464,16 @@ if(shoes) {
 else {
   console.log("shoes is UNDEFINED!")
 }
+
+// -----------------
+// 🔸 !! = shorthand for Boolean() 
+// 📝 Double exclamation mark (!!) is a shorthand technique used to convert a value into its 
+// corresponding boolean representation.
+
+//- example 1:
+console.log(!! "banana"); /// true
+console.log(!! 3); /// true
+console.log(!! 0); /// false
 
 //* --------------------------------------------------------------------------
 // 🧡 Equality Operators ( === / == ) 
@@ -806,3 +817,4 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
 15. Generator functions (function*) for creating iterable objects with lazy evaluation.
 
 */
+

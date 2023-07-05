@@ -47,18 +47,22 @@ is_even_num(25) /// This number is odd
 
 //* --------------------------------------------------------------------------
 // 🧡 Creating Dates 
+// 
 
 // -----------------
 // 🔸 new Date()
-// 📝 This method RETURNS a date object with the current date and time.
+// 📝 new Date() is a built-in constructor function that creates a new instance of the Date object. 
+// 📝 Date object represents a specific point in time and provides methods for working with dates and times.
+// 📝The "new" keyword is used to create an instance of an object or to invoke a constructor function.
+// ⭐ This method RETURNS a date object with the current date and time.
 // Syntax: new Date()
 
 //- Example 1:
-const now = new Date();
-console.log(now); /// Wed Mar 01 2023 13:26:50 GMT+0800 (Singapore Standard Time)
+console.log(Date); /// Date Constructor
 
 //- Example 2:
-console.log(new Date());
+const now = new Date();
+console.log(now); /// Wed Mar 01 2023 13:26:50 GMT+0800 (Singapore Standard Time)
 
 // -----------------
 // 🔸 getFullYear() / getMonth() / getDate() /  getDay()
