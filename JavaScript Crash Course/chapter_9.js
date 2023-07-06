@@ -58,11 +58,11 @@ is_even_num(25) /// This number is odd
 // Syntax: new Date()
 
 //- Example 1:
-console.log(Date); /// Date Constructor
+console.log(Date); /// Date Constructor / ƒ Date() { [native code] }
 
 //- Example 2:
 const now = new Date();
-console.log(now); /// Wed Mar 01 2023 13:26:50 GMT+0800 (Singapore Standard Time)
+console.log(now); /// Date Object / Wed Mar 01 2023 13:26:50 GMT+0800 (Singapore Standard Time)
 
 // -----------------
 // 🔸 getFullYear() / getMonth() / getDate() /  getDay()

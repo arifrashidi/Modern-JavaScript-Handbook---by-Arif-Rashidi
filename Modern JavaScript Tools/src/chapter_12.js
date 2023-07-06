@@ -41,7 +41,7 @@ console.log("--- 📁 CHAPTER 12: Modern Javascript: Modules, Tooling, and Funct
 // in the browser as code changes. 
 
 // -----------------
-//🔸 Code Transpilation 
+//🔸 Code Transpilation & Polyfilling 
 // ⭐ (Vite, Babel)
 // 📝 This tool allow developers to write modern JavaScript code using the latest language features, ...
 // even if not all target environments fully support them. 
@@ -69,7 +69,7 @@ console.log("--- 📁 CHAPTER 12: Modern Javascript: Modules, Tooling, and Funct
 //🔸 Static Typing 
 // ⭐ (Typescript)
 // 📝 Type-checking systems allowing developers to catch errors during the development phase. 
-// 📝 By adding type annotations to variables, functions, and objects, developers ...
+// 📝 By add_expenseing type annotations to variables, functions, and objects, developers ...
 // can improve code quality, enhance tooling support, and facilitate collaboration within teams.
 
 
@@ -208,7 +208,7 @@ console.log(shopping.grocery_store_profit);
 
 import location from "./export_module.js";
 
-//🔗  The following examples show the default export modules variable can be used 
+//🔗 The following examples show the default export modules variable can be used 
 
 //- Example 1
 console.log(location[0]);
@@ -260,7 +260,7 @@ console.log(location[0]);
 // Execute a script defined in the "scripts" section of the package.json file.
 
 // -----------------
-///🔸 PARCEL BUNDLER 
+///🔸 Parcel Build Tool 
 //+ npx parcel [ENTRY FILE]
 // To bundle and run your project using Parcel.
 // "entry file" refers to the main file of your web application ...
@@ -309,7 +309,7 @@ console.log(location[0]);
 
 //+ Step 2: ( npm init -y )
 // 📝 Create "package.json" file.
-// 📝"package.json" file is used to provides metadata about the project, ...
+// 📝 "package.json" file is used to provides metadata about the project, ...
 // including its dependencies, scripts, author information, versioning, and more.
 
 //+ Step 3: ( npm install [package] )
@@ -321,19 +321,22 @@ console.log(location[0]);
 // 📝 Enjoy use the package.
 
 //* --------------------------------------------------------------------------
-// 🧡 BUNDLING & BUILDING MODULES WITH PARCEL 
+// 🧡 Bundling & Building Modules with Parcel 
 // 📝 Parcel is a build tool that simplifies the process of bundling and optimizing JavaScript, ...
 // CSS, and other assets for web applications. 
 // 📝 Parcel build tool also can compile "Sass files" and provide live-reloading functionality using a server. 
 // 📝 Parcel is an npm package, so you can install it using NPM.
 
 // -----------------
-//🔸 How to bundle your project using Parcel bundler (local installation) 
-// 📝 Using a local installation is more recommended for better ...
-// project isolation and dependency management.
+//🔸 What is bundling process 
 // 📝 When you run Parcel with the parcel command, it starts the bundling process by default. ...
 // It always watching for changes and automatically rebuilding and refreshing the browser ...
 // when modifications are made.
+
+// -----------------
+//🔸 How to run bundling process (local installation) 
+// 📝 Using a local installation is more recommended for better ...
+// project isolation and dependency management.
 
 //+ Step 1: ( npx parcel [ENTRY FILE] )
 // 📝 Run parcel in terminal and choose which "entry file" that you want to use.
@@ -355,12 +358,12 @@ console.log(location[0]);
 */
 // 📝 Use the" npm run command" in terminal to run the script.
 
-//+ Step 2: (optional)
+//+ Step 2:
 // 📝 You can see your project running in the browser by click the "server URL" in the terminal.
 // 📝 Parcel provides automatic bundling and live reloading.
 
 //+ Step 3: (optional)
-// 📝 Include this code in "main module" javascript file.
+// 📝 You can include this code in "main module" javascript file.
 // 📝 This code will enables the HMR functionality, allows you to see changes in your code ...
 // instantly reflected in the browser without needing to perform a full page reload.
 // 📝 This feature only can be used by Parcel bundler only.
@@ -370,20 +373,26 @@ if (module.hot) {
 }
 
 // -----------------
-//🔸 How to create a production-ready build code using Parcel bundler 
+//🔸 What is building process 
 // 📝 Building is a one-time process to optimized & minified all your files and assets ...
 // for final deployment to a web server or hosting environment. 
 // 📝 It typically contains highly efficient and compressed assets, which ...
 // can improve the loading speed and performance of your web application.
+
+// -----------------
+//🔸 How to create a production-ready build code 
 // 📝 bundling & building process cannot run at the same time.
 // 📝 Building process does not require you to run bundling before it.
 
-//+ Step 1: ( npm run [SCRIPT NAME] )
-// 📝 This method is more convenient to use.
+//+ Step 1:
+// 📝 If you have run bundling before, you need to delete the "dist" and ".parcel-cache" directory ...
+// first before start running the building process to get a fresh start.
+
+//+ Step 2: ( npm run [SCRIPT NAME] )
 // 📝 You can easily trigger the Parcel building process by defining this code ...
 // in a "scripts" section of the package.json file.
-// 📝 If you encounter any error in the building process, you can try to delete the "main" section ...
-// in the package.json file.
+// 📝 If you encounter any error in the building process, you can try to change the "main" section ...
+// to "default" in the package.json file.
 // syntax:
 /*
     "scripts": {
@@ -426,4 +435,189 @@ console.log(all_animals);
 // and it can be quite large and time-consuming to upload and download. 
 
 //* --------------------------------------------------------------------------
-// 🧡 The Right Way to Commit a Project to Git Repository 
+// 🧡 Transpiling & Polyfilling with Babel 
+// 📝 Babel is a Javascript compiler.
+// 📝 Parcel build tool, does use Babel under the hood to transpile modern JavaScript code ...
+// into a backward-compatible version. 
+// 📝 This tool enables developers to write modern JavaScript code using the latest features, 
+// while ensuring compatibility with older browsers that do not yet support those features.
+
+// -----------------
+//🔸 How to transpile code 
+// 📝 When you use Parcel to bundle your JavaScript code, it automatically applies ...
+// Babel transformations based on your project's configuration.
+
+// -----------------
+//🔸 What is polyfilling 
+// 📝 Polyfilling refers to the process of add_expenseing support for certain modern JavaScript features ...
+// or APIs in environments that does not support transpilation on them.
+
+//- Example 1: 
+// find() method does not support transpiling
+const find_number = [8, 9, 10, 7, 9, 12].find(el => el >= 10);
+console.log(find_number); /// 10
+
+// -----------------
+//🔸 How to polyfilling code 
+// 📝 Babel provides a companion tool called "core-js" library that includes polyfills 
+// for a wide range of JavaScript features and APIs.
+
+//+ Step 1: ( npm i core-js )
+// 📝 install "core-js" npm library.
+
+//+ Step 2:
+// 📝 import the polyfills features you need from "core-js".
+// "core-js/stable" will include all stable polyfills from core-js.
+// 📝 The more specific import paths, the more smaller bundle size will be.
+import "core-js/stable/array/find.js";
+
+//+ Step 3: ( npm i regenerator-runtime )
+// 📝 For polifilling async function, install "regenerator-runtime" library.
+
+//+ Step 4:
+// 📝 import the polyfills features you need from "regenerator-runtime" library.
+import "regenerator-runtime/runtime.js"
+
+//* --------------------------------------------------------------------------
+// 🧡 Best Paractice when Writing Clean Code in Modern JavaScript 
+// 📝 Writing readable code in JavaScript is crucial for maintainability and collaboration.
+
+// -----------------
+//🔸 General tips 
+// • Write code so that others can understand it.
+// • Write code so that you can understand it in 1 year.
+// • Avoid too "clever" and overcomplicated solutions.
+// • Use DRY Principle (refactor your code)
+// • Don't pollute global namespace, encapsulate instead.
+// • Don't use "var" variable.
+// • Use strong type check. ( === & !== )
+
+// -----------------
+//🔸 Avoid nested code tips 
+// • Use guard clauses selectively (early return if those conditions are met)
+// • Use ternary(conditional) or logical operators instead of if statement.
+// • If you still want to use if statement, Use multiple if instead of if/else-if.
+// • Avoid for loops, use array methods instead.
+// • Avoid callback-based asynchronous APIs.
+
+// -----------------
+///🔸 Naming tips 
+// • Use descriptive variable names: what they contain.
+// • Use descriptive function names: what they do.
+
+// -----------------
+//🔸 Function tips 
+// • Generally, functions should do only one thing.
+// • Don't use more than 3 function parameters.
+// • Use "default parameters" feature whenever possible.
+// • Generally, return the same data type as received.
+// • Use "arrow functions" to make code more readable.
+
+// -----------------
+///🔸 OOP tips 
+// • Use new ES6 classes.
+// • Encapsulate data and don't mutate it from outside the class.
+// • Implement method chaining.
+// • Do not use arrow functions as methods (in regular objects).
+
+// -----------------
+//🔸 Asynchronous code tips 
+// • Consume promises with async/await for best readability.
+// • Whenever possible, run promises in parallel (Promise. aLL).
+// • Handle errors and promise rejections.
+
+//* --------------------------------------------------------------------------
+// 🧡 Declarative & Functional Programming 
+
+// -----------------
+///🔸 What is Declarative code 
+// 📝 The declarative code focuses on describing "what" should be accomplished ...
+// rather than "how" to achieve it. 
+// 📝 In declarative programming, you specify the desired outcome or result, ...
+// and the underlying system or language takes care of the implementation details.
+
+//- example 1:
+
+//🔗 Not-Declarative code (Imperative code)
+// Double the array number
+const number = [2, 4, 6, 8];
+const double_number = [];
+for (let i = 0; i < number.length; i++) {
+  double_number[i] = number[i] * 2
+}
+console.log(double_number); /// [4, 8, 12, 16]
+
+//🔗 Declarative code 
+// Double the array number
+const number_2 = [2, 4, 6, 8];
+const double_number_2 = number_2.map(el => el * 2);
+console.log(double_number_2); /// [4, 8, 12, 16]
+
+// -----------------
+///🔸 Functional Programming 
+// 📝 Functional programming focuses on writing code using pure functions and emphasizes ...
+// immutability and declarative code. 
+// 📝 Adopting functional programming concepts can lead to more modular ...
+//  and reusable code, as well as improved code quality and expressiveness.
+
+//🔗 Here are some key concepts of functional programming 
+
+//+ Declarative Programming:
+// 📝 Use declarative code to reduces the need for manual control flow.
+
+//+ Pure Functions:
+// 📝 Functions that always produce the same output.
+// 📝 Does not depend on external variable.
+// 📝 Do not modify any data outside of the function.
+
+//+ Immutability:
+// 📝 Data is not modified once created. 
+// 📝 Instead, new data structures are created when changes are needed. 
+
+//🔗 How to achieve Functional programming 
+
+//+ Avoid any data mutations in general:
+// 📝 Avoid Reassigning Variables.
+// 📝 Try to avoid any data mutations of any data outside the function.
+
+//+ Use built-in methods:
+// 📝 Use built-in methods that don't cause mutations.
+// 📝 Example methods that does not mutate: .map() / .filter() / .reduce()
+// 📝 Example methods that mutate: .splice() / .push() / .pop()
+
+//+ Use declarative syntax:
+// 📝 Use ES6 "array and object destructuring" feature.
+// 📝 Use ES6 "spread operator" feature.
+// 📝 Use ES6 "template literals" feature.
+// 📝 Use ES6 "default parameters" feature whenever possible.
+// 📝 Use "ternary operator" feature.
+
+//+ Use immutability libraries:
+// 📝 libraries (such as Immutable.js) offer a wide range of functionality and ...
+// efficient data manipulation methods that maintain immutability. 
+
+//* --------------------------------------------------------------------------
+// 🧡 Simple Deployment With Netlify 
+// 📝 Netlify is a cloud-based platform website that provides web hosting 
+// and serverless backend services for web development projects.
+
+// -----------------
+//🔸 Here are some Netlify great features: 
+
+//🔗 Continuous Deployment 
+// 📝 Netlify integrates with Git, allowing you to automate the deployment process. 
+// 📝 Whenever you push changes to your repository, Netlify automatically builds and deploys your site.
+
+//🔗 Static Site Hosting 
+// 📝 Netlify specializes in hosting static websites.  
+// 📝 It can also host traditional HTML/CSS/JavaScript websites for free.
+
+//🔗 CDN & Asset Optimization 
+// 📝 Netlify distributes your website's files across a global Content Delivery Network(CDN) ...
+// ensuring fast and reliable content delivery to users worldwide.
+// 📝 It also provides asset optimization features.
+
+//🔗 Custom Domain & SSL 
+// 📝 You can easily configure a custom domain for your site in Netlify, ...
+// and it provides SSL certificates (HTTPS) by default, ...
+// ensuring secure communication between your website and its visitors. 

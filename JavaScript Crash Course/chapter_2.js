@@ -242,9 +242,28 @@ const years_until_retirement_2 = function(birth_year) {
 console.log(years_until_retirement_2(1975));
 console.log(years_until_retirement_2(1950));
 
+//* --------------------------------------------------------------------------
+// 🧡 Guard Clause 
+// 📝 Guard clause is a coding technique that involves using conditional statements ...
+// at the beginning of a function or code block. 
+// 📝 If those conditions are met, the code will exit or return early, avoiding ...
+// unnecessary execution of the remaining code.
+// Use guard clauses selectively for handling exceptional cases, but be cautious not to ...
+// overuse them, as excessive early Guard clause can make the code harder to follow.
+
+// -----------------
+//- Example 1:
+
+const divide_fn = function(a, b) {
+    if (b === 0) {
+        return "Cannot divide by zero."; // Guard clause
+    }
+    return a / b;
+}
+console.log(divide_fn(24, 4));
 
 //* --------------------------------------------------------------------------
-// 🧡 5# Coding Challenges (Hard)
+// 🧡 5# Coding Challenges (Hard) 
 
 // first function
 const calc_average = (a, b, c) => (a + b + c) / 3;

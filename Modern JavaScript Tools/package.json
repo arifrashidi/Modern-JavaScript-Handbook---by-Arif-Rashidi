@@ -2,17 +2,21 @@
   "name": "modern-javascript-tools",
   "version": "1.0.0",
   "description": "",
+  "default": "index.html",
   "scripts": {
     "bundling": "parcel src/chapter_12.html",
-    "building": "parcel build src/chapter_12.html"
+    "building": "parcel build src/chapter_12.html "
   },
   "author": "Arif",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
-    "parcel": "^2.9.3"
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "core-js": "^3.31.0",
+    "lodash": "^4.17.21",
+    "regenerator-runtime": "^0.13.11"
   }
 }

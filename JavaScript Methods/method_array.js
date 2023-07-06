@@ -314,7 +314,6 @@ console.log(sum_money); /// 160
 
 // -----------------
 // 🔸 find() 
-// ✨(FIND)
 // 📝 This method RETURNS the value of the first element that passes a test.
 // 📝 This method executes a function for each array element.
 // 📝 This method returns undefined if no elements are found.

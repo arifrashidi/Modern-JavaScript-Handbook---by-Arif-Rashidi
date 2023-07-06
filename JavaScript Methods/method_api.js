@@ -99,7 +99,8 @@ const get_country_data = function(p_country) {
 */
 
 // -----------------
-// 🔸 fetch() 📌( Web APIs method ) ✨(RETURNS PROMISES)
+// 🔸 fetch() ✨(RETURNS PROMISES OBJECT)
+// 📌( Web APIs method )
 // 📝 This method used to make HTTP requests and retrieve resources from a network.
 // 📝 This method returns a Promise that resolves to a Response object.
 // 📝 This method makes the code asynchronous by default.
@@ -107,36 +108,42 @@ const get_country_data = function(p_country) {
 
 //- Example 1:
 const request_2 = fetch("https://restcountries.com/v3.1/name/malaysia")
-console.log(request_2); /// promises
+console.log(request_2); /// Promise Object / Promise {<pending>}
 
 // -----------------
-// 🔸 then() 📌( Promise method ) ✨(FUNCTION METHOD) ✨(RETURNS PROMISES)
+// 🔸 then() ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT) 
+// 📌( Promise method ) 
 // 📝 This method used to handle the fulfillment (resolved) state of a Promise.
 // 📝 It allows you to specify a callback function that will be executed when the Promise ...
 // is successfully resolved with a value.
-//  Syntax: PROMISES.then( onFulfilled, onRejected )
+// 📝 It takes the resolved value of the Promise as its first argument.
+//  Syntax: PROMISES.then( (resolved) => WHAT_WE WANT_TO_DO  )
 
 // -----------------
-// 🔸 json() 📌( Response method )
-// 📝 This method is a built-in method of the Response object that is returned from the fetch() method. 
+// 🔸 json() ✨(RETURNS PROMISES OBJECT)
+// 📌( Response method )
+// 📝 This method is used after the fetch() method when fetching API. 
 // 📝 It is used to extract the JSON body content of the response and convert it into a JavaScript object.
 // 📝 The json() method RETURNS a new promise that resolves with the parsed JSON data.
 //  Syntax: RESPONSE.json()
 
 // -----------------
-// 🔸 finally() 📌( Promise method ) ✨(FUNCTION METHOD) ✨(RETURNS PROMISES)
+// 🔸 finally() ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT)
+// 📌( Promise method )
 // 📝 This method called when the promise is settled (either fulfilled or rejected) and RETURNS promises.
 //  Syntax: PROMISES.finally( () => Code that will run after promise is settled )
 
 // -----------------
-// 🔸 catch() 📌( Promise method ) ✨(FUNCTION METHOD) ✨(RETURNS PROMISES) ✨(HANDLING ERROR)
+// 🔸 catch() ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT) ✨(HANDLING ERROR)
+// 📌( Promise method )
 // 📝 This method called when the promise is rejected and RETURNS promises.
 // 📝 This method is used to handle any errors that may occur in a Promise chain.
 // 📝 This method need to be put at the end of the promise chain.
 //  Syntax: PROMISES.catch( error => HOW_WE_HANDLE_ERROR )
 
 // -----------------
-// 🔸 "throw new Error" statement 📌( Statement ) ✨(HANDLING ERROR)
+// 🔸 "throw new Error" statement ✨(HANDLING ERROR) 
+// 📌( Statement ) 
 // 📝 This statement is used to throw an error object and stop the execution of the current function or block of code.
 // 📝 Use "throw new Error" statement when we want to throwing specific error manually.
 //  Syntax: throw new Error(message);
@@ -146,28 +153,6 @@ console.log(request_2); /// promises
 // if (pet !== "cat") {
 //     throw new Error("we can only pet cat 🐈")
 // }
-
-// -----------------
-//- Example 1:
-
-//? Request API (Promises):
-const get_country_data_api_3 = function(p_country) {
-    fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
-    .then(response => {
-        console.log(response); /// response property = { ok: true / false }
-        // Throwing Errors Manually
-        if(response.ok === false) { 
-            throw new Error(`${p_country} country not found😞, please insert the right input.`)
-        }
-        return response.json()
-    })
-    .then((data) => {
-        console.log(data); /// literal object
-    })
-    .catch(error => alert(error)) /// alert error when promises rejected
-    .finally(() => console.log("code that will run after promise is settled"));
-}
-// get_country_data_api_3("indonesia");
 
 //* --------------------------------------------------------------------------
 // 🧡 AJAX Call: Consuming Promises with Async/Await 
@@ -191,18 +176,21 @@ const get_country_data_api_3 = function(p_country) {
 */
 
 // -----------------
-// 🔸 fetch() 📌( Web APIs method ) ✨(RETURNS PROMISES)
+// 🔸 fetch() ✨(RETURNS PROMISES OBJECT)
+// 📌( Web APIs method )
 // 📝 This method used to make HTTP requests and retrieve resources from a network.
+// 📝 This method returns a Promise that resolves to a Response object.
 // 📝 This method makes the code asynchronous by default.
 // Syntax: fetch( *URL )
 
 //- Example 1:
 const request = fetch("https://restcountries.com/v3.1/name/malaysia")
-console.log(request); /// promises 
+console.log(request); /// Promise Object / Promise {<pending>}
 
 // -----------------
-// 🔸 "async" keyword 📌( Promise Keyword ) ✨(FUNCTION KEYWORD) ✨(RETURNS PROMISES) 
-// 📝 used to define an asynchronous inside a function. 
+// 🔸 "async" keyword ✨(ASYNCHRONOUS FUNCTION) 
+// 📌( Promise Keyword )
+// 📝 Used to define an asynchronous inside a function. 
 // 📝 When an async function is called, it returns a Promise.
 // Syntax:
 /*
@@ -212,21 +200,24 @@ console.log(request); /// promises
 */
 
 // -----------------
-// 🔸 "await" keyword 📌( Promise Keyword ) ✨(RETURNS PROMISES)
-// 📝 used to pause the execution of the function until a Promise is fulfilled or rejected.
+// 🔸 "await" keyword 
+// 📌( Promise Keyword )
+// 📝 Used to pause the execution of the function until a Promise is fulfilled or rejected.
 // 📝 The "await" keyword can only be used inside an async function.
 
 // -----------------
-// 🔸 json() 📌( Response Method ) 
-// 📝 This method is a built-in method of the Response object that is returned from the fetch() method. 
+// 🔸 json() ✨(RETURNS PROMISES OBJECT) 
+// 📌( Response method )
+// 📝 This method is used after the fetch() method when fetching API. 
 // 📝 It is used to extract the JSON body content of the response and convert it into a JavaScript object.
 // 📝 The json() method RETURNS a new promise that resolves with the parsed JSON data.
 //  Syntax: RESPONSE.json()
 
 // -----------------
-// 🔸 finally 📌( Promise Keyword )
+// 🔸 finally() ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT)
+// 📌( Promise method )
 // 📝 This method called when the promise is settled (either fulfilled or rejected) and RETURNS promises.
-//  Syntax: PROMISES.finally { Code that will run after promise is settled }
+//  Syntax: PROMISES.finally( () => Code that will run after promise is settled )
 
 // -----------------
 // 🔸 "try...catch" statement 📌( Statement ) ✨(HANDLING ERROR)
@@ -272,28 +263,5 @@ try {
 // and wait for all of them to either fulfill or reject.
 // 📝 It takes an iterable (such as an array) of Promises as input and returns a new Promise.
 //  Syntax: Promise.all( ITERABLES )
-
-// -----------------
-//- Example 1:
-
-//? Request API (Promises):
-const get_country_data_api_4 = async function(p_country) {
-    try {
-        const result = await fetch(`https://restcountries.com/v3.1/name/${p_country}`);
-        // -----------------
-        // Throwing specific error Manually
-        console.log(result); /// result property = { ok: true / false }
-        if(result.ok === false) { 
-            throw new Error(`${p_country} country not found😞, please insert the right input.`)
-        }
-        // -----------------
-        const data = await result.json();
-        console.log(data); /// literal object
-
-    } 
-    catch (error) {alert(error.message)}
-    finally {console.log("code that will run after promise is settled");}
-}
-get_country_data_api_4("pakistan")
 
 //* --------------------------------------------------------------------------

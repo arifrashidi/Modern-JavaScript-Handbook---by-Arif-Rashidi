@@ -102,17 +102,19 @@ console.log("--- 📁 CHAPTER 11: Asynchronous JavaScript: Promises, Async/Await
 // -----------------
 //- Example 1:
 
-// ? HTML Variables
+// ^ HTML Variables 
 const countries = document.querySelector(".countries")
 
+// ^ Request API 
 const get_country_data = function(p_country) {
     // --------------------
-    // ? Request API:
+    // Request API:
     const request = new XMLHttpRequest();
     request.open("GET", `https://restcountries.com/v3.1/name/${p_country}`)
     request.send();
 
-    // 🔸 addEventListener:
+// ^ Function Push HTML
+    // addEventListener:
     request.addEventListener("load", function() { // AJAX
         // Parse JSON
         const [data] = JSON.parse(this.responseText) // convert JSON to readable string
@@ -129,11 +131,7 @@ const get_country_data = function(p_country) {
         <p class="country__row"><span>💰</span>${Object.values(data.currencies).map(el => el.name)}</p>
         </div>
         </article>`
-
-        // Insert in inside HTML
-
-        // countries.insertAdjacentHTML("beforeend", HTML)
-        // countries.style.opacity = 1;
+        countries.insertAdjacentHTML("beforeend", HTML)
     })
 }
 // get_country_data("malaysia")
@@ -164,7 +162,7 @@ const get_country_data = function(p_country) {
   //* --------------------------------------------------------------------------
 // 🧡 Promises (ES6) 
 
-// 📝 promises is an object that is used as a placeholder for the future
+// 📝 Promises is an object that is used as a placeholder for the future
 // result of an asynchronous operation.
 
 // 📝 Promises are used to manage asynchronous operations, such as fetching data from a server, 
@@ -186,7 +184,7 @@ const get_country_data = function(p_country) {
 
 // -----------------
 // 🔸 Promise constructor 
-// 📝 Promise constructor is a built-in function used to create a new Promise object.
+// 📝 Promise constructor is a built-in function used to return a new Promise object.
 // 📝 The promise executed immediately when the Promise is created and is 
 // responsible for initiating an asynchronous operation.
 // syntax: 
@@ -197,7 +195,14 @@ const get_country_data = function(p_country) {
 */
 
 //- Example 1:
-const checkNumber = new Promise(function(resolve, reject) {
+console.log(Promise); /// Promise constructor / ƒ Promise() { [native code] }
+
+//- Example 2:
+const test = new Promise((resolve, reject) => true ? resolve(true) : reject(false));
+console.log(test); /// Promise Object / Promise {<fulfilled>: true}
+
+//- Example 3:
+const checkNumber = new Promise(function (resolve, reject) {
     const randomNumber = Math.trunc(Math.random() * 10);
     if (randomNumber > 5) {
       resolve(randomNumber); // Promise fulfilled
@@ -235,12 +240,12 @@ const checkNumber = new Promise(function(resolve, reject) {
 // -----------------
 //- Example 1:
 
-// ? HTML Variables
+// ^ HTML Variables
 const countries_div = document.querySelector(".countries")
 const btn_country = document.querySelector(".btn_country")
 const input_country = document.querySelector(".input_country")
 
-// ? Request API (Promises):
+// ^ Request API (Promises):
 const get_country_data_api = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(response => response.json()) //  RETURNS a new promise
@@ -250,9 +255,8 @@ const get_country_data_api = function(p_country) {
     });
 }
 // get_country_data_api("malaysia")
-// get_country_data_api("china")
 
-// ? function push HTML
+// ^ Function Push HTML
 const render_country = function(data) {
     const HTML = `
     <article class="country">
@@ -265,11 +269,7 @@ const render_country = function(data) {
     <p class="country__row"><span>💰</span>${Object.values(data.currencies).map(el => el.name)}</p>
     </div>
     </article>`
-
-    // Insert in inside HTML
-
-    // countries_div.insertAdjacentHTML("beforeend", HTML)
-    // countries_div.style.opacity = 1;
+    countries.insertAdjacentHTML("beforeend", HTML)
 }
 
 //* --------------------------------------------------------------------------
@@ -277,13 +277,14 @@ const render_country = function(data) {
 // 📝 Chaining Promises in JavaScript is a way to execute a sequence of asynchronous tasks in a ...
 // particular order using Promises. 
 
-// -----------------//- Example 1:
+// -----------------
+//- Example 1:
 
-// ? HTML Variables
+// ^ HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 
-// ? Request API (Promises):
+// ^ Request API (Promises):
 const get_country_data_api_2 = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(el => el.json()) //  RETURNS a new promise
@@ -302,9 +303,8 @@ const get_country_data_api_2 = function(p_country) {
     });
 }
 // get_country_data_api_2("sri lanka")
-// get_country_data_api_2("iceland")
 
-// ? function push HTML
+// ^ Function Push HTML
 const render_country_2 = function(data, class_name = "") {
     const HTML = `
     <article class="country ${class_name}" >
@@ -317,11 +317,7 @@ const render_country_2 = function(data, class_name = "") {
     <p class="country__row"><span>💰</span>${Object.values(data.currencies).map(el => el.name)}</p>
     </div>
     </article>`
-
-    // Insert in inside HTML
-    
-    // countries_div.insertAdjacentHTML("beforeend", HTML)
-    // countries_div.style.opacity = 1;
+    countries_div.insertAdjacentHTML("beforeend", HTML)
 }
 
 //* --------------------------------------------------------------------------
@@ -350,12 +346,12 @@ const render_country_2 = function(data, class_name = "") {
 
 //- Example 1:
 
-// ? HTML Variables
+// ^ HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 // const input_country = document.querySelector(".input_country")
 
-// ? Request API (Promises):
+// ^ Request API (Promises):
 const get_country_data_api_3 = function(p_country) {
     fetch(`https://restcountries.com/v3.1/name/${p_country}`) // fetching a resource from a server.
     .then(response => {
@@ -374,7 +370,7 @@ const get_country_data_api_3 = function(p_country) {
         const neighbour = data[0].borders[0]  /// Malaysia.borders: (3) ['BRN', 'IDN', 'THA']
         // console.log(neighbour);
         if (!neighbour) {
-            throw new Error(`No neighboring countries found`); // ! not work properly for some reason?
+            throw new Error(`No neighboring countries found`); // ! not work properly for some reason^
         }
         // chaining promises
         return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`) // search by country code
@@ -384,15 +380,10 @@ const get_country_data_api_3 = function(p_country) {
     .catch(error => alert(error)) /// alert error when promises rejected
     .finally(() => countries_div.style.opacity = 1);
 }
-// ? addEventListener()
-// btn_country.addEventListener("click", function() {
-//     get_country_data_api_3(input_country.value.toLowerCase());
-//     // check
-//     const country_children = countries.children;
-//     console.log(country_children);
-// })
 
-// ? function push HTML
+// get_country_data_api_3("Malaysia")
+
+// ^ Function Push HTML
 const render_country_3 = function(data, class_name = "") {
     const HTML = `
     <article class="country ${class_name}" >
@@ -405,9 +396,7 @@ const render_country_3 = function(data, class_name = "") {
     <p class="country__row"><span>💰</span>${Object.values(data.currencies).map(el => el.name)}</p>
     </div>
     </article>`;
-
-    // Insert in inside HTML
-    // countries_div.insertAdjacentHTML("beforeend", HTML)
+    countries_div.insertAdjacentHTML("beforeend", HTML)
 }
 
 //* --------------------------------------------------------------------------
@@ -498,12 +487,12 @@ do_work()
 // -----------------
 //- Example 1:
 
-// ? HTML Variables
+// ^ HTML Variables
 // const countries_div = document.querySelector(".countries")
 // const btn_country = document.querySelector(".btn_country")
 // const input_country = document.querySelector(".input_country")
 
-// ? Request API (Promises) 
+// ^ Request API (Promises) 
 const get_country_data_api_4 = async function(p_country) {
     try {
         const result = await fetch(`https://restcountries.com/v3.1/name/${p_country}`);
@@ -515,16 +504,17 @@ const get_country_data_api_4 = async function(p_country) {
         }
         // -----------------
         const data = await result.json();
-        console.log(data);
+        console.log(data[0]);
         render_country_4(data[0]);
 
         //+ --------------------------------------------------------------------------
         // neighbour (chaining promises)
          const neighbour = data[0].borders[0];  /// Malaysia.borders: (3) ['BRN', 'IDN', 'THA']
+        //  console.log(neighbour);
          // -----------------
          // Throwing specific error Manually
          if (!neighbour) {
-             throw new Error(`No neighboring countries found`); // ! not work properly for some reason?
+             throw new Error(`No neighboring countries found`); // ! not work properly for some reason^
          }
         // -----------------
         const neighbour_result = 
@@ -537,24 +527,20 @@ const get_country_data_api_4 = async function(p_country) {
     finally {countries_div.style.opacity = 1}
 }
 
-// ? addEventListener()
+// ^ Input Country 
 btn_country.addEventListener("click", function() {
     get_country_data_api_4(input_country.value.toLowerCase());
 
     //+ HTML variable
     const countries_children = document.querySelectorAll(".country")
 
-    //+ smooth opacity transition on second call
-    if (countries_children.length !== 0) {
-        countries_div.style.opacity = 0;
-    }
     //+ remove first call
     if (countries_children.length !== 0) {
         countries_children.forEach(el => el.remove())
     }
 })
 
-// ? function push HTML
+// ^ Function Push HTML 
 const render_country_4 = function(data, class_name = "") {
     const HTML = `
     <article class="country ${class_name}" >
@@ -568,9 +554,7 @@ const render_country_4 = function(data, class_name = "") {
     </div>
     </article>`;
 
-    // Insert in inside HTML
     countries_div.insertAdjacentHTML("beforeend", HTML)
-    // countries_div.style.opacity = 1
 }
 
 //* --------------------------------------------------------------------------
@@ -647,7 +631,7 @@ const get_JSON = async function(url) {
 
 //- Example 1:
 
-// ? Request API (Promises):
+// ^ Request API (Promises):
 const get_all_capital_city = async function (c1, c2, c3) {
     try {
         const data = await Promise.all([
@@ -655,7 +639,7 @@ const get_all_capital_city = async function (c1, c2, c3) {
         get_JSON(`https://restcountries.com/v3.1/name/${c2}`),
         get_JSON(`https://restcountries.com/v3.1/name/${c3}`),
         ]);
-        console.log(data); /// Array
+        console.log(data); /// Array 
         console.log(data.flatMap(el => el[0].capital));
     }
     catch (error) {

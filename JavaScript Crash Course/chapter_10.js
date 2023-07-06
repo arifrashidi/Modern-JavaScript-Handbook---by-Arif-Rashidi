@@ -104,7 +104,8 @@ login_user.greet_user();
 
 //* --------------------------------------------------------------------------
 // 🧡 Create class method 1: ES6 Class Constructor 
-//+ Most recommended method to create classes in OOP.
+// ✨(VERY RECOMMENDED) 
+
 // 📝 JavaScript introduced "class" syntax that simplifies class creation.
 // 📝 You define a class using the "class" keyword and use constructor ...
 // and method within the class body.
@@ -277,12 +278,31 @@ console.log(animals instanceof Array); /// true
 console.log(animals.__proto__); /// all array method 
 
 // -----------------
-// 🔸 .prototype property  
+// 🔸 built-in constructor 
+// 📝 built-in constructor refers to a constructor function that is provided by the JavaScript language itself.
+// 📝 These constructors are part of the JavaScript standard library and are available for use ...
+// without requiring any additional imports or external dependencies.
+
+//- example 1 (built-in constructor):
+console.log(Array); /// Array constructor / ƒ Array() { [native code] } 
+console.log(Date); /// Date constructor / ƒ Date() { [native code] }
+console.log(Promise); /// Promise constructor / ƒ Promise() { [native code] }
+
+//- example 2 (Object):
+console.log(new Array()); /// Array object 
+console.log(new Date()); /// Date object 
+
+// -----------------
+// 🔸 .prototype property 
 // 📝 .prototype property used on constructor functions. 
 // 📝 It allows you to define the methods that will be inherited by objects created ...
 // from that constructor function.
 
 //- example 1:
+console.log(Array.prototype);  /// all array method 
+console.log(String.prototype); /// /// all string method 
+
+//- example 2:
 class User_login { //⭐ Classes
     constructor(name, email) {
         this.name = name;
@@ -309,6 +329,8 @@ console.log(user_login_1.__proto__.__proto__); /// /// all object constructor me
 
 //* --------------------------------------------------------------------------
 // 🧡 Create class method 2: Constructor Functions 
+// ✨(NOT QUITE RECOMMENDED) 
+
 // 📝 Constructor functions are a traditional way to create classes in JavaScript. 
 // 📝 This method define a function that acts as a constructor for the class.
 
