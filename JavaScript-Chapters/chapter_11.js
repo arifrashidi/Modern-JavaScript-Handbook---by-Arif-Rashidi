@@ -132,6 +132,7 @@ const get_country_data = function(p_country) {
         </div>
         </article>`
         countries.insertAdjacentHTML("beforeend", HTML)
+        countries_div.style.opacity = 1
     })
 }
 // get_country_data("malaysia")
@@ -270,6 +271,7 @@ const render_country = function(data) {
     </div>
     </article>`
     countries.insertAdjacentHTML("beforeend", HTML)
+    countries_div.style.opacity = 1
 }
 
 //* --------------------------------------------------------------------------
@@ -318,6 +320,7 @@ const render_country_2 = function(data, class_name = "") {
     </div>
     </article>`
     countries_div.insertAdjacentHTML("beforeend", HTML)
+    countries_div.style.opacity = 1
 }
 
 //* --------------------------------------------------------------------------
@@ -504,27 +507,27 @@ const get_country_data_api_4 = async function(p_country) {
         }
         // -----------------
         const data = await result.json();
+        console.log(data);
         console.log(data[0]);
         render_country_4(data[0]);
 
         //+ --------------------------------------------------------------------------
-        // neighbour (chaining promises)
-         const neighbour = data[0].borders[0];  /// Malaysia.borders: (3) ['BRN', 'IDN', 'THA']
-        //  console.log(neighbour);
-         // -----------------
-         // Throwing specific error Manually
-         if (!neighbour) {
-             throw new Error(`No neighboring countries found`); // ! not work properly for some reason^
-         }
-        // -----------------
-        const neighbour_result = 
-        await fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`) // search by country code
-        const neighbour_data = await neighbour_result.json();
-        render_country_4(neighbour_data[0], "neighbour")
+        //+ Neighbour (chaining promises)
+
+        if (data[0]?.borders) {
+            const neighbour = data[0].borders[0];  /// Malaysia.borders: (3) ['BRN', 'IDN', 'THA']
+            const neighbour_result = 
+            await fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`) // search by country code
+            const neighbour_data = await neighbour_result.json();
+            render_country_4(neighbour_data[0], "neighbour");
+        }
+        // Throwing specific error Manually
+        else {
+            throw new Error(`No neighbour country found😅`);
+        }
 
     } 
     catch (error) { window.alert(error.message) }
-    finally {countries_div.style.opacity = 1}
 }
 
 // ^ Input Country 
@@ -555,6 +558,7 @@ const render_country_4 = function(data, class_name = "") {
     </article>`;
 
     countries_div.insertAdjacentHTML("beforeend", HTML)
+    countries_div.style.opacity = 1
 }
 
 //* --------------------------------------------------------------------------

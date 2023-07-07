@@ -350,7 +350,7 @@ button_container_2.addEventListener("click", function(el) {
 })
 
 //* --------------------------------------------------------------------------
-// 🧡 HTML DOM INPUT TEXT OBJECT PROPERTY
+// 🧡 HTML DOM INPUT TEXT OBJECT PROPERTY 
 
 // -----------------
 // 🔸 value 

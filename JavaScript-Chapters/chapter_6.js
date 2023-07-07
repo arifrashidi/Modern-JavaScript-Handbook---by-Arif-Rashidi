@@ -650,16 +650,19 @@ const mc_donald_7 = {
 console.log(mc_donald_7.opening_hours);
 
 //* --------------------------------------------------------------------------
-// 🧡 Optional Chaining (?) (ES2020) 
-// 📝 If the object accessed or function called is undefined or null,...
-// it returns undefined instead of throwing an error.
-// ! Important when we not sure if the data is exist or not.
+// 🧡 ES6 Optional Chaining(?.) 
+// 📝 It provides a safe way to access properties and elements within nested objects and arrays,
+// handling cases where intermediate values may doesn't exist.
+// 📝 This feature used to access properties or call methods of an object that may ...
+// undefined or null (doesn't exist), the expression will evaluates to ...
+// "undefined" instead of throwing an error.
+// syntax:
+// OBJECT .? <property may not exist> .? <property may not exist>
 
+//- Example 1:
 const mc_donald_8 = {
     location: "Putra Nilai DT",
     phone: "06-678 8445",
-    menu: ["Prosperity Burger", "GCB Burger", "Big Mac", "Filet-O-Fish"],
-    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
     opening_hours: {
         mon: { // mon
             open: "9 a.m",
@@ -678,7 +681,7 @@ const mc_donald_8 = {
 
 // -----------------
 // 🔸 Problem 1:
-// 📝 "sat" property do not exist, when we want access the "open", we will get error.
+// 📝 If "sat" property do not exist, when we want access the "open", we will get error.
 // 📝 The "sat" is undefined, and when undefined try to acccess his children, we will get error.
 
 // console.log(mc_donald_8.opening_hours.sat.open); // ERROR
@@ -688,13 +691,13 @@ const mc_donald_8 = {
 
 // 🔗 Using if else statement (not practical):
 // 📝 The code will not get executed because "sat" do not exist.
-// 📝 Problem to this solution: If the "opening hours" is not even exist, we will get error,
+// 📝 Problem to this solution: If the "opening hours" is also not exist, we will get error.
 
 if (mc_donald_8.opening_hours.sat) {
     console.log(mc_donald_8.opening_hours.sat.open);
 }
 
-// 🔗 Real solution to solution above:
+// // 🔗 Real solution to solution above:
 if (mc_donald_8.opening_hours && mc_donald_8.opening_hours.sat) {
     console.log(mc_donald_8.opening_hours.sat.open);
 }
@@ -708,45 +711,10 @@ console.log(mc_donald_8.opening_hours.sat?.open);
 // 🔗 When we not even sure if "opening_hours" is even exist:
 console.log(mc_donald_8.opening_hours?.sat?.open);
 
-// -----------------📦
-const mc_donald_9 = {
-    location: "Bandar Seri Putra",
-    phone: "06-678 8445",
-    menu: ["Prosperity Burger", "GCB Burger", "Big_Mac", "Filet-O-Fish"],
-    desserts: ["OREO McFlurry", "Apple Pie", "French Fries", "Sundae"],
-    opening_hours: {
-        mon: {
-            open: "9 a.m",
-            close: "9 p.m"
-        },
-        fri: {
-            open: "9.30 a.m",
-            close: "8.30 p.m"
-        },
-        sun: {
-            open: "10 a.m",
-            close: "10 p.m"
-        },
-    },
-    order: function (para_menu, para_dessert) {
-        return(`order ${this.desserts[para_menu]} and ${this.desserts[para_dessert]} received`);
-    },
-}
-
-const days = ["mon", "tues", "wed", "thurs", "fri", "satur", "sun"]
-
-// -----------------
-// 🔸 Using optional chaining(?.) with The for-of Loop:
-
-for (const item of days) {
-    const mcd_open = mc_donald_9.opening_hours[item]?.open || "another time";
-    console.log(`On ${item}, we open at ${mcd_open}`);
-}
-
 // -----------------
 // 🔸 Using optional chaining(?.) for calling function:
 
-const print_order = mc_donald_9.order?.(2, 3) || "order is not available";
+const print_order = mc_donald_8.order?.(2, 3) || "order is not available";
 console.log(print_order);
 
 //* --------------------------------------------------------------------------

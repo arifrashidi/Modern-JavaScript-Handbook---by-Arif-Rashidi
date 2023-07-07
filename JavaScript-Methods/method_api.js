@@ -149,10 +149,10 @@ console.log(request_2); /// Promise Object / Promise {<pending>}
 //  Syntax: throw new Error(message);
 
 //- Example 1:
-// const pet = "snake";
-// if (pet !== "cat") {
-//     throw new Error("we can only pet cat 🐈")
-// }
+const pet = "cat";
+if (pet !== "cat") {
+    throw new Error("we can only pet cat 🐈")
+}
 
 //* --------------------------------------------------------------------------
 // 🧡 AJAX Call: Consuming Promises with Async/Await 
@@ -214,10 +214,11 @@ console.log(request); /// Promise Object / Promise {<pending>}
 //  Syntax: RESPONSE.json()
 
 // -----------------
-// 🔸 finally() ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT)
-// 📌( Promise method )
-// 📝 This method called when the promise is settled (either fulfilled or rejected) and RETURNS promises.
-//  Syntax: PROMISES.finally( () => Code that will run after promise is settled )
+// 🔸 "finally" block ✨(FUNCTION METHOD) ✨(RETURNS PROMISES OBJECT)
+// 📌( Promise keyword )
+// 📝 Used to specify code that should be executed regardless of whether an 
+// async function's Promise is resolved or rejected. 
+//  Syntax: PROMISES.finally { Code that will executed regardless any situation }
 
 // -----------------
 // 🔸 "try...catch" statement 📌( Statement ) ✨(HANDLING ERROR)
@@ -245,17 +246,18 @@ try {
 }
 
 // -----------------
-// 🔸 "throw new Error" statement 📌( Statement ) ✨(HANDLING ERROR)
+// 🔸 "throw new Error" statement ✨(HANDLING ERROR)
+// 📌( Statement )
 // 📝 This statement is used to manually throw an error.
 // 📝 It allows you to interrupt the normal flow of program execution and generate an error condition.
 // 📝 This statement will display an alert box with a message in user interface.
 //  Syntax: throw new Error(message)
 
 //- Example 1:
-// const pet = "snake";
-// if (pet !== "cat") {
-//     throw new Error("we can only pet cat 🐈")
-// }
+const pet_2 = "cat";
+if (pet_2 !== "cat") {
+    throw new Error("we can only pet cat 🐈")
+}
 
 // -----------------
 // 🔸 Promise.all() 📌( Promise Method )

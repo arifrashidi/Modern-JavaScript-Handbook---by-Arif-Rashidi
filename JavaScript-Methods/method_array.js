@@ -15,12 +15,14 @@ console.log("--- 📁 Array Methods ---");
 // ✨(OVERWRITE) : This method does CHANGE the original array.
 // ✨(NOT OVERWRITE) : This method does not CHANGE the original array.
 // ✨(FUNCTION METHOD) : This is function method.
+// ✨(CHECK BOOLEAN) : Returns boolean.
+// ✨(CHECK INDEX) : Returns index.
 
 /* -------------------------------------------------------------------------- */
 // 🧡 Array Methods (An alternative to the traditional method) 
 
 // -----------------
-// 🔸 at()
+// 🔸 at() 
 // 📝 This method takes an integer value and RETURNS the item at that index.
 // 📝 Negative integers count back from the last item in the array.
 // ⭐ This method works just like the "ARRAY[]" method but has its own advantages.
@@ -239,7 +241,7 @@ num_1.reverse();
 console.log(num_1); /// ['three', 'two', 'one']
 
 // -----------------
-// 🔸 sort()
+// 🔸 sort() 
 // ✨(OVERWRITE)
 // 📝 This method sorts the elements of an array and RETURN it 
 // 📝 This method in default will sorts the elements as strings in ALPHABEBITCAL and ASCENDING order.
@@ -286,7 +288,7 @@ console.log(result); /// ['exuberant', 'destruction', 'present']
 // 🧡 Array Methods (Return a value) 
 
 // -----------------
-// 🔸 reduce()
+// 🔸 reduce() 
 // 📝 This method cumulate all array elements and RETURNS it to one single value.
 // 📝 This method does not execute the function for empty elements.
 // ⭐ reduce() is going to loop and accumulate each element and RETURNS it into one single value.
@@ -332,11 +334,6 @@ console.log(found); /// 130
 
 //* --------------------------------------------------------------------------
 // 🧡 Array Methods (Return Information) 
-
-// 
-// ✨(CHECK BOOLEAN) : Returns boolean.
-// 
-// ✨(CHECK INDEX) : Returns index.
 
 // -----------------
 // 🔸 includes() 
@@ -446,7 +443,7 @@ console.log(isLargeNumber); /// 3
 // 🧡 Array Methods (Iterators) 
 
 // -----------------
-// 🔸 entries()
+// 🔸 entries() 
 // 📝 This method RETURNS an Iterator object with key/value pairs:
 // Syntax: ARRAY.entries()
 
@@ -464,7 +461,7 @@ for (const item of fruits.entries()) {
 // 🧡 Array Methods (Convert to other type of data) 
 
 // -----------------
-// 🔸 join()
+// 🔸 join() 
 // 📝 This method joins all elements of an array and RETURNS it into a string.
 // 📝 If (" ") is used as separator, the string is split between words.
 // 📝 This method does not change the original array.
@@ -479,7 +476,7 @@ console.log(new_name.join(" + ")); /// Mr. + Arif + RASHIDI
 // 🧡 Array Methods (Method that can fast the process) 
 
 // -----------------
-// 🔸 from()
+// 🔸 from() 
 // 📝 This method RETURNS an array from any iterable object.
 // ⭐ This method start with "ARRAY" keyword.
 // ⭐ OBJECT: Specify characteristic of the array such as array length.
