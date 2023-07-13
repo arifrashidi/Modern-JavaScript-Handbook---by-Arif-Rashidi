@@ -13,14 +13,24 @@ console.log("--- 📁 CHAPTER 1: JavaScript Fundamental Part 1 ---");
 
 //* --------------------------------------------------------------------------
 // 🧡 Separate JavaScript file from an HTML document 
-// 📝 External JavaScript refers to JavaScript code that is stored in a separate file ...
-// with a .js extension and is referenced from an HTML document using the <script> tag
+// 📝 When you include a JavaScript file in an HTML document using the <script> tag.
 // 📝 The script will behave as if it was located exactly where the <script> tag is located, ...
 // Therefore, <script> tags should be at the bottom of your HTML code.
 
-// Syntax: External JavaScript syntax in HTML =
+// syntax: <script> tag in HTML =
 /*
     <script src="your_file_name.js"></script>
+*/
+
+// -----------------
+// 🔸 "defer" attribute in html <script> element 
+// 📝 "defer" specify that a script should be executed asynchronously after the document has been parsed.
+// 📝 By using this attribute, you can put your <script> tags at the top (in the <head>) of your HTML code.
+// 📝 This allows the page to be rendered first and potentially improves the loading performance.
+
+// syntax: <script> tag in HTML =
+/*
+    <script src="your_file_name.js" defer ></script>
 */
 
 //* --------------------------------------------------------------------------
@@ -175,7 +185,7 @@ x--; //⭐ x = x - 1 /// 14
 
 
 //* --------------------------------------------------------------------------
-// 🧡 Comparison Operators ( > / < / >= / <= )
+// 🧡 Comparison Operators ( > / < / >= / <= ) 
 // 📝 Comparison operators will return boolean(true or false) value.
 /*
   >	(greater than)
@@ -271,7 +281,7 @@ multiple
 lines`);
 
 //* --------------------------------------------------------------------------
-// 🧡 if else Statements (Conditional statements 1)
+// 🧡 if else Statements (Conditional statements 1) 
 // 📝 Are used to make decisions based on certain conditions.
 // 📝 It allows your code to execute different blocks of code depending ...
 // on whether a condition is true or false.
@@ -590,7 +600,7 @@ else {
 }
 
 //* --------------------------------------------------------------------------
-// 🧡 3# Coding Challenges
+// 🧡 3# Coding Challenges 
 
 const pakatan_harapan_score = 83;
 const perikatan_nasional_score = 73;
@@ -704,7 +714,7 @@ const me = "Arif" // "Arif" is a expression
 console.log(`Hello my name is ${me}, I was born in ${2022 - 21}`)
 
 //* --------------------------------------------------------------------------
-// 🧡 Ternary operator (Conditional statements 3)
+// 🧡 Ternary operator (Conditional statements 3) 
 // 📝 The ternary operator is a simplified conditional operator like (if / else if/ else) condition
 // Syntax: Ternary operation syntax
 /*
@@ -746,7 +756,7 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
 
 
 //* --------------------------------------------------------------------------
-// 🧡 Types of syntax in JavaScript
+// 🧡 Types of syntax in JavaScript 
 // 📝 In JavaScript, there are many parts of the language syntax, but they serve different purposes.
 
 /*
@@ -779,7 +789,7 @@ console.log(`The bill was RM${bill}, the tip was RM${tip}, and the total value i
 */
 
 //* --------------------------------------------------------------------------
-// 🧡 New ES6 Features ( ECMAScript 2015 )
+// 🧡 New ES6 Features ( ECMAScript 2015 ) 
 // 📝 ES6 Introduced a number of new features and syntax improvements to JavaScript.
 // 📝 This is not an exhaustive list, but these are some of the key features introduced in ES6 that have ...
 //  become widely used in modern JavaScript programming.

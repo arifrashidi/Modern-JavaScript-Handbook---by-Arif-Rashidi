@@ -302,7 +302,7 @@ console.log(location[0]);
 // • testing frameworks
 
 // -----------------
-//🔸 How to install NPM package in Terminal: 
+//🔸 How to install NPM package in Terminal (fresh start): 
 
 //+ Step 1:
 // 📝 Navigate to the root directory of your project
@@ -314,11 +314,28 @@ console.log(location[0]);
 
 //+ Step 3: ( npm install [package] )
 // 📝 Install the package in the package.json file.
-// 📝 NPM will download the package and its dependencies and store them ...
+// 📝 NPM will download & intall the package and its dependencies and store them ...
 // in the" node_modules" directory within your project.
 
 //+ Step 4:
 // 📝 Enjoy use the package.
+
+// -----------------
+//🔸 How to install NPM package in Terminal (copies other dependencies): 
+// 📝 This method can be used if you have copied another "package.json" file to your project 
+// and you want to install all the dependencies listed in that file.
+
+//+ Step 1 ( npm install ):
+// 📝 This will read the "package.json" file and install all the dependencies 
+// specified in the "dependencies" section. 
+// 📝 NPM will download & intall the package and its dependencies and store them ...
+// in the" node_modules" directory within your project.
+// 📝 If you want to intall all package in devDependencies only, 
+// you can use ( npm install --dev ).
+
+//+ Step 2:
+// 📝 Enjoy use the package.
+
 
 //* --------------------------------------------------------------------------
 // 🧡 Bundling & Building Modules with Parcel 

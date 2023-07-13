@@ -129,7 +129,7 @@ console.log(fruit_processor(5, 2));
 console.log(fruit_processor(10, 5));
 
 //* --------------------------------------------------------------------------
-// 🧡 Function Declarations vs Expressions 
+// 🧡 Function ( Declarations vs Expressions ) 
 
 // -----------------
 // 🔸 Function Declarations
@@ -248,7 +248,7 @@ console.log(years_until_retirement_2(1950));
 // at the beginning of a function or code block. 
 // 📝 If those conditions are met, the code will exit or return early, avoiding ...
 // unnecessary execution of the remaining code.
-// Use guard clauses selectively for handling exceptional cases, but be cautious not to ...
+// 📝 Use guard clauses selectively for handling exceptional cases, but be cautious not to ...
 // overuse them, as excessive early Guard clause can make the code harder to follow.
 
 // -----------------
@@ -408,7 +408,7 @@ const arif_rashidi_2 = {
 console.log(arif_rashidi_2);
 
 //* --------------------------------------------------------------------------
-// 🧡 Access Objects (Dot vs. Bracket Notation) 
+// 🧡 Access Objects 
 
 // -----------------
 // 🔸 Access element in objects using (Dot)

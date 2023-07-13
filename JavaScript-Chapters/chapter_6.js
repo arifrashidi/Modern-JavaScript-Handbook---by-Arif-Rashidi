@@ -718,7 +718,7 @@ const print_order = mc_donald_8.order?.(2, 3) || "order is not available";
 console.log(print_order);
 
 //* --------------------------------------------------------------------------
-// 🧡 Looping Objects: Object Keys, Values, and Entries 
+// 🧡 Object Methods 
 
 // -----------------📦
 const mc_donald_10 = {

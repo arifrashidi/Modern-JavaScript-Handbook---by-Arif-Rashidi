@@ -12,7 +12,7 @@ console.log("--- 📁 CHAPTER 4: DOM and Events ---");
 // • ⭐: Tips for easy understanding
 
 //* --------------------------------------------------------------------------
-// 🧡 DOM and DOM Manipulation
+// 🧡 DOM and DOM Manipulation 
 
 // -----------------
 // 🔸 DOM:

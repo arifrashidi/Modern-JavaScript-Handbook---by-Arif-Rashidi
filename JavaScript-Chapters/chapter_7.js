@@ -71,7 +71,7 @@ console.log(train); // LH234
 console.log(passenger_profile.name); // Mr. Arif Rashidi (add Mr.)
 
 //* --------------------------------------------------------------------------
-// 🧡 First-Class and Higher-order Functions concept 
+// 🧡 First-Class & Higher-order Functions concept 
 
 // -----------------
 // 🔸 First-class function concept:
