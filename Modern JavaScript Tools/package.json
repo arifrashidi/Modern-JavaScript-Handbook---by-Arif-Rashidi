@@ -5,7 +5,7 @@
   "default": "index.html",
   "scripts": {
     "bundling": "parcel src/chapter_12.html",
-    "building": "parcel build src/chapter_12.html "
+    "building": "parcel build src/chapter_12.html"
   },
   "author": "Arif",
   "license": "ISC",

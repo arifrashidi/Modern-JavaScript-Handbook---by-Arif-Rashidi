@@ -638,3 +638,30 @@ console.log(double_number_2); /// [4, 8, 12, 16]
 // 📝 You can easily configure a custom domain for your site in Netlify, ...
 // and it provides SSL certificates (HTTPS) by default, ...
 // ensuring secure communication between your website and its visitors. 
+
+// -----------------
+//🔸 Gow to setting Up Continuous Integration With Netlify: 
+// 📝 By setting up continuous integration with Netlify, you streamline your development workflow, ...
+// and ensure that your site is always up to date with the latest changes from your code repository.
+
+//+ Step 1:
+// 📝 Start by connecting your code repository to Netlify.
+// 📝 This allows Netlify to fetch your code and trigger builds automatically whenever ...
+// changes are pushed to the repository.
+
+//+ Step 2:
+// 📝 Netlify allows you to configure build settings specific to your project. 
+// 📝 Build command that you can specify: 
+// • Example Build command = parcel build src/index.html
+// • Example Publish Directory = dist
+
+//+ Step 3:
+// 📝 Push any changes to remote repositories.
+// 📝 Netlify automatically triggers a build and deploys your site whenever you push changes ...
+// to the connected repository. 
+
+//+ Step 4:
+// 📝 After the build process is complete, Netlify generates a preview of your site, ...
+// allowing you to review the changes before deployment. 
+// 📝Once you're satisfied, you can manually trigger the deployment process or ...
+// enable automatic deployments for every successful build.
